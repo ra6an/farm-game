@@ -106,12 +106,6 @@ public class TilemapCropsManager : TimeAgent
         }
 
         VisualizeTile(tile);
-        //cropTile.renderer = go.GetComponent<SpriteRenderer>();
-
-        //Vector3 newPosition = new Vector3(position.x + 0.5f, position.y+0.5f, position.z);
-
-        //targetTilemap.SetTile(position, seeded);
-        //seedsTilemap.SetTile(position, seeded);
 
         tile.crop = toSeed;
     }

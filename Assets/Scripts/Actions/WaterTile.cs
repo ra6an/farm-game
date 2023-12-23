@@ -12,11 +12,9 @@ public class WaterTile : ToolAction
     public override bool OnApplyToTileMap(Vector3Int gridPosition, TileMapReadController tileMapReadController, Item item)
     {
         TileBase tileToWater = tileMapReadController.GetCropTileBase(gridPosition);
-        Debug.Log(tileToWater);
 
         if (!canWater.Contains(tileToWater))
         {
-            Debug.Log(canWater.Contains(tileToWater));
             return false;
         }
 

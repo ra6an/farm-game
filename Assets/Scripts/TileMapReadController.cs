@@ -8,6 +8,7 @@ public class TileMapReadController : MonoBehaviour
     [SerializeField] Tilemap tilemap;
     [SerializeField] Tilemap cropsTilemap;
     public CropsManager cropsManager;
+    public PlaceableObjectsReferenceManager objectsManager;
 
     public Vector3Int GetGridPosition(Vector2 position, bool mousePosition)
     {

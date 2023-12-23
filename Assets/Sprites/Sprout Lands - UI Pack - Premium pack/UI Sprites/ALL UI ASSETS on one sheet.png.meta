@@ -368,7 +368,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_12
+      name: Inventory_big_border
       rect:
         serializedVersion: 2
         x: 587
@@ -377,7 +377,7 @@ TextureImporter:
         height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 20, y: 20, z: 20, w: 19}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1124,7 +1124,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_48
+      name: Inventory_big_border_dark
       rect:
         serializedVersion: 2
         x: 587
@@ -1133,7 +1133,7 @@ TextureImporter:
         height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 20, y: 20, z: 20, w: 19}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -3581,7 +3581,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_168
+      name: Slider
       rect:
         serializedVersion: 2
         x: 177
@@ -25870,6 +25870,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_299: 1533551697
       ALL UI ASSETS on one sheet_14: 1602421846
       ALL UI ASSETS on one sheet_775: 1476144371
+      Inventory_big_border: -370724234
       ALL UI ASSETS on one sheet_423: -829365865
       ALL UI ASSETS on one sheet_309: -559239374
       ALL UI ASSETS on one sheet_699: 1761508191
@@ -25909,7 +25910,6 @@ TextureImporter:
       ALL UI ASSETS on one sheet_211: -1601680404
       ALL UI ASSETS on one sheet_1069: 2075489024
       ALL UI ASSETS on one sheet_797: 1615135448
-      ALL UI ASSETS on one sheet_48: -1869715001
       ALL UI ASSETS on one sheet_545: 1407423044
       ALL UI ASSETS on one sheet_1162: 1014182076
       ALL UI ASSETS on one sheet_716: -160816728
@@ -25935,7 +25935,6 @@ TextureImporter:
       ALL UI ASSETS on one sheet_178: -1541979646
       ALL UI ASSETS on one sheet_1164: -1944865811
       ALL UI ASSETS on one sheet_283: 711310234
-      ALL UI ASSETS on one sheet_12: -370724234
       ALL UI ASSETS on one sheet_823: 215972244
       ALL UI ASSETS on one sheet_1213: 399418422
       ALL UI ASSETS on one sheet_633: -948476170
@@ -26259,7 +26258,6 @@ TextureImporter:
       ALL UI ASSETS on one sheet_976: -1833872997
       ALL UI ASSETS on one sheet_913: -843042306
       ALL UI ASSETS on one sheet_93: 713383612
-      ALL UI ASSETS on one sheet_168: -248298608
       ALL UI ASSETS on one sheet_1176: 1058657560
       ALL UI ASSETS on one sheet_999: 2059014492
       ALL UI ASSETS on one sheet_174: 1474712755
@@ -26376,6 +26374,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_1150: 1874927538
       ALL UI ASSETS on one sheet_439: 1650516243
       ALL UI ASSETS on one sheet_855: -222114183
+      Inventory_big_border_dark: -1869715001
       ALL UI ASSETS on one sheet_728: 1220115965
       ALL UI ASSETS on one sheet_991: -941443071
       ALL UI ASSETS on one sheet_1005: 1412851256
@@ -26526,6 +26525,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_801: -95051827
       ALL UI ASSETS on one sheet_159: -482655807
       ALL UI ASSETS on one sheet_285: -309579717
+      Slider: -248298608
       ALL UI ASSETS on one sheet_156: 638797386
       ALL UI ASSETS on one sheet_149: 1047531846
       ALL UI ASSETS on one sheet_294: -934376845
