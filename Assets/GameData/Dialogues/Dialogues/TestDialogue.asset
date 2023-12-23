@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449282e432e1f0347a697bd89a44dcaf, type: 3}
+  m_Name: TestDialogue
+  m_EditorClassIdentifier: 
+  line:
+  - Prvi red texta za testiranje
+  - Drugi red texta za testiranje
+  - Treci red texta za testiranje
+  actor: {fileID: 11400000, guid: cad85a58dd9bdd4419623cfd594d7285, type: 2}
