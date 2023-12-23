@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1243591022058494884150b2a1114889, type: 3}
   m_Name: MainScenePlaceableObjectContainer
   m_EditorClassIdentifier: 
+  placeableObjects: []

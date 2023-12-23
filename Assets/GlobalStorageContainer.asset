@@ -12,6 +12,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de23f6a7c2593a408f0ee889fa8b4c6, type: 3}
   m_Name: GlobalStorageContainer
   m_EditorClassIdentifier: 
-  slots: []
+  slots:
+  - item: {fileID: 11400000, guid: ef6fcc0e01028c2448a225b11c79a56e, type: 2}
+    quantity: 1
+  - item: {fileID: 11400000, guid: 28fca472edf045c47b4b79c8e90fb12c, type: 2}
+    quantity: 0
+  - item: {fileID: 11400000, guid: 7dce2dbf320e2934b8e93895ed85b52b, type: 2}
+    quantity: 4
+  - item: {fileID: 11400000, guid: 124944a8a84a2af4db3781477537221d, type: 2}
+    quantity: 21
+  - item: {fileID: 11400000, guid: 0699d43a2bc82b3448f7f627bd00cc01, type: 2}
+    quantity: 67
+  - item: {fileID: 11400000, guid: 2601b08daf3a0524aa61e3fe2aa471a4, type: 2}
+    quantity: 1
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 11400000, guid: 6d230eff1e491004086785e738059159, type: 2}
+    quantity: 41
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
   isDirty: 0
   slotsLocked: 0

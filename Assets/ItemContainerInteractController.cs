@@ -9,6 +9,8 @@ public class ItemContainerInteractController : MonoBehaviour
     InventoryController inventoryController;
     [SerializeField] GameObject storagePanel;
     [SerializeField] ItemContainerPanel itemContainerPanel;
+    Transform openedChest;
+    [SerializeField] float maxDistance = 0.8f;
 
     private void Awake()
     {
@@ -17,27 +19,30 @@ public class ItemContainerInteractController : MonoBehaviour
 
     private void Update()
     {
-        //if (storagePanel.activeInHierarchy)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Tab))
-        //    {
-        //        storagePanel.SetActive(false);
-        //    }
-        //}
+        if(openedChest != null)
+        {
+            float distance = Vector2.Distance(openedChest.position, transform.position);
+            if(distance > maxDistance)
+            {
+                openedChest.GetComponent<StorageContainerInteract>().Close(GetComponent<Character>());
+            }
+        }
     }
 
-    public void Open(ItemContainer itemContainer)
+    public void Open(ItemContainer itemContainer, Transform _openedChest)
     {
         targetItemContainer = itemContainer;
         itemContainerPanel.inventory = targetItemContainer;
         storagePanel.gameObject.SetActive(true);
 
         inventoryController.Open();
+        openedChest = _openedChest;
     }
 
     public void Close()
     {
         storagePanel.gameObject.SetActive(false);
         inventoryController.Close();
+        openedChest = null;
     }
 }

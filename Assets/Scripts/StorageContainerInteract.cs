@@ -15,12 +15,9 @@ public class StorageContainerInteract : Interactable
 
     private void Update()
     {
-        if(opened)
+        if(opened && Input.GetKeyUp(KeyCode.Tab))
         {
-            if(Input.GetKeyUp(KeyCode.Tab))
-            {
-                Close(character);
-            }
+            Close(character);
         }
     }
 
@@ -29,42 +26,20 @@ public class StorageContainerInteract : Interactable
         animator = GetComponent<Animator>();
     }
 
-    public override void Interact(Character _character)
+    public override void Interact(Character c)
     {
-        character = _character;
+        character = c;
         if (!opened)
         {
-            //opened = true;
-            //animator.SetTrigger("OpenChest");
-
-            //if (!onOpenChest) return;
-            //AudioManager.instance.Play(onOpenChest);
-
-            //character.GetComponent<ItemContainerInteractController>().Open(itemContainer);
-
-            Open(_character);
-
-            //character.GetComponent<InventoryController>().OpenForStorage();
+            Open(c);
         }
         else
         {
-            //opened = false;
-            //animator.SetTrigger("CloseChest");
-
-            //if (!onCloseChest) return;
-            //AudioManager.instance.Play(onCloseChest);
-
-            //character.GetComponent<ItemContainerInteractController>().Close();
-
-
-            Close(_character);
-
-
-            //character.GetComponent<InventoryController>().CloseForStorage();
+            Close(c);
         }
     }
 
-    private void Open(Character character)
+    public void Open(Character character)
     {
         opened = true;
         animator.SetTrigger("OpenChest");
@@ -72,10 +47,10 @@ public class StorageContainerInteract : Interactable
         if (!onOpenChest) return;
         AudioManager.instance.Play(onOpenChest);
 
-        character.GetComponent<ItemContainerInteractController>().Open(itemContainer);
+        character.GetComponent<ItemContainerInteractController>().Open(itemContainer, transform);
     }
 
-    private void Close(Character character)
+    public void Close(Character character)
     {
         opened = false;
         animator.SetTrigger("CloseChest");
