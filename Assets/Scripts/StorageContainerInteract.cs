@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using static UnityEditor.Progress;
-
+//
 public class StorageContainerInteract : Interactable
 {
     [SerializeField] bool opened;
@@ -38,7 +38,7 @@ public class StorageContainerInteract : Interactable
             Close(c);
         }
     }
-
+    //
     public void Open(Character character)
     {
         opened = true;

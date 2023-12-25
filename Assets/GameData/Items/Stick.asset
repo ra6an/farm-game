@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
-  m_Name: Stone
+  m_Name: Stick
   m_EditorClassIdentifier: 
-  name: Stone
+  name: Stick
   stackable: 1
-  icon: {fileID: 1693026421, guid: f380bf50ea55b0e459bb508834d7b1e0, type: 3}
+  icon: {fileID: 1242928079, guid: e6e89d72a6678784fa8251227a81e6b4, type: 3}
   onAction: {fileID: 0}
   onTileMapAction: {fileID: 0}
   onItemUsed: {fileID: 0}
