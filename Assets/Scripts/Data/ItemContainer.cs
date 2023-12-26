@@ -121,4 +121,11 @@ public class ItemContainer : ScriptableObject
 
         return true;
     }
+
+    public ItemSlot GetItemSlot(Item checkingItem)
+    {
+        ItemSlot inventoryItem = slots.Find(x => x.item == checkingItem);
+
+        return (inventoryItem == null) ? null : inventoryItem;
+    }
 }

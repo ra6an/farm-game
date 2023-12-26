@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: KnownWorkingBenchRecipes
   m_EditorClassIdentifier: 
   recipes:
-  - {fileID: 11400000, guid: 93bb5533cf3ab304a89c01bb2f8f5b44, type: 2}
+  - {fileID: 11400000, guid: e8dbdb187a576bb47b380d287c9e2754, type: 2}
   - {fileID: 11400000, guid: b73ce0dcaa9f99546ba37539eda44390, type: 2}
   - {fileID: 11400000, guid: e8dbdb187a576bb47b380d287c9e2754, type: 2}
-  - {fileID: 11400000, guid: e8dbdb187a576bb47b380d287c9e2754, type: 2}
+  - {fileID: 11400000, guid: 93bb5533cf3ab304a89c01bb2f8f5b44, type: 2}
   - {fileID: 11400000, guid: e8dbdb187a576bb47b380d287c9e2754, type: 2}
   - {fileID: 11400000, guid: e8dbdb187a576bb47b380d287c9e2754, type: 2}
   - {fileID: 11400000, guid: e8dbdb187a576bb47b380d287c9e2754, type: 2}

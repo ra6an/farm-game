@@ -18,6 +18,8 @@ public class ToolsCharacterController : MonoBehaviour
     [SerializeField] ToolAction onTilePickUp;
     [SerializeField] IconHighlight iconHighlight;
 
+    ShowPanelsController showPanelsController;
+
     //COOLDOWN
     private float cooldownTime = 0.6f;
     private float nextOnAction = 0;
@@ -31,6 +33,7 @@ public class ToolsCharacterController : MonoBehaviour
         rgdbd2d = GetComponent<Rigidbody2D>();
         toolbarController = GetComponent<ToolbarController>();
         animator = GetComponent<Animator>();
+        showPanelsController = GetComponent<ShowPanelsController>();
     }
 
     private void Update()
@@ -39,7 +42,7 @@ public class ToolsCharacterController : MonoBehaviour
         CanSelectCheck();
         Marker();
 
-        if(Input.GetMouseButtonDown(0) && Time.time > nextOnAction)
+        if(Input.GetMouseButtonDown(0) && Time.time > nextOnAction && showPanelsController.AllPanelsAreClosed())
         {
             nextOnAction = Time.time + cooldownTime;
 

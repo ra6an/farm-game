@@ -10,10 +10,12 @@ public class ItemContainerInteractController : MonoBehaviour
     [SerializeField] ItemContainerPanel itemContainerPanel;
     Transform openedChest;
     [SerializeField] float maxDistance = 0.8f;
+    ShowPanelsController showPanelsController;
 
     private void Awake()
     {
         inventoryController = GetComponent<InventoryController>();
+        showPanelsController = GetComponent<ShowPanelsController>();
     }
 
     private void Update()
@@ -24,6 +26,7 @@ public class ItemContainerInteractController : MonoBehaviour
             if(distance > maxDistance)
             {
                 openedChest.GetComponent<StorageContainerInteract>().Close(GetComponent<Character>());
+                showPanelsController.CloseStorage();
             }
         }
     }
@@ -32,16 +35,14 @@ public class ItemContainerInteractController : MonoBehaviour
     {
         targetItemContainer = itemContainer;
         itemContainerPanel.inventory = targetItemContainer;
-        storagePanel.gameObject.SetActive(true);
 
-        inventoryController.Open();
+        showPanelsController.OpenStorage();
         openedChest = _openedChest;
     }
 
     public void Close()
     {
-        storagePanel.gameObject.SetActive(false);
-        inventoryController.Close();
+        showPanelsController.CloseStorage();
         openedChest = null;
     }
 }

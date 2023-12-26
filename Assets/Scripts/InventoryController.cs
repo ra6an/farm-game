@@ -9,41 +9,47 @@ public class InventoryController : MonoBehaviour
     [SerializeField] GameObject statusPanel;
     [SerializeField] GameObject toolbarPanel;
     [SerializeField] GameObject coinPanel;
-    [SerializeField] GameObject inventoryContainer;
+    //[SerializeField] GameObject inventoryContainer;
+    ShowPanelsController showPanelsController;
+
+    private void Awake()
+    {
+        showPanelsController = GetComponent<ShowPanelsController>();
+    }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if(Input.GetKeyDown(KeyCode.Tab) && showPanelsController.canOpeninventory)
         {
-            if(!panel.activeInHierarchy)
-            {
-                statusPanel.SetActive(true);
-                coinPanel.SetActive(true);
-                panel.SetActive(true);
-                toolbarPanel.SetActive(false);
-            } else
-            {
-                statusPanel.SetActive(false);
-                coinPanel.SetActive(false);
-                panel.SetActive(false);
-                toolbarPanel.SetActive(true);
-            }
+                if(panel.activeInHierarchy)
+                {
+                    showPanelsController.CloseInventory();
+                } else
+                {
+                    showPanelsController.OpenInventory();
+                }
+            //if(!panel.activeInHierarchy)
+            //{
+            //    showPanelsController.OpenInventory();
+            //} else
+            //{
+            //    showPanelsController.CloseInventory();
+            //}
         }
     }
 
     public void Open()
     {
-        statusPanel.SetActive(false);
-        coinPanel.SetActive(true);
-        panel.SetActive(true);
-        toolbarPanel.SetActive(false);
+        showPanelsController.OpenInventory();
     }
 
     public void Close()
     {
-        statusPanel.SetActive(false);
-        coinPanel.SetActive(false);
-        panel.SetActive(false);
-        toolbarPanel.SetActive(true);
+        showPanelsController.CloseInventory();
+    }
+
+    public void CheckItemInsideInventory(ItemSlot slot)
+    {
+        //inventoryContainer;
     }
 }

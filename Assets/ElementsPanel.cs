@@ -10,9 +10,8 @@ public class ElementsPanel : MonoBehaviour
     public void SetElementsDetails(List<ItemSlot> elements)
     {
         if (elements.Count == 0) return;
-
-        ClearPanel();
-
+        //ClearPanel();
+        
         foreach (ItemSlot element in elements)
         {
             GameObject go = Instantiate(prefabElementPanel, transform);
@@ -20,7 +19,7 @@ public class ElementsPanel : MonoBehaviour
         }
     }
 
-    private void ClearPanel()
+    public void ClearPanel()
     {
         for (int i = 0; i < transform.childCount; i++)
         {

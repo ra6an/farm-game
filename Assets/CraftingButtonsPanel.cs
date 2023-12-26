@@ -6,9 +6,9 @@ using UnityEngine;
 public class CraftingButtonsPanel : MonoBehaviour
 {
     [SerializeField] GameObject prefabItemButton;
-    //[SerializeField] WorkingBenchRecipeList recipeList;
 
     int currentActive;
+    List<CraftingRecipe> recipes;
 
     private void Start()
     {
@@ -18,14 +18,26 @@ public class CraftingButtonsPanel : MonoBehaviour
     public void ShowCraftingList(WorkingBenchRecipeList recipeList, Transform character)
     {
         currentActive = 0;
+        recipes = recipeList.recipes;
         for (int i = 0; i < recipeList.recipes.Count; i++)
         {
             GameObject go = Instantiate(prefabItemButton, transform);
             go.GetComponent<CraftingItemButton>().Set(recipeList.recipes[i]);
             go.GetComponent<CraftingItemButton>().SetIndex(i);
         }
-        transform.GetChild(currentActive).GetComponent<CraftingItemButton>().ActiveButton();
-        character.GetComponent<WorkingBenchContainerInteractController>().ShowItemDetails(recipeList.recipes[0]);
+
+        ChangeActiveButton(currentActive);
+        character.GetComponent<WorkingBenchContainerInteractController>().ShowItemDetails(recipeList.recipes[currentActive]);
+    }
+
+    public void DestroyRecipeButtonsList()
+    {
+        for (int i = 0; i < recipes.Count; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
+        recipes = new List<CraftingRecipe>();
     }
 
     public void ChangeActiveButton(int cur)

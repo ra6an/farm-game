@@ -9,6 +9,7 @@ public class CharacterInteractController : MonoBehaviour
     [SerializeField] float offsetDistance = 1f;
     [SerializeField] float sizeOfInteractableArea = 1.2f;
     Character character;
+    ShowPanelsController showPanelsController;
     [SerializeReference] HighlightController highlightController;
 
     private void Awake()
@@ -16,13 +17,14 @@ public class CharacterInteractController : MonoBehaviour
         characterController = GetComponent<CharacterController2D>();
         rgdbd2d = GetComponent<Rigidbody2D>();
         character = GetComponent<Character>();
+        showPanelsController = GetComponent<ShowPanelsController>();
     }
 
     private void Update()
     {
         Check();
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && !showPanelsController.inventoryOpened)
         {
             Interact();
         }

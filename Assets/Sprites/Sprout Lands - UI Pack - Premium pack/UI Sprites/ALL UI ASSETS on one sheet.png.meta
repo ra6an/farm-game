@@ -1187,7 +1187,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_51
+      name: button_inactive_strechable
       rect:
         serializedVersion: 2
         x: 59
@@ -1196,7 +1196,7 @@ TextureImporter:
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -10889,7 +10889,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_516
+      name: Green arrow right
       rect:
         serializedVersion: 2
         x: 85
@@ -10910,7 +10910,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_517
+      name: Red arrow right
       rect:
         serializedVersion: 2
         x: 101
@@ -11645,7 +11645,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_552
+      name: Green arrow left
       rect:
         serializedVersion: 2
         x: 84
@@ -11666,7 +11666,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_553
+      name: Red arrow left
       rect:
         serializedVersion: 2
         x: 100
@@ -25804,13 +25804,12 @@ TextureImporter:
       ALL UI ASSETS on one sheet_1030: -2132983599
       ALL UI ASSETS on one sheet_457: -1674275105
       ALL UI ASSETS on one sheet_1091: -2051914046
-      ALL UI ASSETS on one sheet_517: -1823874196
       ALL UI ASSETS on one sheet_563: 1820738898
+      ALL UI ASSETS on one sheet_1061: 1409734370
       ALL UI ASSETS on one sheet_87: 529905314
       ALL UI ASSETS on one sheet_660: 1439873571
       ALL UI ASSETS on one sheet_740: -338518498
       ALL UI ASSETS on one sheet_434: 701763847
-      ALL UI ASSETS on one sheet_1061: 1409734370
       ALL UI ASSETS on one sheet_544: -350562021
       ALL UI ASSETS on one sheet_164: 747145545
       ALL UI ASSETS on one sheet_65: 1006676925
@@ -26026,6 +26025,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_183: -481954300
       ALL UI ASSETS on one sheet_919: -88126038
       ALL UI ASSETS on one sheet_785: 1940293436
+      Green arrow right: -485607353
       ALL UI ASSETS on one sheet_349: -1110853517
       ALL UI ASSETS on one sheet_585: 625820049
       ALL UI ASSETS on one sheet_989: -596412420
@@ -26040,7 +26040,6 @@ TextureImporter:
       scroll_button_slim: -666444449
       ALL UI ASSETS on one sheet_807: 464504360
       ALL UI ASSETS on one sheet_1036: 2022496940
-      ALL UI ASSETS on one sheet_553: -724535894
       ALL UI ASSETS on one sheet_638: 1850256251
       ALL UI ASSETS on one sheet_152: -488331146
       ALL UI ASSETS on one sheet_359: -930538988
@@ -26477,6 +26476,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_864: -1332691749
       ALL UI ASSETS on one sheet_504: 1496664438
       ALL UI ASSETS on one sheet_1160: -9078484
+      Red arrow left: -724535894
       ALL UI ASSETS on one sheet_1062: -1272694495
       ALL UI ASSETS on one sheet_703: 1463844613
       ALL UI ASSETS on one sheet_234: 1604343908
@@ -26592,6 +26592,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_26: -1775664450
       ALL UI ASSETS on one sheet_927: 1306899601
       ALL UI ASSETS on one sheet_320: -1494322725
+      Green arrow left: 1455070015
       ALL UI ASSETS on one sheet_725: -2002500513
       ALL UI ASSETS on one sheet_933: -693691491
       ALL UI ASSETS on one sheet_678: 1695497050
@@ -26625,10 +26626,10 @@ TextureImporter:
       ALL UI ASSETS on one sheet_743: 676995628
       ALL UI ASSETS on one sheet_757: -305408172
       ALL UI ASSETS on one sheet_565: -737760623
-      ALL UI ASSETS on one sheet_552: 1455070015
       ALL UI ASSETS on one sheet_21: 862024303
       ALL UI ASSETS on one sheet_265: -2118313164
       ALL UI ASSETS on one sheet_176: -126685458
+      button_inactive_strechable: 253535160
       ALL UI ASSETS on one sheet_853: 2087395439
       ALL UI ASSETS on one sheet_998: -1320377119
       ALL UI ASSETS on one sheet_923: 1783562457
@@ -26647,6 +26648,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_391: -968102569
       ALL UI ASSETS on one sheet_613: 314228488
       ALL UI ASSETS on one sheet_127: -28703627
+      Red arrow right: -1823874196
       settings: 1709654292
       ALL UI ASSETS on one sheet_165: -981797441
       ALL UI ASSETS on one sheet_496: 1800137743
@@ -26760,14 +26762,13 @@ TextureImporter:
       ALL UI ASSETS on one sheet_297: 1316685322
       ALL UI ASSETS on one sheet_245: 1115758711
       ALL UI ASSETS on one sheet_947: -1800925829
-      ALL UI ASSETS on one sheet_51: 253535160
+      ALL UI ASSETS on one sheet_1146: -947991816
       ALL UI ASSETS on one sheet_338: 1977080804
       ALL UI ASSETS on one sheet_673: -476164448
       ALL UI ASSETS on one sheet_689: 1032742312
       ALL UI ASSETS on one sheet_1035: -507089655
       ALL UI ASSETS on one sheet_222: -400597498
       ALL UI ASSETS on one sheet_1079: -37807177
-      ALL UI ASSETS on one sheet_1146: -947991816
       ALL UI ASSETS on one sheet_61: -390115025
       ALL UI ASSETS on one sheet_352: -356039524
       ALL UI ASSETS on one sheet_1023: -1833498757
@@ -26787,13 +26788,12 @@ TextureImporter:
       ALL UI ASSETS on one sheet_694: 1621745442
       ALL UI ASSETS on one sheet_191: -1386838230
       ALL UI ASSETS on one sheet_353: 325968446
-      ALL UI ASSETS on one sheet_516: -485607353
+      ALL UI ASSETS on one sheet_566: 352968891
       ALL UI ASSETS on one sheet_488: 2077794562
       ALL UI ASSETS on one sheet_404: -545580212
       ALL UI ASSETS on one sheet_809: -1674150558
       ALL UI ASSETS on one sheet_1149: -567527063
       ALL UI ASSETS on one sheet_406: -1555712933
-      ALL UI ASSETS on one sheet_566: 352968891
       ALL UI ASSETS on one sheet_869: -100500314
       ALL UI ASSETS on one sheet_1105: -1013826785
       ALL UI ASSETS on one sheet_63: -1129693408

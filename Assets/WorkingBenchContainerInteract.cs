@@ -23,7 +23,8 @@ public class WorkingBenchContainerInteract : Interactable
         if(isOpened && Input.GetKeyDown(KeyCode.Tab))
         {
             Close(character);
-            character.GetComponent<InventoryController>().Open();
+            isOpened = false;
+            //character.GetComponent<InventoryController>().Open();
         }
     }
 
