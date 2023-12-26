@@ -37,14 +37,10 @@ public class CraftingItemButton : MonoBehaviour, IPointerClickHandler
     public void ActiveButton()
     {
         transform.GetComponent<Image>().sprite = inactiveButton;
-        //Vector3 position = icon.GetComponent<RectTransform>().position;
-        //icon.GetComponent<RectTransform>().position = new Vector3(position.x, 3f, position.z);
     }
 
     public void InactiveButton()
     {
         transform.GetComponent<Image>().sprite = activeButton;
-        //Vector3 position = icon.GetComponent<RectTransform>().position;
-        //icon.GetComponent<RectTransform>().position = new Vector3(position.x, 0f, position.z);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//
 
 public class ElementsPanel : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class ElementsPanel : MonoBehaviour
     public void SetElementsDetails(List<ItemSlot> elements)
     {
         if (elements.Count == 0) return;
-        //ClearPanel();
         
         foreach (ItemSlot element in elements)
         {
@@ -26,4 +26,6 @@ public class ElementsPanel : MonoBehaviour
             Destroy(transform.GetChild(i).gameObject);
         }
     }
+
+    
 }

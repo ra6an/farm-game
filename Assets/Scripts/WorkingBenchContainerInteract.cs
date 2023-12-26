@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
-
+//
 public class WorkingBenchContainerInteract : Interactable
 {
     bool isOpened;

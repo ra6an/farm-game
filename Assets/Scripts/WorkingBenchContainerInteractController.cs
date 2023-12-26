@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-
+//
 public class WorkingBenchContainerInteractController : MonoBehaviour
 {
     [SerializeField] GameObject itemDetailsPanel;
@@ -27,13 +27,29 @@ public class WorkingBenchContainerInteractController : MonoBehaviour
 
     private void Update()
     {
-        if (workingBench != null) 
+        if (workingBench != null)
         {
             float distance = Vector2.Distance(workingBench.position, transform.position);
             if (distance > maxDistance)
             {
-                showPanelsController.CloseWorkingBench();
+                workingBench.GetComponent<WorkingBenchContainerInteract>().Interact(transform.GetComponent<Character>());
             }
+        }
+    }
+
+    private IEnumerator Delay(CraftingRecipe recipe)
+    {
+        yield return new WaitForSeconds(0.01f);
+        itemDetailsPanel.GetComponent<WorkingBenchItemDetails>().SetActiveRecipe(recipe);
+        elementsPanel.GetComponent<ElementsPanel>().SetElementsDetails(recipe.elements);
+
+        bool canCraft = CheckElementsQuantityInInventory(recipe.elements);
+
+        SetElementsValues(recipe.elements, 1);
+
+        if (!canCraft)
+        {
+            craftQuantity.text = "0";
         }
     }
 
@@ -53,52 +69,27 @@ public class WorkingBenchContainerInteractController : MonoBehaviour
 
     public void ShowItemDetails(CraftingRecipe recipe)
     {
-        Debug.Log(recipe);
-        itemDetailsPanel.GetComponent<WorkingBenchItemDetails>().SetActiveRecipe(recipe);
+        multiplier = 1;
         elementsPanel.GetComponent<ElementsPanel>().ClearPanel();
-        elementsPanel.GetComponent<ElementsPanel>().SetElementsDetails(recipe.elements);
-
-        bool canCraft = CheckElementsQuantityInInventory(recipe.elements);
-
-        SetElementsValues(recipe.elements, 1);
-
-        if (!canCraft)
-        {
-            craftQuantity.text = "0";
-        }        
+        StartCoroutine(Delay(recipe));
     }
 
     private void SetElementsValues(List<ItemSlot> elements, int mltp)
     {
-        // TODO Srediti bug sa NEDESTROYANIM GO-ima
-        int helper = elementsPanel.transform.childCount - elements.Count;
-        int add = 0;
-        for (int i = 0; i < helper; i++)
+        Debug.Log(elementsPanel.transform.childCount);
+        for (int i = 0; i < elements.Count; i++) 
         {
-            Debug.Log(helper);
-            Debug.Log(add);
-            if(add >= helper)
-            {
-                int position = i - helper;
-                Debug.Log(i);
-                //ItemSlot slot = new ItemSlot();
-                //slot.item = elements[i].item;
-                //ItemSlot itemInInventory = inventory.GetItemSlot(elements[i].item);
-                //int inventoryQuantity = itemInInventory == null ? 0 : itemInInventory.quantity;
-                //elementsPanel.transform.GetChild(i).GetComponent<ElementDetails>().ChangeQuantity(elements[i].quantity * mltp);
-                //elementsPanel.transform.GetChild(i).GetComponent<ElementDetails>().ChangeInventoryQuantity(inventoryQuantity);
-                ItemSlot slot = new ItemSlot();
-                slot.item = elements[position].item;
-                ItemSlot itemInInventory = inventory.GetItemSlot(elements[position].item);
-                int inventoryQuantity = itemInInventory == null ? 0 : itemInInventory.quantity;
-                elementsPanel.transform.GetChild(position).GetComponent<ElementDetails>().ChangeQuantity(elements[position].quantity * mltp);
-                elementsPanel.transform.GetChild(position).GetComponent<ElementDetails>().ChangeInventoryQuantity(inventoryQuantity);
-                add++;
-            }
+            ItemSlot slot = new ItemSlot();
+            slot.item = elements[i].item;
+            ItemSlot itemInInventory = inventory.GetItemSlot(elements[i].item);
+            int inventoryQuantity = itemInInventory == null ? 0 : itemInInventory.quantity;
+            if (elementsPanel.transform.GetChild(i) == null) return;
+            elementsPanel.transform.GetChild(i).GetComponent<ElementDetails>().ChangeQuantity(elements[i].quantity * mltp);
+            elementsPanel.transform.GetChild(i).GetComponent<ElementDetails>().ChangeInventoryQuantity(inventoryQuantity);
         }
     }
 
-    private bool CheckElementsQuantityInInventory(List<ItemSlot> elements, int mltp = 1)
+public bool CheckElementsQuantityInInventory(List<ItemSlot> elements, int mltp = 1)
     {
         bool returnValue = true;
 
@@ -138,6 +129,8 @@ public class WorkingBenchContainerInteractController : MonoBehaviour
         }
 
         inventory.Add(recipe.output.item, recipe.output.quantity * multiplier);
+
+        ShowItemDetails(recipe);
     }
 
     public void IncrementQuantity(CraftingRecipe recipe)
@@ -145,7 +138,7 @@ public class WorkingBenchContainerInteractController : MonoBehaviour
         if (CheckElementsQuantityInInventory(recipe.elements, multiplier + 1))
         {
             SetElementsValues(recipe.elements, multiplier + 1);
-            craftQuantity.text = (multiplier * recipe.output.quantity).ToString();
+            craftQuantity.text = ((multiplier + 1) * recipe.output.quantity).ToString();
             multiplier++;
         } else
         {
