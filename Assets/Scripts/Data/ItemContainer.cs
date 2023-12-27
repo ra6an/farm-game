@@ -37,6 +37,15 @@ public class ItemContainer : ScriptableObject
 
     public int slotsLocked;
 
+    internal void Init()
+    {
+        slots = new List<ItemSlot>();
+        for(int i = 0; i < 30; i++)
+        {
+            slots.Add(new ItemSlot());
+        }
+    }
+
     public void Add(Item item, int quantity = 1)
     {
         isDirty = true;

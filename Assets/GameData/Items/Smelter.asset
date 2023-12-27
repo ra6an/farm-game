@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
   m_Name: Smelter
   m_EditorClassIdentifier: 
+  id: 12
   name: Smelter
   stackable: 0
   icon: {fileID: -1990180837, guid: 745135faaee4c5b4faddc8583e710adc, type: 3}

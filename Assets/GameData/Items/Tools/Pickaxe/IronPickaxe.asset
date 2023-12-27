@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
   m_Name: IronPickaxe
   m_EditorClassIdentifier: 
+  id: 25
   name: Iron Pickaxe
   stackable: 0
   icon: {fileID: 1068868850, guid: 745135faaee4c5b4faddc8583e710adc, type: 3}
@@ -19,3 +20,17 @@ MonoBehaviour:
   onTileMapAction: {fileID: 0}
   onItemUsed: {fileID: 0}
   ToolDmg: 10
+  iconHighlight: 0
+  itemPrefab: {fileID: 0}
+  crop: {fileID: 0}
+  YReducer: 1.5
+  XReducer: 1.5
+  numberOfBounces: 3
+  velocity: 10
+  horizontalForce: 2
+  gravity: -30
+  collectorTag: Player
+  pickUpType: 2
+  shadow: 1
+  destroyTime: 0
+  colliderTags: []

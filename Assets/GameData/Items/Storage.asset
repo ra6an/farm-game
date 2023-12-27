@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
   m_Name: Storage
   m_EditorClassIdentifier: 
-  name: 
+  id: 13
+  name: Storage
   stackable: 0
   icon: {fileID: -905660466, guid: 0f4522da7069cc64397da6fbdf2c78d2, type: 3}
   onAction: {fileID: 0}

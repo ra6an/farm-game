@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
   m_Name: PumpkinSeed
   m_EditorClassIdentifier: 
+  id: 19
   name: PumpkinSeed
   stackable: 1
   icon: {fileID: 1748637341, guid: b7878956df5a0534580f90c721686b21, type: 3}
@@ -19,4 +20,17 @@ MonoBehaviour:
   onTileMapAction: {fileID: 11400000, guid: 30492064aa57ce34db240447dcf178e5, type: 2}
   onItemUsed: {fileID: 11400000, guid: 30492064aa57ce34db240447dcf178e5, type: 2}
   ToolDmg: 0
+  iconHighlight: 0
+  itemPrefab: {fileID: 0}
   crop: {fileID: 11400000, guid: 0d354d2c17b807e4cb822afa75fc502f, type: 2}
+  YReducer: 1.5
+  XReducer: 1.5
+  numberOfBounces: 3
+  velocity: 10
+  horizontalForce: 2
+  gravity: -30
+  collectorTag: Player
+  pickUpType: 2
+  shadow: 1
+  destroyTime: 0
+  colliderTags: []

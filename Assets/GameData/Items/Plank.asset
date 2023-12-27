@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
   m_Name: Plank
   m_EditorClassIdentifier: 
+  id: 8
   name: Plank
   stackable: 1
   icon: {fileID: -61923147, guid: e6e89d72a6678784fa8251227a81e6b4, type: 3}

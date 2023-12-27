@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
+  id: 7
   name: Wood
   stackable: 1
   icon: {fileID: -1893480215, guid: f380bf50ea55b0e459bb508834d7b1e0, type: 3}
@@ -19,4 +20,17 @@ MonoBehaviour:
   onTileMapAction: {fileID: 0}
   onItemUsed: {fileID: 0}
   ToolDmg: 0
+  iconHighlight: 0
+  itemPrefab: {fileID: 0}
   crop: {fileID: 0}
+  YReducer: 1.5
+  XReducer: 1.5
+  numberOfBounces: 3
+  velocity: 10
+  horizontalForce: 2
+  gravity: -30
+  collectorTag: Player
+  pickUpType: 2
+  shadow: 1
+  destroyTime: 0
+  colliderTags: []

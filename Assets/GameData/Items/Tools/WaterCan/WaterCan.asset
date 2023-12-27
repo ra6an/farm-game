@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
   m_Name: WaterCan
   m_EditorClassIdentifier: 
+  id: 22
   name: Water Can
   stackable: 0
   icon: {fileID: -2048640262, guid: f380bf50ea55b0e459bb508834d7b1e0, type: 3}
@@ -19,6 +20,8 @@ MonoBehaviour:
   onTileMapAction: {fileID: 11400000, guid: 5b170ab09f7cee241b77923f1892e563, type: 2}
   onItemUsed: {fileID: 0}
   ToolDmg: 0
+  iconHighlight: 0
+  itemPrefab: {fileID: 0}
   crop: {fileID: 0}
   YReducer: 1.5
   XReducer: 1.5

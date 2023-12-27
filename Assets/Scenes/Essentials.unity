@@ -6765,7 +6765,7 @@ MonoBehaviour:
   dragAndDropController: {fileID: 831734721}
   timeController: {fileID: 831734720}
   dialogueSystem: {fileID: 947699487}
-  placeableObjects: {fileID: 0}
+  itemsDB: {fileID: 11400000, guid: 89f544860f5b7f54cab9767d94f7215e, type: 2}
 --- !u!4 &831734718
 Transform:
   m_ObjectHideFlags: 0

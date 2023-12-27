@@ -12,11 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
   m_Name: Corn
   m_EditorClassIdentifier: 
-  name: 
+  id: 15
+  name: Corn
   stackable: 1
   icon: {fileID: 1386758669, guid: b7878956df5a0534580f90c721686b21, type: 3}
   onAction: {fileID: 0}
   onTileMapAction: {fileID: 0}
   onItemUsed: {fileID: 0}
   ToolDmg: 0
+  iconHighlight: 0
+  itemPrefab: {fileID: 0}
   crop: {fileID: 0}
+  YReducer: 1.5
+  XReducer: 1.5
+  numberOfBounces: 3
+  velocity: 10
+  horizontalForce: 2
+  gravity: -30
+  collectorTag: Player
+  pickUpType: 2
+  shadow: 1
+  destroyTime: 0
+  colliderTags: []

@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
-  m_Name: IronHoe
+  m_Name: StoneHoe
   m_EditorClassIdentifier: 
-  name: Iron Hoe
+  id: 21
+  name: Stone Hoe
   stackable: 0
   icon: {fileID: -157248847, guid: f380bf50ea55b0e459bb508834d7b1e0, type: 3}
   onAction: {fileID: 0}
   onTileMapAction: {fileID: 11400000, guid: 26423ff12568da2448b998bc1c677857, type: 2}
   onItemUsed: {fileID: 0}
   ToolDmg: 0
+  iconHighlight: 0
+  itemPrefab: {fileID: 0}
   crop: {fileID: 0}
   YReducer: 1.5
   XReducer: 1.5
