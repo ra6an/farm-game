@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemContainerInteractController : MonoBehaviour
 {
     ItemContainer targetItemContainer;
     InventoryController inventoryController;
     [SerializeField] GameObject storagePanel;
+    [SerializeField] GameObject storageColorImage;
+    [SerializeField] GameObject storageSlider;
     [SerializeField] ItemContainerPanel itemContainerPanel;
     Transform openedChest;
     [SerializeField] float maxDistance = 0.8f;
     ShowPanelsController showPanelsController;
 
+    private bool changeColor = false;
+    
     private void Awake()
     {
         inventoryController = GetComponent<InventoryController>();
@@ -20,6 +25,11 @@ public class ItemContainerInteractController : MonoBehaviour
 
     private void Update()
     {
+        if(changeColor)
+        {
+            SetSliderColor();
+        }
+
         if(openedChest != null)
         {
             float distance = Vector2.Distance(openedChest.position, transform.position);
@@ -36,6 +46,8 @@ public class ItemContainerInteractController : MonoBehaviour
         targetItemContainer = itemContainer;
         itemContainerPanel.inventory = targetItemContainer;
 
+        changeColor = true;
+
         showPanelsController.OpenStorage();
         openedChest = _openedChest;
     }
@@ -44,5 +56,23 @@ public class ItemContainerInteractController : MonoBehaviour
     {
         showPanelsController.CloseStorage();
         openedChest = null;
+    }
+
+    public void SetChestColor(Color color)
+    {
+        if (openedChest == null) return;
+        openedChest.GetComponent<StorageContainerInteract>().SetColor(color);
+    }
+
+    public void SetSliderColor()
+    {
+        if (openedChest == null) return;
+        //Change slider value and image color
+        float hueValue, satValue, valValue;
+        Color.RGBToHSV(openedChest.GetComponent<SpriteRenderer>().color, out hueValue, out satValue, out valValue);
+        storageSlider.GetComponent<RGBSlider>().SetHueValue(hueValue);
+        storageColorImage.GetComponent<Image>().color = openedChest.GetComponent<SpriteRenderer>().color;
+
+        changeColor = false;
     }
 }

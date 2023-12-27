@@ -12,7 +12,10 @@ public class StorageContainerInteract : Interactable, IPersistant
     [SerializeField] AudioClip onCloseChest;
     Animator animator;
     [SerializeField] ItemContainer itemContainer;
+    [SerializeField] GameObject panelColorImage;
+    [SerializeField] GameObject panelSlider;
     private Character character;
+    public Color chestColor;
 
     private void Update()
     {
@@ -36,6 +39,12 @@ public class StorageContainerInteract : Interactable, IPersistant
     {
             itemContainer = (ItemContainer)ScriptableObject.CreateInstance(typeof(ItemContainer));
             itemContainer.Init();
+    }
+
+    public void SetColor(Color color)
+    {
+        chestColor = color;
+        transform.GetComponent<SpriteRenderer>().color = color;
     }
 
     public override void Interact(Character c)
@@ -90,6 +99,7 @@ public class StorageContainerInteract : Interactable, IPersistant
     public class ToSave
     {
         public List<SaveLootItemData> itemDatas;
+        public Color chestColor;
 
         public ToSave()
         {
@@ -115,6 +125,8 @@ public class StorageContainerInteract : Interactable, IPersistant
             }
         }
 
+        toSave.chestColor = chestColor;
+
         return JsonUtility.ToJson(toSave);
     }
 
@@ -138,5 +150,9 @@ public class StorageContainerInteract : Interactable, IPersistant
                 itemContainer.slots[i].quantity = toLoad.itemDatas[i].quantity;
             }
         }
+
+        chestColor = toLoad.chestColor;
+
+        transform.GetComponent<SpriteRenderer>().color = chestColor;
     }
 }

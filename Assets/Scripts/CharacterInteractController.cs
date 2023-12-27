@@ -49,7 +49,7 @@ public class CharacterInteractController : MonoBehaviour
         highlightController.Hide();
     }
 
-    private void Interact()
+    private void Interact() //DODATI OPCIJU ZA MOUSEOVER PREPOZNAVANJE I INTERACTANJE SA NAJBLIZIM OBJEKTOM U COLLIDERU
     {
         Vector2 position = rgdbd2d.position + characterController.lastMotionVector * offsetDistance;
 
@@ -58,6 +58,7 @@ public class CharacterInteractController : MonoBehaviour
         foreach (Collider2D c in collider)
         {
             Interactable hit = c.GetComponent<Interactable>();
+            //Debug.Log(c.gameObject.name);
             if (hit != null)
             {
                 hit.Interact(character);
