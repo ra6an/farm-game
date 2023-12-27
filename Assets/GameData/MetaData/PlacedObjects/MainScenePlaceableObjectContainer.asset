@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1243591022058494884150b2a1114889, type: 3}
   m_Name: MainScenePlaceableObjectContainer
   m_EditorClassIdentifier: 
-  placeableObjects: []
+  placeableObjects:
+  - placedItem: {fileID: 11400000, guid: d86d9c38b840a824e9e640e1f1c263a2, type: 2}
+    targetObject: {fileID: 0}
+    positionOnGrid: {x: -2, y: -4, z: 0}
+    objectState: 
+  - placedItem: {fileID: 11400000, guid: e3182a9375bd8d742885eec77d3225a8, type: 2}
+    targetObject: {fileID: 0}
+    positionOnGrid: {x: 1, y: -4, z: 0}
+    objectState: '{"itemSlot":{"item":{"instanceID":0},"quantity":0},"timer":0}'

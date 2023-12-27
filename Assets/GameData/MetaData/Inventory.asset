@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots:
   - item: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
-    quantity: 12
+    quantity: 18
   - item: {fileID: 11400000, guid: 8daef31ecfc5cc24d9c7092cc3e34edc, type: 2}
     quantity: 0
   - item: {fileID: 11400000, guid: 99fe3c8398022c6468d9c0ff04fa865f, type: 2}
@@ -24,9 +24,9 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 2fd3b4f8de4b426458c79b3dcf11b272, type: 2}
     quantity: 0
   - item: {fileID: 11400000, guid: f7e84031c1732a84d9d05d2cc3157af0, type: 2}
-    quantity: 84
+    quantity: 72
   - item: {fileID: 11400000, guid: ae2fa23126d5287478937d960bb23008, type: 2}
-    quantity: 23
+    quantity: 13
   - item: {fileID: 0}
     quantity: 0
   - item: {fileID: 11400000, guid: 69ca061478f52f04aa8d2cf15b919340, type: 2}
@@ -43,20 +43,20 @@ MonoBehaviour:
     quantity: 0
   - item: {fileID: 0}
     quantity: 0
-  - item: {fileID: 11400000, guid: 6d230eff1e491004086785e738059159, type: 2}
-    quantity: 41
-  - item: {fileID: 11400000, guid: 2601b08daf3a0524aa61e3fe2aa471a4, type: 2}
-    quantity: 1
   - item: {fileID: 0}
     quantity: 0
-  - item: {fileID: 11400000, guid: 28fca472edf045c47b4b79c8e90fb12c, type: 2}
+  - item: {fileID: 0}
     quantity: 0
   - item: {fileID: 0}
     quantity: 0
   - item: {fileID: 0}
     quantity: 0
-  - item: {fileID: 11400000, guid: ef6fcc0e01028c2448a225b11c79a56e, type: 2}
-    quantity: 2
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
+  - item: {fileID: 0}
+    quantity: 0
   - item: {fileID: 0}
     quantity: 0
   - item: {fileID: 0}

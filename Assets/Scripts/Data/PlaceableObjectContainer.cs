@@ -9,6 +9,7 @@ public class PlaceableObject
     public Item placedItem;
     public Transform targetObject;
     public Vector3Int positionOnGrid;
+    public string objectState; //JSON string
 
     public PlaceableObject(Item item, Vector3Int position)
     {

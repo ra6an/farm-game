@@ -50,7 +50,7 @@ MonoBehaviour:
   convertableItem: {fileID: 11400000, guid: f7e84031c1732a84d9d05d2cc3157af0, type: 2}
   producedItem: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
   producedItemCount: 1
-  timeToProcess: 5
+  timeToProcess: 20
 --- !u!61 &2745276836002088386
 BoxCollider2D:
   m_ObjectHideFlags: 0

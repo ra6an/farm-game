@@ -24,10 +24,13 @@ public class CharacterController2D : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        motionVector = new Vector2(
-            horizontal,
-            vertical
-            );
+        motionVector.x = horizontal;
+        motionVector.y = vertical;
+
+        //motionVector = new Vector2(
+        //    horizontal,
+        //    vertical
+        //    );
         animator.SetFloat("horizontal", horizontal);
         animator.SetFloat("vertical", vertical);
 

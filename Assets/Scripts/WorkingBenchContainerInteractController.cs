@@ -76,7 +76,6 @@ public class WorkingBenchContainerInteractController : MonoBehaviour
 
     private void SetElementsValues(List<ItemSlot> elements, int mltp)
     {
-        Debug.Log(elementsPanel.transform.childCount);
         for (int i = 0; i < elements.Count; i++) 
         {
             ItemSlot slot = new ItemSlot();
@@ -89,7 +88,7 @@ public class WorkingBenchContainerInteractController : MonoBehaviour
         }
     }
 
-public bool CheckElementsQuantityInInventory(List<ItemSlot> elements, int mltp = 1)
+    public bool CheckElementsQuantityInInventory(List<ItemSlot> elements, int mltp = 1)
     {
         bool returnValue = true;
 
@@ -116,7 +115,7 @@ public bool CheckElementsQuantityInInventory(List<ItemSlot> elements, int mltp =
             if (!inventory.CheckItem(recipe.elements[i]))
             {
                 enoughResource = false;
-            };
+            }
         }
 
         if (!enoughResource) return;

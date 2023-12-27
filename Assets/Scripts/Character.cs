@@ -1,18 +1,118 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+[Serializable]
+public class Stat
 {
-    // Start is called before the first frame update
-    void Start()
+    public int maxVal;
+    public int currVal;
+
+    public Stat(int curr, int max)
     {
-        
+        maxVal = max;
+        currVal = curr;
     }
 
-    // Update is called once per frame
-    void Update()
+    internal void Subtract(int amount)
     {
-        
+        currVal = currVal - amount <= 0 ? 0 : currVal - amount;
+    }
+
+    internal void Add(int amount)
+    {
+        currVal = currVal + amount > maxVal ? maxVal : currVal + amount;
+    }
+
+    internal void SetToMax()
+    {
+        currVal = maxVal;
+    }
+}
+
+public class Character : MonoBehaviour
+{
+    public Stat hp;
+    public Stat mana;
+
+    [SerializeField] StatusBar hpBar;
+    [SerializeField] StatusBar manaBar;
+
+    public bool isDead;
+    public bool noMana;
+
+    private void Start()
+    {
+        UpdateHpBar();
+    }
+
+    private void UpdateHpBar()
+    {
+        hpBar.Set(hp.currVal, hp.maxVal);
+    }
+
+    // Dmg take
+    public void TakeDamage(int amount)
+    {
+        hp.Subtract(amount);
+        if(hp.currVal <= 0)
+        {
+            isDead = true;
+        }
+
+        UpdateHpBar();
+    }
+
+    // Heal 
+    public void Heal(int amount)
+    {
+        hp.Add(amount);
+
+        UpdateHpBar();
+    }
+
+    public void FullHeal()
+    {
+        hp.SetToMax();
+
+        UpdateHpBar();
+    }
+
+    // Mana
+    public void UseMana(int amount)
+    {
+        mana.Subtract(amount);
+
+        if(mana.currVal <= 0)
+        {
+            noMana = true;
+        }
+    }
+
+    public void RestoreMana(int amount)
+    {
+        mana.Add(amount);
+    }
+
+    public void RestoreManaToMax()
+    {
+        mana.SetToMax();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            TakeDamage(15);
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Heal(5);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            FullHeal();
+        }
     }
 }
