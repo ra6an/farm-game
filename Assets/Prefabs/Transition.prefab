@@ -148,3 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5631d57c502a6498f8e7177c92f71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionType: 0
+  sceneNameToTransition: 
+  targetPosition: {x: 0, y: 0, z: 0}
+  confiner: {fileID: 0}
+  destination: {fileID: 622870694427863416}

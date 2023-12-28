@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +19,7 @@ public class Transition : MonoBehaviour
     [SerializeField] Collider2D confiner;
 
     CameraConfiner cameraConfiner;
-    Transform destination;
+    [SerializeField] Transform destination;
 
     void Start()
     {
@@ -26,8 +27,6 @@ public class Transition : MonoBehaviour
         {
             cameraConfiner = FindObjectOfType<CameraConfiner>();
         }
-
-        destination = transform.GetChild(1);
     }
 
     internal void InitiateTransition(Transform toTransition)
@@ -58,5 +57,20 @@ public class Transition : MonoBehaviour
                 break;
         }
         
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (transitionType == TransitionType.Scene)
+        {
+            GUIStyle style = new GUIStyle();
+            style.normal.textColor = Color.black;
+            Handles.Label(transform.position, "to " + sceneNameToTransition, style);
+        }
+
+        if(transitionType == TransitionType.Wrap)
+        {
+            Gizmos.DrawLine(transform.position, destination.position);
+        }
     }
 }
