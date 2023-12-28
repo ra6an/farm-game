@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1652738824558596046}
   - component: {fileID: 1652738824558596047}
   - component: {fileID: 1652738824558596044}
+  - component: {fileID: -6574003159678926453}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -150,3 +151,16 @@ MonoBehaviour:
   onCloseChest: {fileID: 8300000, guid: b6d9d320078960645a67f90f903a3c0f, type: 3}
   item: {fileID: 11400000, guid: 7dce2dbf320e2934b8e93895ed85b52b, type: 2}
   count: 1
+--- !u!114 &-6574003159678926453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652738824558596045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f012211b446af47b0420006bae38b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationary: 1

@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5660126322666857988}
   - component: {fileID: 5660126322666857989}
   - component: {fileID: 7220355992372988601}
+  - component: {fileID: 906844088015390208}
   m_Layer: 0
   m_Name: WorkingBench
   m_TagString: Untagged
@@ -156,3 +157,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1625bb3fb2bb7498870ccd9931d3de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onOpenPlay: {fileID: 0}
+  onClosePlay: {fileID: 0}
+--- !u!114 &906844088015390208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660126322666858010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f012211b446af47b0420006bae38b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationary: 1

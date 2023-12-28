@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1652738824558596046}
   - component: {fileID: 1652738824558596047}
   - component: {fileID: -1581928804900040868}
+  - component: {fileID: 3964128620074014820}
   m_Layer: 0
   m_Name: Storage
   m_TagString: Untagged
@@ -151,3 +152,17 @@ MonoBehaviour:
   itemContainer: {fileID: 0}
   panelColorImage: {fileID: 7966820492030932913, guid: bf55e317651e9cb468ea604b56b781ff, type: 3}
   panelSlider: {fileID: 3720412202719824027, guid: fd3ed7c89f96a364487cd76922f7b858, type: 3}
+  chestColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &3964128620074014820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652738824558596045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f012211b446af47b0420006bae38b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stationary: 1

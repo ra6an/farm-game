@@ -15,11 +15,18 @@ public class Transition : MonoBehaviour
     [SerializeField] TransitionType transitionType;
     [SerializeField] string sceneNameToTransition;
     [SerializeField] Vector3 targetPosition;
+    [SerializeField] Collider2D confiner;
 
+    CameraConfiner cameraConfiner;
     Transform destination;
 
     void Start()
     {
+        if(confiner != null)
+        {
+            cameraConfiner = FindObjectOfType<CameraConfiner>();
+        }
+
         destination = transform.GetChild(1);
     }
 
@@ -30,6 +37,11 @@ public class Transition : MonoBehaviour
             case TransitionType.Wrap:
                 Cinemachine.CinemachineBrain currentCamera = Camera.main.GetComponent<Cinemachine.CinemachineBrain>();
 
+                if (cameraConfiner != null)
+                {
+                    cameraConfiner.UpdateBounds(confiner);
+                }
+
                 currentCamera.ActiveVirtualCamera.OnTargetObjectWarped(
                     toTransition,
                     destination.position - toTransition.position
@@ -39,6 +51,7 @@ public class Transition : MonoBehaviour
                     destination.position.y,
                     toTransition.position.z
                     );
+
                 break;
             case TransitionType.Scene:
                 GameSceneManager.instance.InitSwitchScene(sceneNameToTransition, targetPosition);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,11 +55,12 @@ public class CharacterInteractController : MonoBehaviour
         Vector2 position = rgdbd2d.position + characterController.lastMotionVector * offsetDistance;
 
         Collider2D[] collider = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
+        Debug.Log(position);
 
         foreach (Collider2D c in collider)
         {
             Interactable hit = c.GetComponent<Interactable>();
-            //Debug.Log(c.gameObject.name);
+
             if (hit != null)
             {
                 hit.Interact(character);
