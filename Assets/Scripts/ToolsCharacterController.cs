@@ -10,6 +10,7 @@ public class ToolsCharacterController : MonoBehaviour
     Rigidbody2D rgdbd2d;
     ToolbarController toolbarController;
     Animator animator;
+    AttackController attackController;
     [SerializeField] float offsetDistance = 1f;
     //[SerializeField] float sizeOfInteractableArea = 1.2f;
     [SerializeField] MarkerManager markerManager;
@@ -34,10 +35,16 @@ public class ToolsCharacterController : MonoBehaviour
         toolbarController = GetComponent<ToolbarController>();
         animator = GetComponent<Animator>();
         showPanelsController = GetComponent<ShowPanelsController>();
+        attackController = GetComponent<AttackController>();
     }
 
     private void Update()
     {
+        if(Input.GetMouseButtonDown(0))
+        {
+            WeaponAction();
+        }
+
         SelectTile();
         CanSelectCheck();
         Marker();
@@ -52,6 +59,16 @@ public class ToolsCharacterController : MonoBehaviour
             }
             UseToolGrid();
         }
+    }
+
+    private void WeaponAction()
+    {
+        Item item = toolbarController.GetItem;
+        if(item == null) { return; }
+
+        if(!item.isWeapon) { return; }
+
+        attackController.Attack(item.damage, character.lastMotionVector);
     }
 
     private void SelectTile()

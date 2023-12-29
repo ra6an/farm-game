@@ -51,7 +51,7 @@ public class ItemContainerInteractController : MonoBehaviour
         showPanelsController.OpenStorage();
         openedChest = _openedChest;
     }
-
+    //
     public void Close()
     {
         showPanelsController.CloseStorage();

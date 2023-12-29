@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,6 +69,42 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -78,7 +114,994 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Purple cow animation sprites_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 226
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9726f320b9288e4aae7b5a5f7343aca
+      internalID: -275721617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 226
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d1ea3905b3be0478ded008b24f5cc2
+      internalID: -338261088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 226
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1301eecbd8770f64395a318ecb317ceb
+      internalID: -1578745349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 194
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abd996c1add6e5c4a9516ec510497fb9
+      internalID: 32923883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 194
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354e6e44b37faf34a9a8275e86488acc
+      internalID: 1136506278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_5
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 194
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf9240a9a237c1409e2e38afab7c23f
+      internalID: -1200994559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_6
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 194
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67232c5e30dd5d44f87723874b89119f
+      internalID: -518663830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_7
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 194
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0492dcb1812fe7a4cbd73631480b4682
+      internalID: -1283061136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_8
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 194
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d9250a061c3d8648a972afdfe0372f1
+      internalID: -1300332168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_9
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 194
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5765dd04d2e6ef45871def6b4ea9eea
+      internalID: 1239328727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_10
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 194
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ce93c2e7784e744a519268854e36d9
+      internalID: 1801467950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_11
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 162
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a676f17c94b80c4d9f5ac827688b1ec
+      internalID: 1676222896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_12
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 162
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d5d3e796d6340b499ac12769b9320af
+      internalID: -1127262744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_13
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 162
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d540cc9958e4d34388dafc70b26ccd1
+      internalID: 493099487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_14
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 162
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7315e177fbdb3fa4c85a07badc4b44e2
+      internalID: -1184077051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_15
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 162
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf4f37a3956789342ad0ff31336238cb
+      internalID: 1248379695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_16
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 162
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51fbfde926dcc394bb8670ca6112193b
+      internalID: -1521359766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_17
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 162
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0864acfc0dc99249a85f809ea02f1d3
+      internalID: 2019552652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_18
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 130
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c41c44b3ccf3d48bf1bcdbf7b37746
+      internalID: 232158272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_19
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 130
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2933ea37cd9a7419b070dc464261fd
+      internalID: 1669379783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_20
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 130
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7853deb5cf2c424f9131311711130ad
+      internalID: 216949562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_21
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 98
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22820cc9a11f2df4d8a63cea9da9c032
+      internalID: -407830128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_22
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 98
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c7645e42be7cdc42833b5ee7df4fb7c
+      internalID: 696035014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_23
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 98
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69dd8d0bab834114f8c6f5f015f36aa8
+      internalID: 242639438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_24
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 98
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7bbd75c6c295d1438d5dd234a34d1ab
+      internalID: 2037316084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_25
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 66
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb96e23a879ed84bb47d1c3be2ee85e
+      internalID: 715865219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_26
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 66
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f26ac820d0b0ba48a8542864efa35ef
+      internalID: 1444867030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_27
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 66
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cab4efa7268fdf4b98268998b62913f
+      internalID: 651077016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_28
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 66
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd48cb49dd97c84185e920448b911b3
+      internalID: -795009958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_29
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 66
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46dc47ad155d3dc499fb35d8b71c1b8c
+      internalID: 1121286083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_30
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 66
+        width: 27
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f3856d782932345901c31e78264dc1
+      internalID: -1530400367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_31
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 66
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae46d00d4242474e9a45906c7efd058
+      internalID: -1539848143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_32
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 34
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1cb2f6e9642c6f48a926d0008971aa3
+      internalID: 1079239506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_33
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 34
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4491f7b2e8a04542af92ce3cff7140a
+      internalID: -1108561262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_34
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 34
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60c729c5047e14d4fa9f1931c5a98ded
+      internalID: -1827254631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_35
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 34
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272fdc950f47c184b8a7ca4146cb9531
+      internalID: 275321025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_36
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 21
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 055f1c682a7268f4bbf481593b172284
+      internalID: 1344677582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_37
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 23
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154d14217d591174d8bc9794826cf404
+      internalID: 932058539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_38
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bde967616003db4ca3deb6b49101efd
+      internalID: -1980171230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_39
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 22
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703284585202fc64cb929aa56ca890cc
+      internalID: -1429298092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_40
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 23
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9ae9ab882603d41a97d3d9189ef495
+      internalID: 713481487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_41
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 22
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ee94d4cf8b61f42bd3fed652f94c08
+      internalID: -1977080406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_42
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3848de468d380419a8213ac3bbdfa6
+      internalID: 227967405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_43
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 2
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 679f43c2b6ad7114b8c697f00ea7a950
+      internalID: -1720820686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_44
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65ec8b4219d2874995a0ebc1eea1dd2
+      internalID: 369037864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_45
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 2
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ccf38aca5e69a4fb67c11ee7f37058
+      internalID: 2111838683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Purple cow animation sprites_46
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 2
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2ef74a5e8e10f478ec4c99c77f00a9
+      internalID: -1439557988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +1112,54 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Purple cow animation sprites_39: -1429298092
+      Purple cow animation sprites_5: -1200994559
+      Purple cow animation sprites_32: 1079239506
+      Purple cow animation sprites_12: -1127262744
+      Purple cow animation sprites_31: -1539848143
+      Purple cow animation sprites_21: -407830128
+      Purple cow animation sprites_25: 715865219
+      Purple cow animation sprites_22: 696035014
+      Purple cow animation sprites_9: 1239328727
+      Purple cow animation sprites_15: 1248379695
+      Purple cow animation sprites_27: 651077016
+      Purple cow animation sprites_46: -1439557988
+      Purple cow animation sprites_37: 932058539
+      Purple cow animation sprites_13: 493099487
+      Purple cow animation sprites_41: -1977080406
+      Purple cow animation sprites_11: 1676222896
+      Purple cow animation sprites_7: -1283061136
+      Purple cow animation sprites_17: 2019552652
+      Purple cow animation sprites_0: -275721617
+      Purple cow animation sprites_23: 242639438
+      Purple cow animation sprites_10: 1801467950
+      Purple cow animation sprites_28: -795009958
+      Purple cow animation sprites_33: -1108561262
+      Purple cow animation sprites_20: 216949562
+      Purple cow animation sprites_38: -1980171230
+      Purple cow animation sprites_45: 2111838683
+      Purple cow animation sprites_18: 232158272
+      Purple cow animation sprites_1: -338261088
+      Purple cow animation sprites_14: -1184077051
+      Purple cow animation sprites_43: -1720820686
+      Purple cow animation sprites_36: 1344677582
+      Purple cow animation sprites_3: 32923883
+      Purple cow animation sprites_2: -1578745349
+      Purple cow animation sprites_16: -1521359766
+      Purple cow animation sprites_26: 1444867030
+      Purple cow animation sprites_44: 369037864
+      Purple cow animation sprites_4: 1136506278
+      Purple cow animation sprites_34: -1827254631
+      Purple cow animation sprites_30: -1530400367
+      Purple cow animation sprites_35: 275321025
+      Purple cow animation sprites_6: -518663830
+      Purple cow animation sprites_24: 2037316084
+      Purple cow animation sprites_8: -1300332168
+      Purple cow animation sprites_40: 713481487
+      Purple cow animation sprites_42: 227967405
+      Purple cow animation sprites_19: 1669379783
+      Purple cow animation sprites_29: 1121286083
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

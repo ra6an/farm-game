@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using static UnityEditor.Progress;
-//
+
 public class StorageContainerInteract : Interactable, IPersistant
 {
     [SerializeField] bool opened;

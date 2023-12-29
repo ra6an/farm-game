@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   slots:
-  - item: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
-    quantity: 18
+  - item: {fileID: 11400000, guid: e9a3b9e9279da2e4a8798d59b39c6dfb, type: 2}
+    quantity: 0
   - item: {fileID: 11400000, guid: 8daef31ecfc5cc24d9c7092cc3e34edc, type: 2}
     quantity: 0
   - item: {fileID: 11400000, guid: 99fe3c8398022c6468d9c0ff04fa865f, type: 2}
@@ -27,16 +27,18 @@ MonoBehaviour:
     quantity: 72
   - item: {fileID: 11400000, guid: ae2fa23126d5287478937d960bb23008, type: 2}
     quantity: 13
-  - item: {fileID: 0}
-    quantity: 0
+  - item: {fileID: 11400000, guid: 124944a8a84a2af4db3781477537221d, type: 2}
+    quantity: 1
   - item: {fileID: 11400000, guid: 69ca061478f52f04aa8d2cf15b919340, type: 2}
-    quantity: 18
+    quantity: 17
   - item: {fileID: 11400000, guid: 69e4c632b6e0c1c4d9eed578c994d657, type: 2}
-    quantity: 20
+    quantity: 19
   - item: {fileID: 11400000, guid: 4dad4ffb835273042abf79436a57326a, type: 2}
     quantity: 31
   - item: {fileID: 0}
     quantity: 0
+  - item: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
+    quantity: 21
   - item: {fileID: 0}
     quantity: 0
   - item: {fileID: 0}
@@ -45,10 +47,8 @@ MonoBehaviour:
     quantity: 0
   - item: {fileID: 0}
     quantity: 0
-  - item: {fileID: 0}
-    quantity: 0
-  - item: {fileID: 0}
-    quantity: 0
+  - item: {fileID: 11400000, guid: 0699d43a2bc82b3448f7f627bd00cc01, type: 2}
+    quantity: 3
   - item: {fileID: 0}
     quantity: 0
   - item: {fileID: 0}

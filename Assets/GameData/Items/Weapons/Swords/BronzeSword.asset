@@ -22,6 +22,8 @@ MonoBehaviour:
   ToolDmg: 0
   iconHighlight: 0
   itemPrefab: {fileID: 0}
+  isWeapon: 1
+  damage: 10
   crop: {fileID: 0}
   YReducer: 1.5
   XReducer: 1.5

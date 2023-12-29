@@ -18,6 +18,10 @@ public class Item : ScriptableObject
     public bool iconHighlight;
     public GameObject itemPrefab;
 
+    //WEAPON REF
+    public bool isWeapon;
+    public int damage = 10;
+
     //CROP REF
     public Crop crop;
 
