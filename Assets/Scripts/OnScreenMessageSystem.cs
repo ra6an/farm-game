@@ -18,6 +18,8 @@ public class OnScreenMessageSystem : MonoBehaviour
 {
     [SerializeField] GameObject textPrefab;
 
+    [SerializeField] float timeForAnimation = 0.4f;
+
     List<OnScreenMessage> messageList;
     List<OnScreenMessage> openList;
 
@@ -59,11 +61,13 @@ public class OnScreenMessageSystem : MonoBehaviour
     {
         OnScreenMessage osm = openList[0];
         osm.go.SetActive(true);
-        osm.timeToLive = 6f;
+        osm.timeToLive = timeForAnimation;
         osm.go.GetComponent<TextMeshPro>().text = message;
         osm.go.transform.position = worldPosition;
         openList.RemoveAt(0);
         messageList.Add(osm);
+
+        LeanTween.moveY(osm.go, osm.go.transform.position.y + 1, timeForAnimation);
     }
 
     private void CreateNewOnScreenMessageObject(Vector3 worldPosition, string message)
@@ -75,8 +79,10 @@ public class OnScreenMessageSystem : MonoBehaviour
         tmp.text = message;
 
         OnScreenMessage onScreenMessage = new OnScreenMessage(textGO);
-        onScreenMessage.timeToLive = 6f;
+        onScreenMessage.timeToLive = timeForAnimation;
 
         messageList.Add(onScreenMessage);
+
+        LeanTween.moveY(textGO, textGO.transform.position.y + 1, timeForAnimation);
     }
 }
