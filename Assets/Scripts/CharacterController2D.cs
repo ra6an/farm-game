@@ -12,7 +12,7 @@ public class CharacterController2D : MonoBehaviour
     Animator animator;
     public bool moving;
     //Dash
-    [SerializeField] float dashingPower = 20f;
+    [SerializeField] float dashingPower = 10f;
     private bool dashing = false;
     private bool canDash = true;
     private float dashingTime = 0.2f;
@@ -46,6 +46,7 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             dashing = true;
+            animator.SetTrigger("dash");
         }
 
         moving = horizontal != 0 || vertical != 0;
@@ -75,9 +76,9 @@ public class CharacterController2D : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        //animator.SetTrigger("dash");
         canDash = false;
-        rigidbody2d.velocity = motionVector * dashingPower;
-        animator.SetTrigger("dash");
+        rigidbody2d.velocity = lastMotionVector * dashingPower;
         yield return new WaitForSeconds(dashingTime);
         dashing = false;
         yield return new WaitForSeconds(dashingCooldown);

@@ -16395,6 +16395,7 @@ MonoBehaviour:
   speed: 2
   lastMotionVector: {x: 0, y: 0}
   moving: 0
+  dashingPower: 10
 --- !u!50 &1924335052
 Rigidbody2D:
   serializedVersion: 4
