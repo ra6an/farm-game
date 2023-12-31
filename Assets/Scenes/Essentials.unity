@@ -153,6 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPrefab: {fileID: 1264663235830321509, guid: abd0903d37daec54390a3febbaa17c45, type: 3}
+  timeForAnimation: 0.4
+  horizontalScatter: 0.25
+  verticalScatter: 0.5
 --- !u!4 &1373135
 Transform:
   m_ObjectHideFlags: 0
@@ -16491,8 +16494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0840313c62d213d4b977212d76ba5ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetDistance: 1
-  sizeOfInteractableArea: 1.2
+  offsetDistance: 0.5
+  sizeOfInteractableArea: 0.6
   highlightController: {fileID: 831734719}
 --- !u!114 &1924335057
 MonoBehaviour:

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122501dfe5919be4fada713dbc57b30b, type: 3}
+  m_Name: MainSceneJSONStrings
+  m_EditorClassIdentifier: 
+  strings:
+  - '{"spawnedObjectDatas":[{"objectId":1,"worldPosition":{"x":-7.438403129577637,"y":3.9705677032470705,"z":0.00039705674862489104}},{"objectId":0,"worldPosition":{"x":-6.876621723175049,"y":7.207691192626953,"z":0.0007207691087387502}},{"objectId":0,"worldPosition":{"x":-7.428795337677002,"y":8.147310256958008,"z":0.0008147309999912977}},{"objectId":0,"worldPosition":{"x":-1.7901310920715333,"y":8.340015411376954,"z":0.0008340015192516148}},{"objectId":0,"worldPosition":{"x":-4.958511829376221,"y":9.149553298950196,"z":0.0009149552788585424}},{"objectId":1,"worldPosition":{"x":-2.721477508544922,"y":3.952260971069336,"z":0.00039522608858533204}},{"objectId":0,"worldPosition":{"x":-6.9352030754089359,"y":5.884253025054932,"z":0.000588425260502845}},{"objectId":0,"worldPosition":{"x":-2.0314853191375734,"y":5.695565700531006,"z":0.0005695565487258136}}]}'

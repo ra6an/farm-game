@@ -1459,6 +1459,342 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: main_character_dash_right_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 132
+        width: 25
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd1d48027f65564e935670a7c2f7c26
+      internalID: 1813282700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_right_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 132
+        width: 25
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd52cfc83dac50644861fd2201238acd
+      internalID: -1840422466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_right_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 132
+        width: 25
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc48e071f588cea4a9af4f1fc6d6f997
+      internalID: 617587154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_right_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 132
+        width: 25
+        height: 16
+      alignment: 9
+      pivot: {x: 0.7, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ee29bdd23d160d4496cdf88a33d360a
+      internalID: 269355220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_left_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 100
+        width: 25
+        height: 16
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8a7c1be2fff094884f5805869f49c1
+      internalID: -577146826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_left_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 100
+        width: 25
+        height: 16
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6700e05acd60d7949bbc9769db14a2ef
+      internalID: 2023613978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_left_2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 100
+        width: 25
+        height: 16
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28bd4ae1762617409b3cf5dffabc554
+      internalID: 752590468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_left_3
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 100
+        width: 25
+        height: 16
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b313caf9d2777fe4b8512938b673639c
+      internalID: -918965306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_down_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 16
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5828a7067be261e42b55c819622b4a69
+      internalID: -98848646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_down_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 164
+        width: 16
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43bdd29306cbbba4e90c98b5e01f0350
+      internalID: 1528587116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_down_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 164
+        width: 16
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91f913c55b0d2f4991994b6276a7a05
+      internalID: 726575784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_down_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 164
+        width: 16
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 360c54a6fcd21a044874ff1e7dc7bcb1
+      internalID: -509659925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_up_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 166
+        width: 16
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e4d234374a973a48b26f9a08c1e8d94
+      internalID: 742422391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_up_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 166
+        width: 15
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946034fa7b9c89a4d9d4ab6c9eff1a32
+      internalID: -2055802062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_up_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 166
+        width: 16
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5a8f9038103074e9f749eb4a8d4665
+      internalID: 1861163925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_character_dash_up_3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 166
+        width: 16
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5781999cb68c23f4f9e606276e23872e
+      internalID: 788285967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1473,7 +1809,7 @@ TextureImporter:
       main_character_walk_up_4: -1976230878
       main_character_idle_left_2: -1653604862
       main_character_walk_left_2: 1727573486
-      main_character_walk_right_5: -1084452679
+      main_character_dash_right_2: 617587154
       main_character_idle_left_4: 674979973
       main_character_walk_left_5: -1226474364
       main_character_walk_down_6: -1328474764
@@ -1482,13 +1818,19 @@ TextureImporter:
       main_character_idle_right_7: 334534766
       main_character_walk_down_1: 611389390
       main_character_walk_up_7: 509241067
+      main_character_dash_left_0: -577146826
+      main_character_walk_right_5: -1084452679
       main_character_idle_up_2: -1548238197
       main_character_walk_left_6: 1099664754
       main_character_walk_left_0: -420243005
+      main_character_dash_right_3: 269355220
       main_character_idle_left_0: -1804566542
       main_character_walk_down_3: -2115926404
       main_character_walk_down_2: -815458338
       main_character_walk_left_7: -443438094
+      main_character_dash_up_0: 742422391
+      main_character_dash_left_1: 2023613978
+      main_character_dash_down_2: 726575784
       main_character_idle_right_0: 782197406
       main_character_walk_right_1: -1643494134
       main_character_idle_down_5: -138849574
@@ -1498,12 +1840,16 @@ TextureImporter:
       main_character_idle_up_5: 176673912
       main_character_idle_left_1: 1064892485
       main_character_idle_down_7: 1381657816
+      main_character_dash_left_3: -918965306
       main_character_walk_right_6: 8703047
+      main_character_dash_up_2: 1861163925
       main_character_walk_down_0: 1284195994
+      main_character_dash_down_3: -509659925
       main_character_idle_up_0: -899288339
       main_character_walk_up_2: -407499954
       main_character_walk_right_7: 15892653
       main_character_walk_up_3: -918972572
+      main_character_dash_right_0: 1813282700
       main_character_idle_right_5: -327007451
       main_character_idle_right_1: 1058401648
       main_character_walk_right_0: -682747378
@@ -1519,21 +1865,27 @@ TextureImporter:
       main_character_idle_down_4: -450350802
       main_character_walk_left_4: -1282991645
       main_character_idle_up_6: -309172280
+      main_character_dash_up_1: -2055802062
       main_character_idle_left_3: 2083086358
       main_character_idle_down_0: -1822947487
+      main_character_dash_right_1: -1840422466
       main_character_idle_right_6: -1326960235
+      main_character_dash_left_2: 752590468
       main_character_walk_down_5: 637829833
       main_character_idle_right_3: 415940887
       main_character_idle_left_6: -1410217915
       main_character_walk_up_6: 307808741
+      main_character_dash_down_1: 1528587116
       main_character_walk_left_1: -1894825798
       main_character_idle_right_4: -134037752
       main_character_idle_left_7: 543299449
       main_character_walk_up_1: 874398477
       main_character_walk_up_5: -1090678276
+      main_character_dash_down_0: -98848646
       main_character_idle_down_2: -1992446562
       main_character_idle_down_1: 958616219
       main_character_walk_down_7: 410002098
+      main_character_dash_up_3: 788285967
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

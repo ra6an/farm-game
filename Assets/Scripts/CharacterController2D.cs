@@ -11,6 +11,14 @@ public class CharacterController2D : MonoBehaviour
     public Vector2 lastMotionVector;
     Animator animator;
     public bool moving;
+    //Dash
+    [SerializeField] float dashingPower = 20f;
+    private bool dashing = false;
+    private bool canDash = true;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+
+
 
     void Awake()
     {
@@ -21,18 +29,24 @@ public class CharacterController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dashing)
+        {
+            return;
+        }
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
         motionVector.x = horizontal;
         motionVector.y = vertical;
 
-        //motionVector = new Vector2(
-        //    horizontal,
-        //    vertical
-        //    );
         animator.SetFloat("horizontal", horizontal);
         animator.SetFloat("vertical", vertical);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            dashing = true;
+        }
 
         moving = horizontal != 0 || vertical != 0;
         animator.SetBool("moving", moving);
@@ -48,7 +62,26 @@ public class CharacterController2D : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        if (!dashing)
+        {
+            Move();
+        }
+
+        if(dashing)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        rigidbody2d.velocity = motionVector * dashingPower;
+        animator.SetTrigger("dash");
+        yield return new WaitForSeconds(dashingTime);
+        dashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 
     private void Move()

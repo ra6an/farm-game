@@ -23,6 +23,9 @@ public class OnScreenMessageSystem : MonoBehaviour
     List<OnScreenMessage> messageList;
     List<OnScreenMessage> openList;
 
+    [SerializeField] float horizontalScatter = 0.5f;
+    [SerializeField] float verticalScatter = 1f;
+
     private void Awake()
     {
         messageList = new List<OnScreenMessage>();
@@ -46,6 +49,8 @@ public class OnScreenMessageSystem : MonoBehaviour
     public void PostMessage(Vector3 worldPosition, string message)
     {
         worldPosition.z = -1f;
+        worldPosition.x += Random.Range(-horizontalScatter, horizontalScatter);
+        worldPosition.y += Random.Range(-verticalScatter, verticalScatter);
 
         if (openList.Count > 0)
         {
