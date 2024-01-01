@@ -91,5 +91,5 @@ public class PlaceableObjectManager : MonoBehaviour
         VisualizeItem(placeableObject);
         placeableObjects.placeableObjects.Add(placeableObject);
     }
-
+    //
 }

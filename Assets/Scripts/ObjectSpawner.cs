@@ -18,6 +18,9 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] JSONStringList targetSaveJSONList;
     [SerializeField] int idInList = -1;
 
+    //REF FOR PLACEABLE OBJECTS
+    [SerializeField] PlaceableObjectContainer placeableObjectContainer;
+
     private int spawnLength;
 
     private void Start()
@@ -53,6 +56,19 @@ public class ObjectSpawner : MonoBehaviour
             Transform t = go.transform;
             t.SetParent(transform);
 
+            //if (!oneTime)
+            //{
+            //    SpawnedObject spawnedObject = go.AddComponent<SpawnedObject>();
+            //    spawnedObjects?.Add(spawnedObject);
+            //    spawnedObject.objId = id;
+            //}
+
+            Vector3Int position = new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z);
+            position.x += UnityEngine.Random.Range((int)-spawnArea_width, (int)spawnArea_width);
+            position.y += UnityEngine.Random.Range((int)-spawnArea_height, (int)spawnArea_height);
+
+            if (placeableObjectContainer.Get(position) != null) return;
+
             if (!oneTime)
             {
                 SpawnedObject spawnedObject = go.AddComponent<SpawnedObject>();
@@ -60,11 +76,12 @@ public class ObjectSpawner : MonoBehaviour
                 spawnedObject.objId = id;
             }
 
-            Vector3 position = transform.position;
-            position.x += UnityEngine.Random.Range(-spawnArea_width, spawnArea_width);
-            position.y += UnityEngine.Random.Range(-spawnArea_height, spawnArea_height);
-
-            t.position = position;
+            //Debug.Log(placeableObjectContainer.Get(position));
+            //Vector3 position = transform.position;
+            //position.x += UnityEngine.Random.Range(-spawnArea_width, spawnArea_width);
+            //position.y += UnityEngine.Random.Range(-spawnArea_height, spawnArea_height);
+            
+            t.position = position + new Vector3(0.5f, 0.5f, 0f);
         }
     }
     public void SpawnedObjectDestroyed(SpawnedObject spawnedObject)
@@ -89,12 +106,15 @@ public class ObjectSpawner : MonoBehaviour
 
         for (int i = 0; i < spawnedObjects.Count; i++)
         {
-            toSave.spawnedObjectDatas.Add(
+            if (spawnedObjects[i] != null) 
+            {
+                toSave.spawnedObjectDatas.Add(
                 new SpawnedObject.SaveSpawnedObjectData(
                     spawnedObjects[i].objId,
                     spawnedObjects[i].transform.position
                     )
                 );
+            }
         }
 
         return JsonUtility.ToJson( toSave );

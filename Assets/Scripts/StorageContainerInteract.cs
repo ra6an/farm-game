@@ -27,6 +27,7 @@ public class StorageContainerInteract : Interactable, IPersistant
 
     private void Start()
     {
+        chestColor = transform.GetComponent<SpriteRenderer>().color;
         animator = GetComponent<Animator>();
 
         if (itemContainer == null)
@@ -125,6 +126,7 @@ public class StorageContainerInteract : Interactable, IPersistant
             }
         }
 
+        //Debug.Log(chestColor);
         toSave.chestColor = chestColor;
 
         return JsonUtility.ToJson(toSave);

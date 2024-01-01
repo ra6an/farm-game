@@ -17,5 +17,6 @@ public class GameManager : MonoBehaviour
     public DialogueSystem dialogueSystem;
     public ItemList itemsDB;
     public OnScreenMessageSystem messageSystem;
+    public ScreenTint screenTint;
     //public PlaceableObjectsReferenceManager placeableObjects;
 }

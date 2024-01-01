@@ -6459,6 +6459,7 @@ MonoBehaviour:
   dialogueSystem: {fileID: 947699487}
   itemsDB: {fileID: 11400000, guid: 89f544860f5b7f54cab9767d94f7215e, type: 2}
   messageSystem: {fileID: 1373134}
+  screenTint: {fileID: 1288374085}
 --- !u!4 &831734718
 Transform:
   m_ObjectHideFlags: 0
@@ -6563,6 +6564,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   timeScale: 600
   startAtTime: 28800
+  morningTime: 28800
   text: {fileID: 630223126}
   globalLight: {fileID: 2109323531}
 --- !u!114 &831734721
@@ -16306,6 +16308,7 @@ GameObject:
   - component: {fileID: 1924335065}
   - component: {fileID: 1924335066}
   - component: {fileID: 1924335067}
+  - component: {fileID: 1924335068}
   m_Layer: 0
   m_Name: MainCharacter
   m_TagString: Player
@@ -16686,6 +16689,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPointPosition: {x: -25, y: -5, z: 0}
   respawnPointScene: MainScene
+--- !u!114 &1924335068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924335047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b6f5fd2266567448e883e2e450d3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1939675057
 PrefabInstance:
   m_ObjectHideFlags: 0
