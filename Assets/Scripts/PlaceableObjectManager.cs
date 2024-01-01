@@ -40,6 +40,7 @@ public class PlaceableObjectManager : MonoBehaviour
             VisualizeItem(placeableObjects.placeableObjects[i]);
         }
     }
+
     internal void PickUp(Vector3Int gridPosition)
     {
         PlaceableObject placedObject = (PlaceableObject)placeableObjects.Get(gridPosition);
