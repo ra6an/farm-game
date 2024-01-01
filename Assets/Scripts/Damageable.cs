@@ -9,7 +9,7 @@ public class Damageable : MonoBehaviour
     IDamageable damageable;
 
     [SerializeField] Color toColor = new Color(255f, 255f, 255f, 255f);
-    [SerializeField] Color fromColor = new Color(255f, 0f, 0f, 255f);
+    [SerializeField] Color fromColor = new Color(255f, 1f, 1f, 255f);
 
     internal void TakeDamage(int damage)
     {

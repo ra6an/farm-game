@@ -31,7 +31,7 @@ public class Stat
     }
 }
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, IDamageable
 {
     public Stat hp;
     public Stat mana;
@@ -41,6 +41,15 @@ public class Character : MonoBehaviour
 
     public bool isDead;
     public bool noMana;
+
+    DisableControls disableControls;
+    PlayerRespawn playerRespawn;
+
+    private void Awake()
+    {
+        disableControls = GetComponent<DisableControls>();
+        playerRespawn = GetComponent<PlayerRespawn>();
+    }
 
     private void Start()
     {
@@ -55,13 +64,22 @@ public class Character : MonoBehaviour
     // Dmg take
     public void TakeDamage(int amount)
     {
+        if(isDead) return;
+
         hp.Subtract(amount);
         if(hp.currVal <= 0)
         {
-            isDead = true;
+            Dead();
         }
 
         UpdateHpBar();
+    }
+
+    private void Dead()
+    {
+        isDead = true;
+        disableControls.DisableControl();
+        playerRespawn.StartRespawn();
     }
 
     // Heal 
@@ -100,6 +118,13 @@ public class Character : MonoBehaviour
         mana.SetToMax();
     }
 
+    public void FullRest(int amount)
+    {
+        hp.SetToMax();
+        UpdateHpBar();
+        //mana.SetToMax();
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.UpArrow))
@@ -114,5 +139,20 @@ public class Character : MonoBehaviour
         {
             FullHeal();
         }
+    }
+
+    public void CalculateDamage(ref int damage)
+    {
+        
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        TakeDamage((int)damage);
+    }
+
+    public void CheckState()
+    {
+        
     }
 }

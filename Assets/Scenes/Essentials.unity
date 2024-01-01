@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1373135}
   - component: {fileID: 1373134}
+  - component: {fileID: 1373136}
   m_Layer: 0
   m_Name: OnScreenMessageContainer
   m_TagString: Untagged
@@ -171,6 +172,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1373136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87144df1a222ec4c809622a0adb3da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toColor: {r: 255, g: 255, b: 255, a: 255}
+  fromColor: {r: 1, g: 0.003921569, b: 0.003921569, a: 255}
 --- !u!224 &7703457 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 390160748109170515, guid: c48ce77c087f52745a819c3b4a0a088b, type: 3}
@@ -6622,6 +6637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenTint: {fileID: 1288374085}
   cameraConfiner: {fileID: 1415804067}
+  houseConfiner: {fileID: 0}
+  currentScene: 
 --- !u!114 &831734726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11201,7 +11218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 1924335053}
+  m_BoundingShape2D: {fileID: 0}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &1415804067
@@ -16286,6 +16303,9 @@ GameObject:
   - component: {fileID: 1924335062}
   - component: {fileID: 1924335063}
   - component: {fileID: 1924335064}
+  - component: {fileID: 1924335065}
+  - component: {fileID: 1924335066}
+  - component: {fileID: 1924335067}
   m_Layer: 0
   m_Name: MainCharacter
   m_TagString: Player
@@ -16626,6 +16646,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetDistance: 1.2
   attackAreaSize: {x: 1, y: 1}
+--- !u!114 &1924335065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924335047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87144df1a222ec4c809622a0adb3da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toColor: {r: 1, g: 1, b: 1, a: 255}
+  fromColor: {r: 1, g: 0.0047169924, b: 0.0047169924, a: 255}
+--- !u!114 &1924335066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924335047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6bffcb493a74964481a14b55e275ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1924335067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924335047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f213d0b52340043964c81a69426bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPointPosition: {x: -25, y: -5, z: 0}
+  respawnPointScene: MainScene
 --- !u!1001 &1939675057
 PrefabInstance:
   m_ObjectHideFlags: 0

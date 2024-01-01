@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using System;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -15,21 +16,30 @@ public class GameSceneManager : MonoBehaviour
 
     [SerializeField] ScreenTint screenTint;
     [SerializeField] CameraConfiner cameraConfiner;
-    string currentScene;
+    [SerializeField] CameraConfiner houseConfiner;
+    public string currentScene;
     AsyncOperation unload;
     AsyncOperation load;
+
+    bool respawnTransition;
 
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().name;
     }
 
-    public void InitSwitchScene(string to, Vector3 targetPosition)
+    public void InitSwitchScene(string to, Vector3 targetPosition, string sceneName = null)
     {
-        StartCoroutine(Transition(to, targetPosition));
+        //if(cameraConf == null)
+        //{
+            StartCoroutine(Transition(to, targetPosition, sceneName));
+        //} else
+        //{
+        //    StartCoroutine(Transition(to, targetPosition, cameraConf));
+        //}
     }
 
-    IEnumerator Transition(string to, Vector3 targetPosition)
+    IEnumerator Transition(string to, Vector3 targetPosition, string sceneName = null)
     {
         screenTint.Tint();
 
@@ -45,7 +55,21 @@ public class GameSceneManager : MonoBehaviour
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentScene));
 
-        cameraConfiner.UpdateBounds();
+        //if(cameraConf != null)
+        //{
+        //    cameraConf.UpdateBounds();
+        //} else
+        //{
+        //    cameraConfiner.UpdateBounds();
+        //}
+        if(sceneName == null)
+        {
+            cameraConfiner.UpdateBounds(currentScene);
+        } else
+        {
+            cameraConfiner.UpdateBounds(sceneName);
+        }
+        //cameraConfiner.UpdateBounds(currentScene);
         screenTint.Untint();
     }
 
@@ -54,7 +78,11 @@ public class GameSceneManager : MonoBehaviour
         load = SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
         unload = SceneManager.UnloadSceneAsync(currentScene);
         currentScene = to;
+        MoveCharacter(targetPosition);
+    }
 
+    private void MoveCharacter(Vector3 targetPosition)
+    {
         Transform playerTransform = GameManager.instance.player.transform;
 
         CinemachineBrain currentCamera = Camera.main.GetComponent<CinemachineBrain>();
@@ -64,9 +92,29 @@ public class GameSceneManager : MonoBehaviour
             );
 
         playerTransform.position = new Vector3(
-            targetPosition.x, 
-            targetPosition.y, 
+            targetPosition.x,
+            targetPosition.y,
             playerTransform.position.z
             );
+
+        if (respawnTransition)
+        {
+            playerTransform.GetComponent<Character>().FullHeal();
+            playerTransform.GetComponent<DisableControls>().EnableControls();
+            respawnTransition = false;
+        }
+    }
+
+    internal void Respawn(Vector3 respawnPointPosition, string respawnPointScene)
+    {
+        respawnTransition = true;
+
+        if(currentScene != respawnPointScene)
+        {
+            InitSwitchScene(respawnPointScene, respawnPointPosition, "Inside House");
+        } else
+        {
+            MoveCharacter(respawnPointPosition);
+        }
     }
 }

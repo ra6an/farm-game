@@ -9,12 +9,16 @@ public class CameraConfiner : MonoBehaviour
 
     void Start()
     {
-        UpdateBounds();
+        string currScene = GameManager.instance.GetComponent<GameSceneManager>().currentScene;
+        Debug.Log(currScene);
+        if (currScene == null) return;
+        UpdateBounds(currScene);
+        //UpdateBounds(confiner);
     }
 
-    public void UpdateBounds()
+    public void UpdateBounds(string str)
     {
-        GameObject go = GameObject.Find("CameraConfiner");
+        GameObject go = GameObject.Find("CameraConfiner (" + str + ")");
 
         if(go == null)
         {
