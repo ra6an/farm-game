@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b74843dfe144a478475616ab1d779f, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
-  sizeOfInteractableArea: 1
-  canHitNodesOfType: 02000000
+  sizeOfInteractableArea: 0.6
+  canHitNodesOfType: 0200000003000000
   onHitAction: {fileID: 8300000, guid: 7aa22851736ffc64d844f97e0d569ead, type: 3}

@@ -7,6 +7,7 @@ public enum ResourceNodeType
 {
     Undefined,
     Tree,
+    Rock,
     Ore
 }
 
@@ -19,6 +20,7 @@ public class GatherResourceTool : ToolAction
 
     public override bool OnApply(Vector2 worldPoint, int dmg)
     {
+        //Debug.Log("Iz alata");
         Collider2D[] collider = Physics2D.OverlapCircleAll(worldPoint, sizeOfInteractableArea);
 
         foreach (Collider2D c in collider)

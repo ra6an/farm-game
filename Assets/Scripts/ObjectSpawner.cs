@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
 public enum NodeType
 {
     Tree,
-    Rock
+    AppleTree,
+    PeachTree,
+    PearTree,
+    OrangeTree,
+    Rock,
+    MediumRock,
+    SmallRock,
+    BronzeOre,
+    IronOre,
+    GoldOre
 }
 
 public class ObjectSpawner : MonoBehaviour
@@ -33,6 +43,8 @@ public class ObjectSpawner : MonoBehaviour
     public bool canCheck = false;
     public bool canSpawn = false;
 
+    //TODO: 
+    //NASTIMATI KAD BUDE NOVI DAN DA SE SVIM SPAWNERIMA RESETUJE CAN SPAWN KAKO BI O5 MOGLI SPAWNATI NODEOVE!!!
 
     private void Start()
     {

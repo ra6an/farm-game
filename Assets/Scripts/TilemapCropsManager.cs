@@ -3,13 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UIElements;
-using Random = System.Random;
 
 public class TilemapCropsManager : TimeAgent
 {
     [SerializeField] CropsContainer container;
-
     [SerializeField] TileBase watered;
     [SerializeField] TileBase plowed;
     [SerializeField] TileBase seeded;
@@ -47,13 +44,24 @@ public class TilemapCropsManager : TimeAgent
     {
         if (targetTilemap == null) return;
 
+        List<CropTile> tilesToRemove = new();
+
         foreach (CropTile cropTile in container.crops)
         {
-            if(cropTile.crop == null ) continue;
+            if (!cropTile.watered)
+            {
+                cropTile.damage += 0.01f;
+            }
 
-            cropTile.damage += 0.02f;
+            if (cropTile.crop == null && cropTile.damage > 0.4f)
+            {
+                tilesToRemove.Add(cropTile);
+                continue;
+            }
 
-            if (cropTile.damage > 1)
+            if (cropTile.crop == null ) continue;
+
+            if (cropTile.damage > 1 && cropTile.crop != null)
             {
                 cropTile.Harvested();
                 targetTilemap.SetTile(cropTile.position, plowed);
@@ -68,13 +76,23 @@ public class TilemapCropsManager : TimeAgent
 
             cropTile.growTimer += 1;
 
-            if(cropTile.growTimer >= cropTile.crop.growthStageTime[cropTile.growStage])
+            if (cropTile.growTimer >= cropTile.crop.growthStageTime[cropTile.growStage])
             {
-                cropTile.renderer.gameObject.SetActive(true);
                 cropTile.renderer.sprite = cropTile.crop.sprites[cropTile.growStage];
+                cropTile.renderer.gameObject.SetActive(true);
+                
 
-                cropTile.growStage += 1;
+                if (cropTile.growStage + 1 < cropTile.crop.growthStageTime.Count)
+                {
+                    cropTile.growStage += 1;
+                }
             }
+        }
+
+        foreach (CropTile tile in tilesToRemove)
+        {
+            targetTilemap.SetTile(tile.position, null);
+            container.crops.Remove(tile);
         }
     }
     internal bool Check(Vector3Int position)
@@ -121,6 +139,7 @@ public class TilemapCropsManager : TimeAgent
 
         if(tile != null)
         {
+            tile.damage = 0;
             tile.watered = true;
             seedsTilemap.SetTile(position, watered);
         }
@@ -154,13 +173,12 @@ public class TilemapCropsManager : TimeAgent
 
         bool growing = cropTile.crop != null && cropTile.growStage >= cropTile.crop.growthStageTime[0];
 
-        cropTile.renderer.gameObject.SetActive(growing);
-
-        if(growing)
+        if (growing)
         {
-            //cropTile.renderer.sprite = cropTile.crop.sprites[cropTile.growStage - 1];
             cropTile.renderer.sprite = cropTile.crop.sprites[cropTile.growStage];
         }
+
+        cropTile.renderer.gameObject.SetActive(growing);
     }
 
     private void CreatePlowedTile(Vector3Int position)
@@ -177,20 +195,17 @@ public class TilemapCropsManager : TimeAgent
 
     internal void PickUp(Vector3Int gridPosition)
     {
-        Vector2Int position = (Vector2Int)gridPosition;
+        //Vector2Int position = (Vector2Int)gridPosition;
         CropTile tile = container.Get(gridPosition);
         if (tile == null) return;
 
         if (tile.Complete)
         {
             ItemSpawnManager.instance.SpawnItem(
-                //targetTilemap.CellToWorld(gridPosition),
                 targetTilemap.CellToWorld(gridPosition) + new Vector3(0.5f,0.5f,0),
                 tile.crop.yield,
                 tile.crop.count
                 );
-
-            //seedsTilemap
 
             tile.Harvested();
 

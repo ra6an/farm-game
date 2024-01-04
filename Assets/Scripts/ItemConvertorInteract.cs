@@ -9,23 +9,22 @@ public class ItemConvertorData
 {
     public ItemSlot itemSlot;
     public int timer;
+    public ItemSlot outputItem;
 
     public ItemConvertorData()
     {
         itemSlot = new ItemSlot();
+        outputItem = new ItemSlot();
     }
 }
 
 [RequireComponent(typeof(TimeAgent))]
 public class ItemConvertorInteract : Interactable, IPersistant
 {
-    [SerializeField] Item convertableItem;
-    [SerializeField] Item producedItem;
-    [SerializeField] int producedItemCount = 1;
+    [SerializeField] List<ConvertableItem> convertableItems;
 
     Animator animator;
 
-    [SerializeField] int timeToProcess = 5;
     ItemConvertorData data;
 
     private void Start()
@@ -57,67 +56,57 @@ public class ItemConvertorInteract : Interactable, IPersistant
         }
     }
 
+    private void CompleteItemConversion()
+    {
+        Animate();
+    }
+
     public override void Interact(Character character)
     {
         if(data.itemSlot.item == null)
         {
-            if (GameManager.instance.dragAndDropController.Check(convertableItem))
-            {
-                StartItemProcessing(GameManager.instance.dragAndDropController.itemSlot);
-                return;
-            }
+            ItemSlot toolbarSlot = character.GetComponent<ToolbarController>().GetItemSlot;
+            ConvertableItem recipe = convertableItems.Find(x => x.input.item == toolbarSlot.item);
 
-            ToolbarController toolbarController = character.GetComponent<ToolbarController>();
-            if(toolbarController == null) { return; }
-
-            ItemSlot itemSlot = toolbarController.GetItemSlot;
-            if(itemSlot.item == convertableItem)
+            if(recipe != null)
             {
-                StartItemProcessing(itemSlot);
+                StartItemProcessing(toolbarSlot, recipe);
                 return;
             }
         } 
 
         if(data.itemSlot.item != null && data.timer <= 0)
         {
-            GameManager.instance.inventoryContainer.Add(data.itemSlot.item, data.itemSlot.quantity);
+            GameManager.instance.inventoryContainer.Add(data.outputItem.item, data.outputItem.quantity);
             data.itemSlot.Clear();
+            data.outputItem.Clear();
         }
     }
 
-    private void StartItemProcessing(ItemSlot toProcess)
+    private void StartItemProcessing(ItemSlot toProcess, ConvertableItem recipe)
     {
-        data.itemSlot.Copy(GameManager.instance.dragAndDropController.itemSlot);
-        data.itemSlot.quantity = 1;
-        
-        if(toProcess.item.stackable)
-        {
-            toProcess.quantity -= 1;
+        Debug.Log(recipe.output.item.name);
+        data.itemSlot.Copy(toProcess);
+        data.itemSlot.quantity = recipe.input.quantity;
+        data.timer = recipe.timeToConvert;
+        data.outputItem.item = recipe.output.item;
+        data.outputItem.quantity = recipe.output.quantity;
 
-            if(toProcess.quantity < 0)
-            {
-                toProcess.Clear();
-            }
+        if (toProcess.item.stackable)
+        {
+            GameManager.instance.inventoryContainer.Remove(recipe.input.item, recipe.input.quantity);
         }
         else
         {
-            toProcess.Clear();
+            GameManager.instance.inventoryContainer.Remove(recipe.input.item);
         }
 
-        data.timer = timeToProcess;
         Animate();
     }
 
     private void Animate()
     {
         animator.SetBool("Working", data.timer > 0);
-    }
-
-    private void CompleteItemConversion()
-    {
-        Animate();
-        data.itemSlot.Clear();
-        data.itemSlot.Set(producedItem, producedItemCount);
     }
 
     public string Read()

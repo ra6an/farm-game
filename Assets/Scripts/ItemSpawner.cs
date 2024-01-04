@@ -26,11 +26,11 @@ public class ItemSpawner : MonoBehaviour
     {
         if (Random.value < probability)
         {
-        Vector3 position = transform.position;
-        position.x += spread * Random.value - spread / 2;
-        position.y += spread * Random.value - spread / 2;
+            Vector3 position = transform.position;
+            position.x += spread * Random.value - spread / 2;
+            position.y += spread * Random.value - spread / 2;
 
-        ItemSpawnManager.instance.SpawnItem(position, toSpawn, count);
+            ItemSpawnManager.instance.SpawnItem(position, toSpawn, count);
         }
     }
 }

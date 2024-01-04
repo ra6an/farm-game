@@ -49,6 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b55dba21bf94a45a51c50b3f3a7c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  convertableItems:
+  - {fileID: 11400000, guid: f2592f958a04623469683a467f1aa583, type: 2}
+  - {fileID: 11400000, guid: ec19a81c2d01df643880e31570f57247, type: 2}
+  - {fileID: 11400000, guid: f24340a4cd1ec81419e57e2fa089d621, type: 2}
   convertableItem: {fileID: 11400000, guid: f7e84031c1732a84d9d05d2cc3157af0, type: 2}
   producedItem: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
   producedItemCount: 1

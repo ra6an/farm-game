@@ -97,8 +97,8 @@ public class ItemDragAndDropController : MonoBehaviour
             itemIconImage.sprite = itemSlot.item.icon;
         }
     }
-
-    internal void RemoveItem(int count = 1)
+    //
+    public void RemoveItem(int count = 1)
     {
         if (itemSlot == null) return;
 

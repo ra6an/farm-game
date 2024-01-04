@@ -10,10 +10,9 @@ public class CameraConfiner : MonoBehaviour
     void Start()
     {
         string currScene = GameManager.instance.GetComponent<GameSceneManager>().currentScene;
-        Debug.Log(currScene);
+        
         if (currScene == null) return;
         UpdateBounds(currScene);
-        //UpdateBounds(confiner);
     }
 
     public void UpdateBounds(string str)

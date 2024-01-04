@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5036104488726337074}
   m_Layer: 0
   m_Name: ObjectSpawnerOne
-  m_TagString: Untagged
+  m_TagString: NodeSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,9 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea_height: 0.2
   spawnArea_width: 0.2
-  spawn:
-  - {fileID: 2038475091026364020, guid: cac2f5295f60c04478cc0b8a9aca12eb, type: 3}
-  - {fileID: 7156887053224399117, guid: 2dd86e1a2eb4ed54e9644974e61ee209, type: 3}
+  spawn: 0000000000000000
   probability: 1
   spawnCount: 1
+  objectSpawnLimit: -1
   oneTime: 1
+  placeableObjectContainer: {fileID: 0}
+  spawnedNodeContainer: {fileID: 0}
+  canCheck: 0
+  canSpawn: 0

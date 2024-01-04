@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8212405812534650836}
   m_Layer: 0
   m_Name: ObjectSpawner
-  m_TagString: Untagged
+  m_TagString: NodeSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,13 +60,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea_height: 3
   spawnArea_width: 3
-  spawn: 
+  spawn: 00000000
   probability: 0.1
   spawnCount: 3
   objectSpawnLimit: -1
   oneTime: 0
   placeableObjectContainer: {fileID: 0}
   spawnedNodeContainer: {fileID: 0}
+  canCheck: 0
+  canSpawn: 0
 --- !u!61 &-8212405812534650836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74,7 +76,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6590226709675939625}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

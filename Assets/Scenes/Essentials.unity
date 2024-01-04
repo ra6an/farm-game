@@ -16492,7 +16492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4855162a8ae08c41984b3599884d311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetDistance: 1
+  offsetDistance: 0.6
   markerManager: {fileID: 2108706571}
   tileMapReadController: {fileID: 831734723}
   maxDistance: 1.5

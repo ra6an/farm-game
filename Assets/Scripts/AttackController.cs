@@ -24,7 +24,7 @@ public class AttackController : MonoBehaviour
         {
             Damageable damageable = col.GetComponent<Damageable>();
 
-            if (damageable != null) 
+            if (damageable != null && col.tag != "Player") 
             {
                 damageable.TakeDamage(damage);
             }

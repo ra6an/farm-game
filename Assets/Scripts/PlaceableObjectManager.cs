@@ -23,6 +23,7 @@ public class PlaceableObjectManager : MonoBehaviour
             if (placeableObjects.placeableObjects[i].targetObject == null) { continue; }
 
             IPersistant persistant = placeableObjects.placeableObjects[i].targetObject.GetComponent<IPersistant>();
+            //Debug.Log(persistant);
             if(persistant != null)
             {
                 string jsonString = persistant.Read();
@@ -60,7 +61,7 @@ public class PlaceableObjectManager : MonoBehaviour
 
         placeableObjects.Remove(placedObject);
     }
-
+    //
     private void VisualizeItem(PlaceableObject placeableObject)
     {
         GameObject go = Instantiate(placeableObject.placedItem.itemPrefab);

@@ -13,47 +13,67 @@ MonoBehaviour:
   m_Name: MainSceneSpawnedNodeContainer
   m_EditorClassIdentifier: 
   spawnedNodes:
-  - node: 0
+  - node: 7
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -2, y: 8, z: 0}
+    positionOnGrid: {x: -6, y: 0, z: 0}
     objectState: 
-  - node: 1
+  - node: 8
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -6, y: 7, z: 0}
+    positionOnGrid: {x: 3, y: 7, z: 0}
     objectState: 
-  - node: 1
+  - node: 10
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -7, y: 5, z: 0}
+    positionOnGrid: {x: 3, y: 6, z: 0}
     objectState: 
-  - node: 1
+  - node: 6
     targetObject: {fileID: 0}
-    positionOnGrid: {x: 0, y: 6, z: 0}
+    positionOnGrid: {x: 3, y: -5, z: 0}
     objectState: 
-  - node: 1
+  - node: 7
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -3, y: 8, z: 0}
+    positionOnGrid: {x: -5, y: 0, z: 0}
     objectState: 
-  - node: 1
+  - node: 8
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -4, y: 6, z: 0}
+    positionOnGrid: {x: -3, y: 5, z: 0}
     objectState: 
-  - node: 0
+  - node: 6
     targetObject: {fileID: 0}
-    positionOnGrid: {x: 3, y: 8, z: 0}
+    positionOnGrid: {x: 3, y: -4, z: 0}
     objectState: 
-  - node: 1
+  - node: 7
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -2, y: 7, z: 0}
+    positionOnGrid: {x: -5, y: 2, z: 0}
     objectState: 
-  - node: 0
+  - node: 10
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -1, y: 6, z: 0}
+    positionOnGrid: {x: -7, y: 6, z: 0}
     objectState: 
-  - node: 0
+  - node: 10
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -6, y: 6, z: 0}
+    positionOnGrid: {x: -5, y: 6, z: 0}
     objectState: 
-  - node: 1
+  - node: 9
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -3, y: 6, z: 0}
+    positionOnGrid: {x: -6, y: 8, z: 0}
+    objectState: 
+  - node: 8
+    targetObject: {fileID: 0}
+    positionOnGrid: {x: 4, y: 7, z: 0}
+    objectState: 
+  - node: 8
+    targetObject: {fileID: 0}
+    positionOnGrid: {x: -6, y: 5, z: 0}
+    objectState: 
+  - node: 7
+    targetObject: {fileID: 0}
+    positionOnGrid: {x: -4, y: 0, z: 0}
+    objectState: 
+  - node: 8
+    targetObject: {fileID: 0}
+    positionOnGrid: {x: 2, y: 8, z: 0}
+    objectState: 
+  - node: 9
+    targetObject: {fileID: 0}
+    positionOnGrid: {x: -7, y: 7, z: 0}
     objectState: 

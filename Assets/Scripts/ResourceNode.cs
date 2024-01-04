@@ -5,37 +5,77 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ResourceNode : ToolHit
 {
+    [SerializeField] ResourceNodeType nodeType;
     [SerializeField] int health = 20;
     [SerializeField] GameObject pickUpDrop;
+    [Header("Main item to drop")]
+    [SerializeField] Item item;
     [SerializeField] int dropCount;
     [SerializeField] int itemCountInOneDrop;
+    [SerializeField] float dropProbability = 1.0f;
+    [Header("Second item to drop")]
+    [SerializeField] Item secondItem;
+    [SerializeField] int secondDropCount;
+    [SerializeField] int secondItemCountInOneDrop;
+    [SerializeField] float secondDropProbability = 1.0f;
+    [Header("Drop spread")]
     [SerializeField] float spread = 0.7f;
-    [SerializeField] Item item;
-    [SerializeField] ResourceNodeType nodeType;
 
     private void Awake()
     {
-        dropCount = Random.Range(3, 5);
+        dropCount = dropCount == 0 ? Random.Range(3, 5) : dropCount;
         transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y + 0.5f, transform.position.z);
     }
     public override void Hit(int dmg)
     {
         health -= dmg;
-        if (health <= 0)
+
+        if (health > 0) return;
+
+        DropItem(dropCount, item, dropProbability, itemCountInOneDrop);
+
+        if (secondItem != null)
         {
-            while (dropCount > 0)
-            {
-                itemCountInOneDrop = Random.Range(1, 3);
-                dropCount -= 1;
+            DropItem(secondDropCount, secondItem, secondDropProbability, secondItemCountInOneDrop);
+        }
 
-                Vector3 position = transform.position;
-                position.x += spread * Random.value - spread / 2;
-                position.y += spread * Random.value - spread / 2;
+        Vector3Int positionOnGrid = new Vector3Int((int)(transform.position.x - 0.5f), (int)(transform.position.y - 0.5f), (int)transform.position.z);
 
-                ItemSpawnManager.instance.SpawnItem(position, item, itemCountInOneDrop);
-            }
+        transform.parent.GetComponent<SpawnedNodesManager>().DestroyNode(positionOnGrid);
+    }
 
-            Destroy(gameObject);
+    public void ChangeHealth(int hp)
+    {
+        health = hp;
+    }
+
+    private void DropItem(int dropCnt, Item i, float probability, int itemCountInDrop = 0)
+    {
+        int drops;
+        drops = dropCnt;
+
+        if (gameObject.CompareTag("Tree") && i.name == "Wood")
+        {
+            int currGrowth = transform.GetComponent<TreeController>().data.currGrowthStage;
+            if (currGrowth == 0) drops = 0;
+            if (currGrowth == 1) drops = 1;
+            if (currGrowth == 2) drops = 2;
+        }
+         
+        while (drops > 0)
+        {
+            drops -= 1;
+            float randomProbabilityNumber = Random.Range(0f, 1f);
+
+            if (randomProbabilityNumber > probability) { continue; }
+
+            itemCountInOneDrop = itemCountInDrop == 0 ? Random.Range(1, 3) : itemCountInDrop;
+
+            Vector3 position = transform.position;
+            position.x += spread * Random.value - spread / 2;
+            position.y += spread * Random.value - spread / 2;
+
+            ItemSpawnManager.instance.SpawnItem(position, i, itemCountInOneDrop);
         }
     }
 
@@ -46,7 +86,6 @@ public class ResourceNode : ToolHit
 
     public override bool CanBeHit(List<ResourceNodeType> canBeHit)
     {
-        //Debug.Log(canBeHit.Contains(nodeType));
         return canBeHit.Contains(nodeType);
     }
 }

@@ -16,13 +16,46 @@ public class SpawnedNodesManager : MonoBehaviour
         GameManager.instance.GetComponent<SpawnedNodesReferenceManager>().spawnedNodesManager = this;
         VisualizeMap();
 
-        //LATER CHANGE TO FIND OBJECT THAT HOLDS ALL OBJECTSPAWNERS AND LOOP THROUGH ALL OF THEM AND SET CAN CHECK TO TRUE!!!
-        GameObject go = GameObject.Find("ObjectSpawner");
+        GameObject go = GameObject.Find("NodeSpawners");
+
         if(go != null)
         {
-            go.GetComponent<ObjectSpawner>().canCheck = true;
+            ObjectSpawner[] childs = go.GetComponentsInChildren<ObjectSpawner>();
+            
+            foreach(ObjectSpawner c in childs) 
+            {
+                c.canCheck = true;
+            }
         }
         
+    }
+
+    public void DestroyNode(Vector3Int position)
+    {
+        SpawnedNode spawnedNode = (SpawnedNode)spawnedNodes.Get(position);
+
+        if (spawnedNode == null) return;
+
+        Destroy(spawnedNode.targetObject.gameObject);
+        spawnedNodes.Remove(spawnedNode);
+    }
+
+    private void OnDestroy()
+    {
+        for (int i = 0; i < spawnedNodes.spawnedNodes.Count; i++)
+        {
+            if (spawnedNodes.spawnedNodes[i].targetObject == null) { continue; }
+
+            IPersistant persistant = spawnedNodes.spawnedNodes[i].targetObject.GetComponent<IPersistant>();
+            //Debug.Log(persistant);
+            if (persistant != null)
+            {
+                string jsonString = persistant.Read();
+                spawnedNodes.spawnedNodes[i].objectState = jsonString;
+            }
+
+            spawnedNodes.spawnedNodes[i].targetObject = null;
+        }
     }
 
     public void VisualizeMap()
@@ -35,7 +68,6 @@ public class SpawnedNodesManager : MonoBehaviour
 
     private void VisualizeNode(SpawnedNode node)
     {
-        //GameObject go = Instantiate(node.spawnedObject);
         GameObject go = null;
 
         foreach(GameObject n in nodes)
@@ -55,12 +87,13 @@ public class SpawnedNodesManager : MonoBehaviour
         go.transform.position = position;
 
         IPersistant persistant = go.GetComponent<IPersistant>();
-        if( persistant != null )
+        //Debug.Log(persistant);
+        if (persistant != null)
         {
             persistant.Load(node.objectState);
         }
 
-        //node.spawnedObject = go;
+        node.targetObject = go.transform;
     }
 
     public bool Check(Vector3Int position)
