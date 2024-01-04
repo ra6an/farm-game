@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
+  m_Name: WorkingBench
+  m_EditorClassIdentifier: 
+  id: 29
+  name: Working Bench
+  stackable: 0
+  icon: {fileID: 21300000, guid: f26b76fa8814f7c4d8b98135d6909121, type: 3}
+  onAction: {fileID: 0}
+  onTileMapAction: {fileID: 11400000, guid: 69a2c3100003318469387ea51af3f046, type: 2}
+  onItemUsed: {fileID: 11400000, guid: 69a2c3100003318469387ea51af3f046, type: 2}
+  ToolDmg: 0
+  iconHighlight: 1
+  itemPrefab: {fileID: 5660126322666858010, guid: cfaffe4a160622d4b9e1deb513e4eb10, type: 3}
+  isWeapon: 0
+  damage: 10
+  crop: {fileID: 0}
+  isLarge: 1
+  width: 2
+  height: 1
+  YReducer: 1.5
+  XReducer: 1.5
+  numberOfBounces: 3
+  velocity: 10
+  horizontalForce: 2
+  gravity: -30
+  collectorTag: Player
+  pickUpType: 2
+  shadow: 1
+  destroyTime: 0
+  colliderTags: []

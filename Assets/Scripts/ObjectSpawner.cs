@@ -101,11 +101,15 @@ public class ObjectSpawner : MonoBehaviour
         {
             if (objectSpawnLimit == spawnedNodes) return;
 
-            Vector3Int position = new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z);
+            Vector3Int position;
+
+            //if()
+
+            position = new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z);
             position.x += UnityEngine.Random.Range((int)-spawnArea_width, (int)spawnArea_width);
             position.y += UnityEngine.Random.Range((int)-spawnArea_height, (int)spawnArea_height);
 
-            if (placeableObjectContainer.Get(position) != null) return;
+            //if (placeableObjectContainer.Get(position) != null) return;
             if (spawnedNodeContainer.Get(position) != null) return;
 
             int id = Random.Range(0, spawnLength);

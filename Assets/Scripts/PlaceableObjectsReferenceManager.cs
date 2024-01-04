@@ -9,7 +9,7 @@ public class PlaceableObjectsReferenceManager : MonoBehaviour
 {
     public PlaceableObjectManager placeableObjectManager;
 
-    public void Place(Item item, Vector3Int position)
+    public void Place(Item item, List<Vector3Int> position)
     {
         if(placeableObjectManager == null)
         {
@@ -20,7 +20,7 @@ public class PlaceableObjectsReferenceManager : MonoBehaviour
         placeableObjectManager.Place(item, position);
     }
 
-    public bool Check(Vector3Int position)
+    public bool Check(List<Vector3Int> position)
     {
         if (placeableObjectManager == null)
         {

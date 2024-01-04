@@ -84,7 +84,7 @@ public class ToolsCharacterController : MonoBehaviour
         markerManager.Show(selectable);
         iconHighlight.CanSelect = selectable;
     }
-
+    //
     private void Marker()
     {
         markerManager.markedCellPosition = selectedTilePosition;

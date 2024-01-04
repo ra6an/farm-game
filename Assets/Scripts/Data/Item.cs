@@ -25,6 +25,11 @@ public class Item : ScriptableObject
     //CROP REF
     public Crop crop;
 
+    //IF ITS PLACEABLE SHOWS IF NEEDS SINGLE TILE OR MULTIPLE
+    public bool isLarge = false;
+    public int width = 1;
+    public int height = 1;
+
     //BOUNCING EFF DATA
     [Tooltip("XReducer will slow down horizontal axis ( left right top bottom movement )")]
     [Range(1f, 2.5f)]
