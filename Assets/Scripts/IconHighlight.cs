@@ -30,7 +30,7 @@ public class IconHighlight : MonoBehaviour
     {
         set
         {
-            show = value; 
+            show = value;
             gameObject.SetActive(canSelect && show);
         }
     }
@@ -43,7 +43,7 @@ public class IconHighlight : MonoBehaviour
     private void Update()
     {
         targetPosition = targetTilemap.CellToWorld(cellPosition);
-        transform.position = targetPosition + targetTilemap.cellSize / 2;
+        transform.position = targetPosition + new Vector3((float)itemWidth/2, (float)itemHeight/2, 0);
     }
 
     internal void Set(Sprite icon)
