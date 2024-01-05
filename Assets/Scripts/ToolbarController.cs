@@ -112,6 +112,8 @@ public class ToolbarController : MonoBehaviour
         if(item == null)
         {
             iconHighlight.Show = false;
+            iconHighlight.itemWidth = 1;
+            iconHighlight.itemHeight = 1;
             return;
         }
 
@@ -119,6 +121,8 @@ public class ToolbarController : MonoBehaviour
         if (item.iconHighlight)
         {
             iconHighlight.Set(item.icon);
+            iconHighlight.itemWidth = item.width;
+            iconHighlight.itemHeight = item.height;
         }
     }
 }

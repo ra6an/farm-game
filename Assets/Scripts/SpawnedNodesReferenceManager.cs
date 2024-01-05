@@ -6,7 +6,7 @@ public class SpawnedNodesReferenceManager : MonoBehaviour
 {
     public SpawnedNodesManager spawnedNodesManager;
 
-    public void Place(NodeType nodeName, Vector3Int position)
+    public void Place(NodeType nodeName, List<Vector3Int> position)
     {
         if(spawnedNodesManager == null)
         {
@@ -16,7 +16,7 @@ public class SpawnedNodesReferenceManager : MonoBehaviour
         spawnedNodesManager.Spawn(nodeName, position);
     }
 
-    public bool Check(Vector3Int position)
+    public bool Check(List<Vector3Int> position)
     {
         if (spawnedNodesManager == null)
         {

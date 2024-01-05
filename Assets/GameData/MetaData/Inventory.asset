@@ -25,24 +25,24 @@ MonoBehaviour:
     quantity: 0
   - item: {fileID: 11400000, guid: f7e84031c1732a84d9d05d2cc3157af0, type: 2}
     quantity: 70
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 701e0dce776ed4948b0e535359fac70d, type: 2}
     quantity: 0
   - item: {fileID: 0}
     quantity: 0
-  - item: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
-    quantity: 22
+  - item: {fileID: 0}
+    quantity: 0
   - item: {fileID: 11400000, guid: 69e4c632b6e0c1c4d9eed578c994d657, type: 2}
     quantity: 31
   - item: {fileID: 11400000, guid: 4dad4ffb835273042abf79436a57326a, type: 2}
     quantity: 44
   - item: {fileID: 11400000, guid: ef6fcc0e01028c2448a225b11c79a56e, type: 2}
     quantity: 8
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 48fbc51199632474db262e02f48d4808, type: 2}
     quantity: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 25188484fc35366428c885a0fffb835e, type: 2}
     quantity: 0
-  - item: {fileID: 11400000, guid: 839c6fef82c229247b24cb0fb1ac0763, type: 2}
-    quantity: 1
+  - item: {fileID: 11400000, guid: 781addc12a994234f9b8f27f5e1e28af, type: 2}
+    quantity: 0
   - item: {fileID: 11400000, guid: ae2fa23126d5287478937d960bb23008, type: 2}
     quantity: 29
   - item: {fileID: 11400000, guid: 124944a8a84a2af4db3781477537221d, type: 2}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80a562b89fccbda40881c323b9ab977d
+guid: cd9b2d2a86065264c847ac8e28de29a8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Piknik blanket_0
+      name: testBlanket3x2
       rect:
         serializedVersion: 2
-        x: 3
-        y: 8
-        width: 41
-        height: 31
+        x: 0
+        y: 18
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a27127c819b4b794ea652b04073b1477
-      internalID: 209540373
+      spriteID: d90d39160562e60478c247bc3b60aa4b
+      internalID: 203993433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: testBlanket_3x3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd3d6a1c004b3245a11f36e6f8fdcf8
+      internalID: -1560016961
       vertices: []
       indices: 
       edges: []
@@ -147,7 +168,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Piknik blanket_0: 209540373
+      testBlanket_8: -1873219497
+      testBlanket_14: -696311956
+      testBlanket_2: 1287814846
+      testBlanket_4: -949818900
+      testBlanket_13: 1402694618
+      testBlanket_6: -2021464687
+      testBlanket_1: -1360082527
+      testBlanket_12: 270434536
+      testBlanket3x2: 203993433
+      testBlanket_11: 1714957731
+      testBlanket_5: 1183178091
+      testBlanket_3x3: -1560016961
+      testBlanket_9: -1502204015
+      testBlanket_10: 560076858
+      testBlanket_7: -246826384
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -83,8 +83,37 @@ public class ToolsCharacterController : MonoBehaviour
         selectable = Vector2.Distance(characterPosition, cameraPosition) < maxDistance;
         markerManager.Show(selectable);
         iconHighlight.CanSelect = selectable;
+
+        //TEST MOJ KOD
+        if(selectable)
+        {
+            List<Vector3Int> listPositions = CreateListOfPositions(selectedTilePosition, iconHighlight.itemWidth, iconHighlight.itemHeight);
+
+            bool isOcupied = GameManager.instance.GetComponent<PlaceableObjectsReferenceManager>().Check(listPositions);
+            iconHighlight.SetColor(!isOcupied);
+        }
     }
-    //
+
+    private List<Vector3Int> CreateListOfPositions(Vector3Int startPosition, int width, int height)
+    {
+        List<Vector3Int> list = new List<Vector3Int>();
+
+
+        int heightHelper = 0;
+
+        while (heightHelper < height)
+        {
+            for (int i = 0; i < width; i++)
+            {
+                Vector3Int position = new Vector3Int(startPosition.x + i, startPosition.y + heightHelper, startPosition.z);
+                list.Add(position);
+            }
+
+            heightHelper++;
+        }
+        return list;
+    }
+
     private void Marker()
     {
         markerManager.markedCellPosition = selectedTilePosition;

@@ -6,8 +6,12 @@ using UnityEngine.Tilemaps;
 
 public class IconHighlight : MonoBehaviour
 {
+    public int itemWidth;
+    public int itemHeight;
     public Vector3Int cellPosition;
     public Vector3 targetPosition;
+    public Color valid;
+    public Color invalid;
     [SerializeField] Tilemap targetTilemap;
     SpriteRenderer spriteRenderer;
 
@@ -31,6 +35,11 @@ public class IconHighlight : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
         targetPosition = targetTilemap.CellToWorld(cellPosition);
@@ -45,5 +54,15 @@ public class IconHighlight : MonoBehaviour
         }
 
         spriteRenderer.sprite = icon;
+    }
+
+    public void SetColor(bool check)
+    {
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        spriteRenderer.color = check ? valid : invalid;
     }
 }

@@ -4043,8 +4043,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5d963c3efee5a44bfb352f34342b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemWidth: 0
+  itemHeight: 0
   cellPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
+  valid: {r: 0.62352943, g: 0.90588236, b: 0.4745098, a: 0.26666668}
+  invalid: {r: 0.9245283, g: 0.24857599, b: 0.24857599, a: 0.26666668}
   targetTilemap: {fileID: 2108706573}
 --- !u!1001 &595485386
 PrefabInstance:

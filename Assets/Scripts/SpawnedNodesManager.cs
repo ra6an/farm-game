@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class SpawnedNodesManager : MonoBehaviour
 {
     [SerializeField] SpawnedNodeContainer spawnedNodes;
     [SerializeField] Tilemap targetTilemap;
+    [SerializeField] List<NodesData> nodesData;
 
-    [SerializeField] GameObject[] nodes;
+    [SerializeField] public GameObject[] nodes;
 
     private void Start()
     {
@@ -32,7 +34,9 @@ public class SpawnedNodesManager : MonoBehaviour
 
     public void DestroyNode(Vector3Int position)
     {
-        SpawnedNode spawnedNode = (SpawnedNode)spawnedNodes.Get(position);
+        List<Vector3Int> listPosition = new List<Vector3Int>();
+        listPosition.Add(position);
+        SpawnedNode spawnedNode = (SpawnedNode)spawnedNodes.Get(listPosition);
 
         if (spawnedNode == null) return;
 
@@ -69,6 +73,7 @@ public class SpawnedNodesManager : MonoBehaviour
     private void VisualizeNode(SpawnedNode node)
     {
         GameObject go = null;
+        NodesData nd = ScriptableObject.CreateInstance<NodesData>();
 
         foreach(GameObject n in nodes)
         {
@@ -78,16 +83,72 @@ public class SpawnedNodesManager : MonoBehaviour
             }
         }
 
+        foreach(NodesData n in nodesData)
+        {
+            if(n.nodeName == node.node.ToString())
+            {
+                nd.nodeName = n.nodeName;
+                nd.height = n.height;
+                nd.width = n.width;
+            }
+        }
+
         if (go == null) return;
+        //Debug.Log(node.targetObject.name);
 
         go.transform.parent = transform;
+        //DOVDE UDURE
+        int posOnGridX = node.positionOnGrid[0].x;
+        int posOnGridY = node.positionOnGrid[0].y;
+        int itemWidth = nd.width;
+        int itemHeight = nd.height;
+        float xPosition = 0f;
+        float yPosition = 0f;
+        float xAddition = 0f;
+        float yAddition = 0f;
 
-        Vector3 position = targetTilemap.CellToWorld(node.positionOnGrid) + targetTilemap.cellSize / 2;
+        if (itemWidth == 1)
+        {
+            xPosition = posOnGridX;
+            xAddition = 0.5f;
+        }
+        else if (itemWidth > 1 && itemWidth % 2 != 0)
+        {
+            xPosition = posOnGridX + ((float)itemWidth / 2 + 0.5f);
+            xAddition = -0.5f;
+        }
+        else if (itemWidth > 1 && itemWidth % 2 == 0)
+        {
+            xPosition = (posOnGridX + (float)itemWidth / 2);
+            xAddition = 0f;
+        }
+
+        if (itemHeight == 1)
+        {
+            yPosition = posOnGridY;
+            yAddition = 0.5f;
+        }
+        else if (itemHeight > 1 && itemHeight % 2 != 0)
+        {
+            yPosition = posOnGridY + ((float)itemHeight / 2 + 0.5f);
+            yAddition = -0.5f;
+        }
+        else if (itemHeight > 1 && itemHeight % 2 == 0)
+        {
+            yPosition = (posOnGridY + (float)itemHeight / 2);
+            yAddition = 0f;
+        }
+
+        Vector3Int posForWorld = new Vector3Int(
+            (int)xPosition, (int)yPosition, node.positionOnGrid[0].z
+            );
+
+        Vector3 position = targetTilemap.CellToWorld(posForWorld) + new Vector3(xAddition, yAddition, 0);
         position -= Vector3.forward * 0.1f;
         go.transform.position = position;
 
         IPersistant persistant = go.GetComponent<IPersistant>();
-        //Debug.Log(persistant);
+        
         if (persistant != null)
         {
             persistant.Load(node.objectState);
@@ -96,16 +157,15 @@ public class SpawnedNodesManager : MonoBehaviour
         node.targetObject = go.transform;
     }
 
-    public bool Check(Vector3Int position)
+    public bool Check(List<Vector3Int> position)
     {
         return spawnedNodes.Get(position) != null;
     }
 
-    public void Spawn(NodeType nodeName, Vector3Int position)
+    public void Spawn(NodeType nodeName, List<Vector3Int> position)
     {
         if (Check(position)) return;
 
-        //GameObject node;
         if (nodes.Length <= 0) return;
 
         foreach(GameObject n in nodes)
@@ -116,13 +176,7 @@ public class SpawnedNodesManager : MonoBehaviour
 
                 VisualizeNode(spawnedNode);
                 spawnedNodes.spawnedNodes.Add(spawnedNode);
-                //node = Instantiate(n.gameObject);
             }
         }
-
-        //SpawnedNode spawnedNode = new SpawnedNode(nodeName, position);
-
-        //VisualizeNode(spawnedNode);
-        //spawnedNodes.spawnedNodes.Add(spawnedNode);
     }
 }

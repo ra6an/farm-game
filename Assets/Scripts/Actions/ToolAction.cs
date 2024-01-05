@@ -16,11 +16,11 @@ public class ToolAction : ScriptableObject
         return true;
     }
 
-    public virtual bool OnApplyToTileMapMultiple(List<Vector3Int> gridPosition, TileMapReadController tileMapReadController, Item item)
-    {
-        Debug.LogWarning("OnApplyToTileMap is not implemented!");
-        return true;
-    }
+    //public virtual bool OnApplyToTileMapMultiple(List<Vector3Int> gridPosition, TileMapReadController tileMapReadController, Item item)
+    //{
+    //    Debug.LogWarning("OnApplyToTileMap is not implemented!");
+    //    return true;
+    //}
 
     public virtual void OnItemUsed(Item usedItem, ItemContainer Inventory)
     {

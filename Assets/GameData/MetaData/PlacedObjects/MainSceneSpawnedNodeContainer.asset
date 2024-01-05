@@ -15,65 +15,115 @@ MonoBehaviour:
   spawnedNodes:
   - node: 7
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -6, y: 0, z: 0}
+    positionOnGrid:
+    - {x: -6, y: -1, z: 0}
     objectState: 
-  - node: 8
+  - node: 5
     targetObject: {fileID: 0}
-    positionOnGrid: {x: 3, y: 7, z: 0}
+    positionOnGrid:
+    - {x: -4, y: 5, z: 0}
+    - {x: -3, y: 5, z: 0}
     objectState: 
-  - node: 10
+  - node: 5
     targetObject: {fileID: 0}
-    positionOnGrid: {x: 3, y: 6, z: 0}
+    positionOnGrid:
+    - {x: -5, y: 8, z: 0}
+    - {x: -4, y: 8, z: 0}
+    objectState: 
+  - node: 5
+    targetObject: {fileID: 0}
+    positionOnGrid:
+    - {x: -4, y: 7, z: 0}
+    - {x: -3, y: 7, z: 0}
     objectState: 
   - node: 6
     targetObject: {fileID: 0}
-    positionOnGrid: {x: 3, y: -5, z: 0}
+    positionOnGrid:
+    - {x: 3, y: -4, z: 0}
     objectState: 
   - node: 7
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -5, y: 0, z: 0}
+    positionOnGrid:
+    - {x: -5, y: 1, z: 0}
     objectState: 
   - node: 8
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -3, y: 5, z: 0}
+    positionOnGrid:
+    - {x: -6, y: 7, z: 0}
+    objectState: 
+  - node: 8
+    targetObject: {fileID: 0}
+    positionOnGrid:
+    - {x: -6, y: 8, z: 0}
+    objectState: 
+  - node: 5
+    targetObject: {fileID: 0}
+    positionOnGrid:
+    - {x: -1, y: 8, z: 0}
+    - {x: 0, y: 8, z: 0}
     objectState: 
   - node: 6
     targetObject: {fileID: 0}
-    positionOnGrid: {x: 3, y: -4, z: 0}
+    positionOnGrid:
+    - {x: 4, y: -4, z: 0}
     objectState: 
   - node: 7
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -5, y: 2, z: 0}
-    objectState: 
-  - node: 10
-    targetObject: {fileID: 0}
-    positionOnGrid: {x: -7, y: 6, z: 0}
-    objectState: 
-  - node: 10
-    targetObject: {fileID: 0}
-    positionOnGrid: {x: -5, y: 6, z: 0}
-    objectState: 
-  - node: 9
-    targetObject: {fileID: 0}
-    positionOnGrid: {x: -6, y: 8, z: 0}
+    positionOnGrid:
+    - {x: -4, y: 0, z: 0}
     objectState: 
   - node: 8
     targetObject: {fileID: 0}
-    positionOnGrid: {x: 4, y: 7, z: 0}
+    positionOnGrid:
+    - {x: -4, y: 6, z: 0}
     objectState: 
-  - node: 8
+  - node: 5
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -6, y: 5, z: 0}
+    positionOnGrid:
+    - {x: 4, y: 7, z: 0}
+    - {x: 5, y: 7, z: 0}
     objectState: 
   - node: 7
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -4, y: 0, z: 0}
+    positionOnGrid:
+    - {x: -7, y: 2, z: 0}
     objectState: 
   - node: 8
     targetObject: {fileID: 0}
-    positionOnGrid: {x: 2, y: 8, z: 0}
+    positionOnGrid:
+    - {x: 2, y: 5, z: 0}
     objectState: 
-  - node: 9
+  - node: 5
     targetObject: {fileID: 0}
-    positionOnGrid: {x: -7, y: 7, z: 0}
+    positionOnGrid:
+    - {x: 4, y: 6, z: 0}
+    - {x: 5, y: 6, z: 0}
+    objectState: 
+  - node: 5
+    targetObject: {fileID: 0}
+    positionOnGrid:
+    - {x: -7, y: 5, z: 0}
+    - {x: -6, y: 5, z: 0}
+    objectState: 
+  - node: 5
+    targetObject: {fileID: 0}
+    positionOnGrid:
+    - {x: -3, y: 8, z: 0}
+    - {x: -2, y: 8, z: 0}
+    objectState: 
+  - node: 8
+    targetObject: {fileID: 0}
+    positionOnGrid:
+    - {x: -3, y: 6, z: 0}
+    objectState: 
+  - node: 5
+    targetObject: {fileID: 0}
+    positionOnGrid:
+    - {x: 3, y: 5, z: 0}
+    - {x: 4, y: 5, z: 0}
+    objectState: 
+  - node: 8
+    targetObject: {fileID: 0}
+    positionOnGrid:
+    - {x: 1, y: 6, z: 0}
     objectState: 

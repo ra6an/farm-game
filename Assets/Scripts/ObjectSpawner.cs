@@ -50,8 +50,6 @@ public class ObjectSpawner : MonoBehaviour
     {
         areaSize = new Vector2(spawnArea_width * 2, spawnArea_height * 2);
 
-        //CheckNumberOfSpawnItems();
-
         spawnLength = spawn.Length;
 
         if (!oneTime)
@@ -100,26 +98,65 @@ public class ObjectSpawner : MonoBehaviour
         for (int i = 0; i < spawnCount; i++)
         {
             if (objectSpawnLimit == spawnedNodes) return;
+            int id = Random.Range(0, spawnLength);
 
             Vector3Int position;
-
-            //if()
 
             position = new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z);
             position.x += UnityEngine.Random.Range((int)-spawnArea_width, (int)spawnArea_width);
             position.y += UnityEngine.Random.Range((int)-spawnArea_height, (int)spawnArea_height);
 
-            //if (placeableObjectContainer.Get(position) != null) return;
-            if (spawnedNodeContainer.Get(position) != null) return;
+            GameObject sn = GameObject.Find("SpawnedNodes");
+            if (sn == null) return;
+            Transform prefab = null;
 
-            int id = Random.Range(0, spawnLength);
-            GameManager.instance.GetComponent<SpawnedNodesReferenceManager>().spawnedNodesManager.Spawn(spawn[id], position);
+            foreach(GameObject go in sn.GetComponent<SpawnedNodesManager>().nodes)
+            {
+                if (go.name == spawn[id].ToString())
+                {
+                    prefab = go.transform;
+                }
+            }
+
+            if(prefab == null) return;
+
+            List<Vector3Int> listOfPositions = CreateListOfPositions(
+                position, 
+                prefab.GetComponent<ResourceNode>().nodeWidth, 
+                prefab.GetComponent<ResourceNode>().nodeHeight
+                );
+
+            if (spawnedNodeContainer.Get(listOfPositions) != null) return;
+            if (placeableObjectContainer.Get(listOfPositions) != null) return;
+
+            GameManager.instance.GetComponent<SpawnedNodesReferenceManager>().spawnedNodesManager.Spawn(spawn[id], listOfPositions);
 
             spawnedNodes++;
         }
 
         if(oneTime) canSpawn = false;
     }
+
+    private List<Vector3Int> CreateListOfPositions(Vector3Int startPosition, int width, int height)
+    {
+        List<Vector3Int> list = new List<Vector3Int>();
+
+
+        int heightHelper = 0;
+
+        while (heightHelper < height)
+        {
+            for (int i = 0; i < width; i++)
+            {
+                Vector3Int position = new Vector3Int(startPosition.x + i, startPosition.y + heightHelper, startPosition.z);
+                list.Add(position);
+            }
+
+            heightHelper++;
+        }
+        return list;
+    }
+
     public void SpawnedObjectDestroyed(SpawnedObject spawnedObject)
     {
         //spawnedObjects.Remove(spawnedObject);

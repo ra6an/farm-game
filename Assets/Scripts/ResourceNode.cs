@@ -8,6 +8,8 @@ public class ResourceNode : ToolHit
     [SerializeField] ResourceNodeType nodeType;
     [SerializeField] int health = 20;
     [SerializeField] GameObject pickUpDrop;
+    public int nodeWidth = 1;
+    public int nodeHeight = 1;
     [Header("Main item to drop")]
     [SerializeField] Item item;
     [SerializeField] int dropCount;

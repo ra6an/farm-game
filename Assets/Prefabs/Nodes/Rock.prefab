@@ -149,6 +149,8 @@ MonoBehaviour:
   nodeType: 2
   health: 20
   pickUpDrop: {fileID: 288686842146492719, guid: f248f37f89ab31542a48a567610d2542, type: 3}
+  nodeWidth: 2
+  nodeHeight: 1
   item: {fileID: 11400000, guid: 4dad4ffb835273042abf79436a57326a, type: 2}
   dropCount: 3
   itemCountInOneDrop: 0

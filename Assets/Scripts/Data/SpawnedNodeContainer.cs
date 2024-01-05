@@ -9,10 +9,10 @@ public class SpawnedNode
     //public GameObject spawnedObject;
     public NodeType node;
     public Transform targetObject;
-    public Vector3Int positionOnGrid;
+    public List<Vector3Int> positionOnGrid;
     public string objectState;
 
-    public SpawnedNode(NodeType node, Vector3Int position)
+    public SpawnedNode(NodeType node, List<Vector3Int> position)
     {
         this.node = node;
         positionOnGrid = position;
@@ -24,9 +24,40 @@ public class SpawnedNodeContainer : ScriptableObject
 {
     public List<SpawnedNode> spawnedNodes;
     
-    internal object Get(Vector3Int position) 
+    internal object Get(List<Vector3Int> positions) 
     {
-        return spawnedNodes.Find(x => x.positionOnGrid == position);
+        if (positions.Count <= 0) return null;
+
+        object itemOnGrid = null;
+
+        foreach(Vector3Int v in positions)
+        {
+            SpawnedNode so = CheckInSInglePosition(v);
+
+            if (so != null) 
+            {
+                itemOnGrid = so;
+                break;
+            }
+        }
+
+        return itemOnGrid;
+    }
+
+    private SpawnedNode CheckInSInglePosition(Vector3Int p)
+    {
+        SpawnedNode exists = null;
+        foreach (SpawnedNode so in spawnedNodes)
+        {
+            bool ex = so.positionOnGrid.Exists(x => x == p);
+
+            if (ex)
+            {
+                exists = so;
+                break;
+            }
+        }
+        return exists;
     }
 
     internal void Remove(SpawnedNode spawnedNode)

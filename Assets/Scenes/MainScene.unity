@@ -13625,6 +13625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeableObjects: {fileID: 11400000, guid: ff124500fce7b5c4b89f949be1fa0d0a, type: 2}
+  spawnedNodes: {fileID: 11400000, guid: e5e4c7d350930c9488fd8e777386a488, type: 2}
   targetTilemap: {fileID: 1677493372}
 --- !u!4 &324778701
 Transform:
@@ -14796,7 +14797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6590226709675939620, guid: 53ec2ee3a76d73442889e1929a415179, type: 3}
       propertyPath: spawn.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6590226709675939620, guid: 53ec2ee3a76d73442889e1929a415179, type: 3}
       propertyPath: spawnArea_height
@@ -14812,7 +14813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6590226709675939620, guid: 53ec2ee3a76d73442889e1929a415179, type: 3}
       propertyPath: spawn.Array.data[1]
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6590226709675939620, guid: 53ec2ee3a76d73442889e1929a415179, type: 3}
       propertyPath: spawn.Array.data[2]
@@ -20320,6 +20321,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnedNodes: {fileID: 11400000, guid: e5e4c7d350930c9488fd8e777386a488, type: 2}
   targetTilemap: {fileID: 1677493372}
+  nodesData:
+  - {fileID: 11400000, guid: 647e4435bc70e974db0f8ebd98bb1711, type: 2}
+  - {fileID: 11400000, guid: 70d1d756026cc744bb8788a2f74a5c7a, type: 2}
+  - {fileID: 11400000, guid: fa9b4c9b792d2b64ab60d45521a2eeed, type: 2}
+  - {fileID: 11400000, guid: 1dbcde48722ba7d4da8f08fb239c0a8e, type: 2}
+  - {fileID: 11400000, guid: 55eefee32fafd9c4584fb67798723581, type: 2}
+  - {fileID: 11400000, guid: b5ee1fee56cd6674aaa4684d47ce91ce, type: 2}
+  - {fileID: 11400000, guid: ece2103844a7dd4448bc73f5fa4de5db, type: 2}
+  - {fileID: 11400000, guid: 9a2b7b3df0053994eaf705d76035ca22, type: 2}
+  - {fileID: 11400000, guid: dcc0278669d55f94a91bef315ca7b486, type: 2}
+  - {fileID: 11400000, guid: 0ea81c3fe7b92a749ba8a670557efa59, type: 2}
+  - {fileID: 11400000, guid: 3f5d310ccccf3584f841c60feb433f62, type: 2}
   nodes:
   - {fileID: 7156887053224399117, guid: 2dd86e1a2eb4ed54e9644974e61ee209, type: 3}
   - {fileID: 7156887053224399117, guid: b6f66e538e2ff9642ae79b20d4dbf981, type: 3}
