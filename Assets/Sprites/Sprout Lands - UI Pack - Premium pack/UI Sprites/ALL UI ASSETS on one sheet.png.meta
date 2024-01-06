@@ -221,7 +221,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ALL UI ASSETS on one sheet_5
+      name: UI_white_panel
       rect:
         serializedVersion: 2
         x: 251
@@ -230,7 +230,7 @@ TextureImporter:
         height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -25769,7 +25769,7 @@ TextureImporter:
     nameFileIdTable:
       ALL UI ASSETS on one sheet_88: -2136800696
       ALL UI ASSETS on one sheet_811: 1030593518
-      ALL UI ASSETS on one sheet_1144: 179748347
+      ALL UI ASSETS on one sheet_568: 1091659324
       ALL UI ASSETS on one sheet_657: -1001747867
       ALL UI ASSETS on one sheet_37: 1788221942
       ALL UI ASSETS on one sheet_988: 962576462
@@ -25831,7 +25831,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_688: 236048144
       ALL UI ASSETS on one sheet_1210: 624695979
       ALL UI ASSETS on one sheet_1012: -1743119396
-      HealthBar: 461170408
+      ALL UI ASSETS on one sheet_769: 1857904581
       ALL UI ASSETS on one sheet_1057: 1917051664
       ALL UI ASSETS on one sheet_636: -1738951151
       ALL UI ASSETS on one sheet_1084: -789495296
@@ -25839,7 +25839,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_1064: 2032797163
       ALL UI ASSETS on one sheet_646: -1721491385
       ALL UI ASSETS on one sheet_180: 1675691130
-      ALL UI ASSETS on one sheet_769: 1857904581
+      HealthBar: 461170408
       ALL UI ASSETS on one sheet_365: 1268726848
       ALL UI ASSETS on one sheet_542: 530559118
       ALL UI ASSETS on one sheet_982: 1873271420
@@ -26247,7 +26247,6 @@ TextureImporter:
       ALL UI ASSETS on one sheet_658: 685129045
       ALL UI ASSETS on one sheet_1020: 59793010
       ALL UI ASSETS on one sheet_803: -46235771
-      ALL UI ASSETS on one sheet_5: -1728824776
       ALL UI ASSETS on one sheet_626: -1112598742
       ALL UI ASSETS on one sheet_408: 1829348498
       ALL UI ASSETS on one sheet_495: -637191250
@@ -26672,6 +26671,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_885: 1563382583
       ALL UI ASSETS on one sheet_279: -1224745264
       ALL UI ASSETS on one sheet_706: -1987751489
+      UI_white_panel: -1728824776
       ALL UI ASSETS on one sheet_971: -1094277100
       ALL UI ASSETS on one sheet_579: 1619506538
       exit: 1853885126
@@ -26992,7 +26992,7 @@ TextureImporter:
       ALL UI ASSETS on one sheet_781: 1641594017
       ALL UI ASSETS on one sheet_201: 1060150552
       ALL UI ASSETS on one sheet_203: 870517732
-      ALL UI ASSETS on one sheet_568: 1091659324
+      ALL UI ASSETS on one sheet_1144: 179748347
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

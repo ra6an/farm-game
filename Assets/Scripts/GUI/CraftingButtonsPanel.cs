@@ -29,7 +29,7 @@ public class CraftingButtonsPanel : MonoBehaviour
         ChangeActiveButton(currentActive);
         character.GetComponent<WorkingBenchContainerInteractController>().ShowItemDetails(recipeList.recipes[currentActive]);
     }
-
+    //
     public void DestroyRecipeButtonsList()
     {
         for (int i = 0; i < recipes.Count; i++)

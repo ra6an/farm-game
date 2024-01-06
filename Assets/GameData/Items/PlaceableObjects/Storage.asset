@@ -15,14 +15,19 @@ MonoBehaviour:
   id: 13
   name: Storage
   stackable: 0
-  icon: {fileID: -905660466, guid: 0f4522da7069cc64397da6fbdf2c78d2, type: 3}
+  icon: {fileID: -1816567135, guid: 0f4522da7069cc64397da6fbdf2c78d2, type: 3}
   onAction: {fileID: 0}
   onTileMapAction: {fileID: 11400000, guid: 69a2c3100003318469387ea51af3f046, type: 2}
   onItemUsed: {fileID: 11400000, guid: 69a2c3100003318469387ea51af3f046, type: 2}
   ToolDmg: 0
   iconHighlight: 1
   itemPrefab: {fileID: 1652738824558596045, guid: 2b97a5b2f8231e348b4383a6f8750e2b, type: 3}
+  isWeapon: 0
+  damage: 10
   crop: {fileID: 0}
+  isLarge: 0
+  width: 1
+  height: 1
   YReducer: 1.5
   XReducer: 1.5
   numberOfBounces: 3

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StoneAxe
   m_EditorClassIdentifier: 
   id: 20
-  name: StoneAxe
+  name: Stone Axe
   stackable: 0
   icon: {fileID: -572283278, guid: f380bf50ea55b0e459bb508834d7b1e0, type: 3}
   onAction: {fileID: 11400000, guid: 3c41bf0c0f71e8a4882081db2b1a1710, type: 2}
@@ -22,7 +22,12 @@ MonoBehaviour:
   ToolDmg: 5
   iconHighlight: 0
   itemPrefab: {fileID: 0}
+  isWeapon: 0
+  damage: 10
   crop: {fileID: 0}
+  isLarge: 0
+  width: 1
+  height: 1
   YReducer: 1.5
   XReducer: 1.5
   numberOfBounces: 3
