@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CraftingItemButton : MonoBehaviour, IPointerClickHandler
+public class CraftingItemInventoryButton : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] GameObject itemDetailsPanel;
+    //[SerializeField] GameObject itemDetailsPanel;
     [SerializeField] Image icon;
     [SerializeField] Sprite activeButton;
     [SerializeField] Sprite inactiveButton;
@@ -15,23 +14,24 @@ public class CraftingItemButton : MonoBehaviour, IPointerClickHandler
     CraftingRecipe recipe;
     int myIndex;
 
-    public void SetIndex(int index) 
+    public void SetIndex(int index)
     {
         myIndex = index;
     }
 
     public void Set(CraftingRecipe rec)
     {
-        if(recipe != null) { return; }
+        if (recipe != null) { return; }
         recipe = rec;
         icon.sprite = rec.output.item.icon;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameObject character = GameObject.Find("MainCharacter").gameObject;
-        character.GetComponent<CraftingStationContainerInteractController>().ShowItemDetails(recipe);
-        transform.parent.GetComponent<CraftingButtonsPanel>().ChangeActiveButton(myIndex);
+        GameObject.Find("CraftingPanel").GetComponent<RecipePanel>().SetActiveRecipe(myIndex);
+        //GameObject character = GameObject.Find("MainCharacter").gameObject;
+        //transform.GetComponent<CraftingStationContainerInteractController>().ShowItemDetails(recipe);
+        //transform.parent.GetComponent<CraftingButtonsPanel>().ChangeActiveButton(myIndex);
     }
 
     public void ActiveButton()

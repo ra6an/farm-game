@@ -15,7 +15,7 @@ public class CraftingButtonsPanel : MonoBehaviour
         currentActive = 0;
     }
 
-    public void ShowCraftingList(WorkingBenchRecipeList recipeList, Transform character)
+    public void ShowCraftingList(CraftingStationRecipeList recipeList, Transform character)
     {
         currentActive = 0;
         recipes = recipeList.recipes;
@@ -27,7 +27,7 @@ public class CraftingButtonsPanel : MonoBehaviour
         }
 
         ChangeActiveButton(currentActive);
-        character.GetComponent<WorkingBenchContainerInteractController>().ShowItemDetails(recipeList.recipes[currentActive]);
+        character.GetComponent<CraftingStationContainerInteractController>().ShowItemDetails(recipeList.recipes[currentActive]);
     }
     //
     public void DestroyRecipeButtonsList()

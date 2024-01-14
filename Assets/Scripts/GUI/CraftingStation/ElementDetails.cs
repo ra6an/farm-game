@@ -15,6 +15,17 @@ public class ElementDetails : MonoBehaviour
         icon.sprite = itemSlot.item.icon;
         elementName.text = itemSlot.item.name;
         quantity.text = itemSlot.quantity.ToString();
+
+        //TEST MOJ KOD
+        ItemSlot inventorySlot = GameManager.instance.inventoryContainer.GetItemSlot(itemSlot.item);
+        if(inventorySlot != null )
+        {
+            inventoryQuantity.text = inventorySlot.quantity.ToString();
+        }
+        else
+        {
+            inventoryQuantity.text = "0";
+        }
     }
 
     public void ChangeQuantity(int qty)
@@ -22,10 +33,10 @@ public class ElementDetails : MonoBehaviour
         quantity.text = qty.ToString();
     }
 
-    public void ChangeInventoryQuantity(int inventoryQty)
-    {
-        inventoryQuantity.text = inventoryQty.ToString();
-    }
+    //public void ChangeInventoryQuantity(int inventoryQty)
+    //{
+    //    inventoryQuantity.text = inventoryQty.ToString();
+    //}
 
     public void SetNotEnough()
     {

@@ -13781,7 +13781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6590226709675939620, guid: 53ec2ee3a76d73442889e1929a415179, type: 3}
       propertyPath: spawn.Array.data[0]
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6590226709675939620, guid: 53ec2ee3a76d73442889e1929a415179, type: 3}
       propertyPath: spawnedNodeContainer

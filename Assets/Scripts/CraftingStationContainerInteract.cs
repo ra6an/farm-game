@@ -1,11 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 //
-public class WorkingBenchContainerInteract : Interactable
+public class CraftingStationContainerInteract : Interactable
 {
     bool isOpened;
     Animator animator;
@@ -45,11 +42,11 @@ public class WorkingBenchContainerInteract : Interactable
 
     public void Open(Character character)
     {
-        character.GetComponent<WorkingBenchContainerInteractController>().Open(transform);
+        character.GetComponent<CraftingStationContainerInteractController>().Open(transform);
     }
 
     public void Close(Character character)
     {
-        character.GetComponent<WorkingBenchContainerInteractController>().Close();
+        character.GetComponent<CraftingStationContainerInteractController>().Close();
     }
 }

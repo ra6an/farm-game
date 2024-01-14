@@ -5,12 +5,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 //
-public class WorkingBenchContainerInteractController : MonoBehaviour
+public class CraftingStationContainerInteractController : MonoBehaviour
 {
     [SerializeField] GameObject itemDetailsPanel;
     [SerializeField] GameObject elementsPanel;
     [SerializeField] GameObject buttonsList;
-    [SerializeField] WorkingBenchRecipeList recipeList;
+    [SerializeField] CraftingStationRecipeList recipeList;
     [SerializeField] Text craftQuantity;
     [SerializeField] ItemContainer inventory;
     Transform workingBench;
@@ -32,7 +32,7 @@ public class WorkingBenchContainerInteractController : MonoBehaviour
             float distance = Vector2.Distance(workingBench.position, transform.position);
             if (distance > maxDistance)
             {
-                workingBench.GetComponent<WorkingBenchContainerInteract>().Interact(transform.GetComponent<Character>());
+                workingBench.GetComponent<CraftingStationContainerInteract>().Interact(transform.GetComponent<Character>());
             }
         }
     }
@@ -40,7 +40,7 @@ public class WorkingBenchContainerInteractController : MonoBehaviour
     private IEnumerator Delay(CraftingRecipe recipe)
     {
         yield return new WaitForSeconds(0.01f);
-        itemDetailsPanel.GetComponent<WorkingBenchItemDetails>().SetActiveRecipe(recipe);
+        itemDetailsPanel.GetComponent<CraftingStationItemDetails>().SetActiveRecipe(recipe);
         elementsPanel.GetComponent<ElementsPanel>().SetElementsDetails(recipe.elements);
 
         bool canCraft = CheckElementsQuantityInInventory(recipe.elements);
@@ -80,11 +80,11 @@ public class WorkingBenchContainerInteractController : MonoBehaviour
         {
             ItemSlot slot = new ItemSlot();
             slot.item = elements[i].item;
-            ItemSlot itemInInventory = inventory.GetItemSlot(elements[i].item);
-            int inventoryQuantity = itemInInventory == null ? 0 : itemInInventory.quantity;
+            //ItemSlot itemInInventory = inventory.GetItemSlot(elements[i].item);
+            //int inventoryQuantity = itemInInventory == null ? 0 : itemInInventory.quantity;
             if (elementsPanel.transform.GetChild(i) == null) return;
             elementsPanel.transform.GetChild(i).GetComponent<ElementDetails>().ChangeQuantity(elements[i].quantity * mltp);
-            elementsPanel.transform.GetChild(i).GetComponent<ElementDetails>().ChangeInventoryQuantity(inventoryQuantity);
+            //elementsPanel.transform.GetChild(i).GetComponent<ElementDetails>().ChangeInventoryQuantity(inventoryQuantity);
         }
     }
 

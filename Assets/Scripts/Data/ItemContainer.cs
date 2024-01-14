@@ -18,8 +18,8 @@ public class ItemSlot
 
     public void Set(Item item, int quantity)
     {
-            this.item = item;
-            this.quantity = quantity;
+        this.item = item;
+        this.quantity = quantity;
     }
 
     public void Clear()
@@ -115,6 +115,18 @@ public class ItemContainer : ScriptableObject
         }
 
         return false;
+    }
+
+    internal int CheckHowManyFreeSlots()
+    {
+        int freeSlots = 0;
+
+        for(int i = 0; i < slots.Count; i++)
+        {
+            freeSlots = slots[i].item == null ? freeSlots + 1 : freeSlots;
+        }
+
+        return freeSlots;
     }
 
     internal bool CheckItem(ItemSlot checkingItem)
