@@ -2426,7 +2426,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-RPG_items-icons_48x48-new_110
+      name: Iron_Helmet
       rect:
         serializedVersion: 2
         x: 1056
@@ -2888,7 +2888,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-RPG_items-icons_48x48-new_132
+      name: Iron_Chest
       rect:
         serializedVersion: 2
         x: 1056
@@ -3350,7 +3350,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-RPG_items-icons_48x48-new_154
+      name: Iron_Pants
       rect:
         serializedVersion: 2
         x: 1056
@@ -3854,7 +3854,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-RPG_items-icons_48x48-new_178
+      name: Iron_Shoes
       rect:
         serializedVersion: 2
         x: 1056
@@ -11036,7 +11036,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-RPG_items-icons_48x48-new_520
+      name: Ring1
       rect:
         serializedVersion: 2
         x: 912
@@ -11687,7 +11687,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite-RPG_items-icons_48x48-new_551
+      name: Necklace1
       rect:
         serializedVersion: 2
         x: 1008
@@ -22248,7 +22248,6 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_522: -2069262091
       Sprite-RPG_items-icons_48x48-new_93: 368825221
       Sprite-RPG_items-icons_48x48-new_1035: -519479321
-      Sprite-RPG_items-icons_48x48-new_110: 629085377
       Sprite-RPG_items-icons_48x48-new_996: 805438543
       Sprite-RPG_items-icons_48x48-new_259: 1821020908
       Sprite-RPG_items-icons_48x48-new_124: -1633861221
@@ -22379,8 +22378,8 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_859: -595860625
       Sprite-RPG_items-icons_48x48-new_34: 1967399297
       Sprite-RPG_items-icons_48x48-new_49: 2130253751
-      Sprite-RPG_items-icons_48x48-new_551: -1874526554
       Sprite-RPG_items-icons_48x48-new_604: 1260030065
+      Sprite-RPG_items-icons_48x48-new_760: -568495131
       Sprite-RPG_items-icons_48x48-new_716: 249323224
       Sprite-RPG_items-icons_48x48-new_7: 366076608
       Sprite-RPG_items-icons_48x48-new_669: -1023650446
@@ -22389,13 +22388,12 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_686: 1356922713
       Sprite-RPG_items-icons_48x48-new_623: 201052599
       Sprite-RPG_items-icons_48x48-new_150: 666607122
-      Sprite-RPG_items-icons_48x48-new_760: -568495131
+      Sprite-RPG_items-icons_48x48-new_972: 1522331013
       Sprite-RPG_items-icons_48x48-new_912: 178061833
       Sprite-RPG_items-icons_48x48-new_767: 736220276
       Sprite-RPG_items-icons_48x48-new_318: -1017291430
       Sprite-RPG_items-icons_48x48-new_37: -466794919
       Sprite-RPG_items-icons_48x48-new_780: -1046631202
-      Sprite-RPG_items-icons_48x48-new_972: 1522331013
       Sprite-RPG_items-icons_48x48-new_609: -164371318
       Sprite-RPG_items-icons_48x48-new_416: 1287398781
       Sprite-RPG_items-icons_48x48-new_955: -1476194141
@@ -22525,7 +22523,6 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_868: 568705680
       Sprite-RPG_items-icons_48x48-new_773: 839972072
       Sprite-RPG_items-icons_48x48-new_155: -442629470
-      Sprite-RPG_items-icons_48x48-new_520: -1297625611
       Sprite-RPG_items-icons_48x48-new_712: 1543463516
       Sprite-RPG_items-icons_48x48-new_658: 343965020
       Sprite-RPG_items-icons_48x48-new_528: 2147449612
@@ -22623,7 +22620,6 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_359: -820607177
       Sprite-RPG_items-icons_48x48-new_479: -1259855603
       Sprite-RPG_items-icons_48x48-new_689: 1546091905
-      Sprite-RPG_items-icons_48x48-new_178: -402906459
       Sprite-RPG_items-icons_48x48-new_593: -762007493
       Sprite-RPG_items-icons_48x48-new_346: -1435953933
       Sprite-RPG_items-icons_48x48-new_991: 547551864
@@ -22643,7 +22639,6 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_352: -970267238
       Sprite-RPG_items-icons_48x48-new_738: -1060958731
       Sprite-RPG_items-icons_48x48-new_901: -867085385
-      Sprite-RPG_items-icons_48x48-new_154: -1747067816
       Sprite-RPG_items-icons_48x48-new_762: 192982872
       Sprite-RPG_items-icons_48x48-new_67: 1330660036
       Sprite-RPG_items-icons_48x48-new_169: 2144211309
@@ -22696,6 +22691,7 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_745: 729007757
       Sprite-RPG_items-icons_48x48-new_763: 1954776164
       Corn: 634611335
+      Iron_Helmet: 629085377
       Sprite-RPG_items-icons_48x48-new_45: 26445525
       Sprite-RPG_items-icons_48x48-new_69: -363897545
       Sprite-RPG_items-icons_48x48-new_125: -977421952
@@ -22715,6 +22711,7 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_841: 1414591277
       Sprite-RPG_items-icons_48x48-new_668: 60925138
       Sprite-RPG_items-icons_48x48-new_76: 545199320
+      Iron_Shoes: -402906459
       Sprite-RPG_items-icons_48x48-new_870: -168490394
       Sprite-RPG_items-icons_48x48-new_810: -588676605
       Sprite-RPG_items-icons_48x48-new_544: 1222837905
@@ -22774,6 +22771,7 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_526: -1167838775
       Sprite-RPG_items-icons_48x48-new_289: 1551267233
       Sprite-RPG_items-icons_48x48-new_725: 887396347
+      Iron_Chest: 1139961118
       Sprite-RPG_items-icons_48x48-new_557: -997626609
       Sprite-RPG_items-icons_48x48-new_497: -558642394
       Sprite-RPG_items-icons_48x48-new_813: -1233753898
@@ -22879,14 +22877,15 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_848: -777733104
       Sprite-RPG_items-icons_48x48-new_1032: -378057092
       Sprite-RPG_items-icons_48x48-new_22: 1929267682
-      Sprite-RPG_items-icons_48x48-new_132: 1139961118
       Sprite-RPG_items-icons_48x48-new_252: 1048805058
+      Sprite-RPG_items-icons_48x48-new_888: -453373744
       Sprite-RPG_items-icons_48x48-new_533: -1211485506
       Sprite-RPG_items-icons_48x48-new_742: -1463495872
       Sprite-RPG_items-icons_48x48-new_566: 824720299
       Sprite-RPG_items-icons_48x48-new_320: -68860816
       Sprite-RPG_items-icons_48x48-new_197: -1946275170
       Sprite-RPG_items-icons_48x48-new_980: -968551571
+      Ring1: -1297625611
       Sprite-RPG_items-icons_48x48-new_635: -871873928
       Sprite-RPG_items-icons_48x48-new_345: 1650267266
       Sprite-RPG_items-icons_48x48-new_330: -199897499
@@ -22899,8 +22898,8 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_886: 1086444511
       Sprite-RPG_items-icons_48x48-new_900: -816599016
       GoldSword: -1233949808
-      Sprite-RPG_items-icons_48x48-new_888: -453373744
       Sprite-RPG_items-icons_48x48-new_450: -626137556
+      Iron_Pants: -1747067816
       Sprite-RPG_items-icons_48x48-new_709: -1914051538
       Sprite-RPG_items-icons_48x48-new_238: -637985343
       BronzeOre: 321640764
@@ -22972,6 +22971,7 @@ TextureImporter:
       Sprite-RPG_items-icons_48x48-new_301: -621906573
       Sprite-RPG_items-icons_48x48-new_569: 1548142812
       Sprite-RPG_items-icons_48x48-new_393: 1542581868
+      Necklace1: -1874526554
       Sprite-RPG_items-icons_48x48-new_568: 319117335
       Sprite-RPG_items-icons_48x48-new_23: -621561840
       Sprite-RPG_items-icons_48x48-new_772: -1756570711
