@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,17 @@ public class ItemPanel : MonoBehaviour
 {
     public ItemContainer inventory;
     public List<InventoryButton> buttons;
+
+    //public event Action<Item> OnItemRightClickedEvent;
     //[SerializeField] Item item;
+
+    //private void Awake()
+    //{
+    //    for (int i = 0; i < buttons.Count; i++)
+    //    {
+    //        buttons[i].OnRightClickEvent += OnItemRightClickedEvent;
+    //    }
+    //}
 
     private void Start()
     {

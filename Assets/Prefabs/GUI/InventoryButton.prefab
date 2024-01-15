@@ -137,11 +137,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2cd3d6fceb5604ba4ccb405cb2bf9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: ee282055251d7f142ad41754017c3a67, type: 2}
   icon: {fileID: 5287032440967252814}
   quantity: {fileID: 390160749425764585}
   highlight: {fileID: 6343870428802559481}
   activeButton: {fileID: 1018920338, guid: ff2c3be541511444aaf36cc0b4bac01b, type: 3}
   inactiveButton: {fileID: -902579871, guid: ff2c3be541511444aaf36cc0b4bac01b, type: 3}
+  itemSlot:
+    item: {fileID: 0}
+    quantity: 0
 --- !u!1 &390160749425764587
 GameObject:
   m_ObjectHideFlags: 0

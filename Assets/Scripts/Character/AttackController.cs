@@ -14,7 +14,7 @@ public class AttackController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
-    public void Attack(int damage, Vector2 lastMotionVector)
+    public void Attack(float damage, Vector2 lastMotionVector)
     {
         Vector2 position = rigidbody2d.position + lastMotionVector * offsetDistance;
 

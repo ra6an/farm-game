@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,11 @@ public class EquipmentSlot : MonoBehaviour
     public Item equipedItem;
     [SerializeField] Image itemImage;
     [SerializeField] Image placeholderImage;
-    [SerializeField] TypeEquipable typeEquipable;
+    public TypeEquipable typeEquipable;
 
     private void Start()
     {
-        equipedItem = new Item();
+        //equipedItem = new Item();
     }
 
     public void EquipItem(Item item)

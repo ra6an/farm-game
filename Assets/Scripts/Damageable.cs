@@ -11,7 +11,7 @@ public class Damageable : MonoBehaviour
     [SerializeField] Color toColor = new Color(255f, 255f, 255f, 255f);
     [SerializeField] Color fromColor = new Color(255f, 1f, 1f, 255f);
 
-    internal void TakeDamage(int damage)
+    internal void TakeDamage(float damage)
     {
         if (damageable == null)
         {

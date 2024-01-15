@@ -50,6 +50,7 @@ public class RecipePanel : ItemPanel
     {
         recipeContainer.transform.GetChild(currentId).GetComponent<CraftingItemInventoryButton>().InactiveButton();
         currentId = id;
+        multiplier = 1;
         recipeContainer.transform.GetChild(currentId).GetComponent<CraftingItemInventoryButton>().ActiveButton();
         itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().SetActiveRecipe(recipeList.recipes[currentId]);
 

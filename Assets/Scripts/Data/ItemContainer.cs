@@ -107,6 +107,12 @@ public class ItemContainer : ScriptableObject
         }
     }
 
+    public void RemoveAt(int i)
+    {
+        isDirty = true;
+        slots[i].Clear();
+    }
+
     internal bool CheckFreeSpace()
     {
         for(int i = 0; i < slots.Count; i++)

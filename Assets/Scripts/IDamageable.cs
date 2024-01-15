@@ -4,9 +4,9 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    public void CalculateDamage(ref int damage);
+    public void CalculateDamage(ref float damage);
 
-    public void ApplyDamage(int damage);
+    public void ApplyDamage(float damage);
 
     public void CheckState();
 }

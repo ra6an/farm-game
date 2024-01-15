@@ -35,42 +35,138 @@ public class Item : ScriptableObject
     public ToolAction onAction;
     public ToolAction onTileMapAction;
     public ToolAction onItemUsed;
+    //public ToolAction onItemEquip;
     public bool iconHighlight;
     public GameObject itemPrefab;
 
     [Header("Equipable Item")]
     public bool equipable = false;
     public TypeEquipable equipableType = TypeEquipable.Undefined;
-    public int physicalDefense;
-    public int magicDefense;
-    public int physicalResistance;
-    public int magicResistance;
-    public int criticalResistance;
-    public int speed;
-    public int health;
-    public int mana;
+    [Space]
+    //Attack FLAT
+    [Header("Attack Flat")]
+    public float physicalDamage = 0;
+    public float magicDamage = 0;
+    public float physicalPenetration = 0;
+    public float magicPenetration = 0;
+    [Range(0, 100)]
+    public float criticalChance = 0;
+    [Range(0, 100)]
+    public float criticalDamage = 0;
+    //[Space]
+    //Attack PERCENT
+    [Header("Attack Percent")]
+    public float physicalDamagePercent = 0;
+    public float magicDamagePercent = 0;
+    public float physicalPenetrationPercent = 0;
+    public float magicPenetrationPercent = 0;
+    [Range(0, 1)]
+    public float criticalChancePercent = 0;
+    [Range(0, 1)]
+    public float criticalDamagePercent = 0;
+    //[Space]
+    //Defense FLAT
+    [Header("Defense Flat")]
+    public float physicalDefense = 0;
+    public float magicDefense = 0;
+    public float physicalResistance = 0;
+    public float magicResistance = 0;
+    public float criticalResistance = 0;
+    //[Space]
+    //Other FLAT
+    [Header("Other Flat")]
+    public float speed = 0;
+    public float health = 0;
+    public float healthRegen = 0;
+    public float mana = 0;
+    public float manaRegen = 0;
+    //[Space]
+    //Other PERCENT
+    [Header("Other Percent")]
+    public float speedPercent = 0;
+    public float healthPercent = 0;
+    public float manaPercent = 0;
 
+    public void Equip(Character character)
+    {
+        //Attack
+        if (physicalDamage != 0) character.physicalDamage.AddModifier(new StatModifier(physicalDamage, StatModType.Flat, this));
+        if (magicDamage != 0) character.magicDamage.AddModifier(new StatModifier(magicDamage, StatModType.Flat, this));
+        if (physicalPenetration != 0) character.physicalPenetration.AddModifier(new StatModifier(physicalPenetration, StatModType.Flat, this));
+        if (magicPenetration != 0) character.magicPenetration.AddModifier(new StatModifier(magicPenetration, StatModType.Flat, this));
+        if (criticalChance != 0) character.criticalChance.AddModifier(new StatModifier(criticalChance, StatModType.Flat, this));
+        if (criticalDamage != 0) character.criticalDamage.AddModifier(new StatModifier(criticalDamage, StatModType.Flat, this));
+
+        //Attack in Percent
+        if (physicalDamagePercent != 0) character.physicalDamage.AddModifier(new StatModifier(physicalDamagePercent, StatModType.PercentAdd, this));
+        if (magicDamagePercent != 0) character.magicDamage.AddModifier(new StatModifier(magicDamagePercent, StatModType.PercentAdd, this));
+        if (physicalPenetrationPercent != 0) character.physicalPenetration.AddModifier(new StatModifier(physicalPenetrationPercent, StatModType.PercentAdd, this));
+        if (magicPenetrationPercent != 0) character.magicPenetration.AddModifier(new StatModifier(magicPenetrationPercent, StatModType.PercentAdd, this));
+        if (criticalChancePercent != 0) character.criticalChance.AddModifier(new StatModifier(criticalChancePercent, StatModType.PercentAdd, this));
+        if (criticalDamagePercent != 0) character.criticalDamage.AddModifier(new StatModifier(criticalDamagePercent, StatModType.PercentAdd, this));
+
+        //Defense
+        if (physicalDefense != 0) character.physicalDefense.AddModifier(new StatModifier(physicalDefense, StatModType.Flat, this));
+        if (magicDefense != 0) character.magicDefense.AddModifier(new StatModifier(magicDefense, StatModType.Flat, this));
+        if (physicalResistance != 0) character.physicalResistance.AddModifier(new StatModifier(physicalResistance, StatModType.Flat, this));
+        if (magicResistance != 0) character.magicResistance.AddModifier(new StatModifier(magicResistance, StatModType.Flat, this));
+        if (criticalResistance != 0) character.criticalResistance.AddModifier(new StatModifier(criticalResistance, StatModType.Flat, this));
+
+        //Other
+        if (speed != 0) character.speed.AddModifier(new StatModifier(speed, StatModType.Flat, this));
+        if (health != 0) character.health.maxVal.AddModifier(new StatModifier(health, StatModType.Flat, this));
+        if (healthRegen != 0) character.healthRegen.AddModifier(new StatModifier(healthRegen, StatModType.Flat, this));
+        if (mana != 0) character.mana.maxVal.AddModifier(new StatModifier(mana, StatModType.Flat, this));
+        if (manaRegen != 0) character.manaRegen.AddModifier(new StatModifier(manaRegen, StatModType.Flat, this));
+
+        //Other in Percent
+        if (speedPercent != 0) character.speed.AddModifier(new StatModifier(speedPercent, StatModType.PercentAdd, this));
+        if (healthPercent != 0) character.health.maxVal.AddModifier(new StatModifier(healthPercent, StatModType.PercentAdd, this));
+        if (manaPercent != 0) character.mana.maxVal.AddModifier(new StatModifier(manaPercent, StatModType.PercentAdd, this));
+    }
+
+    public void Unequip(Character character)
+    {
+        //Main
+        if (health != 0) character.health.maxVal.RemoveAllModifiersFromSource(this);
+        if (healthRegen != 0) character.healthRegen.RemoveAllModifiersFromSource(this);
+        if (mana != 0) character.mana.maxVal.RemoveAllModifiersFromSource(this);
+        if (manaRegen != 0) character.manaRegen.RemoveAllModifiersFromSource(this);
+        if (speed != 0) character.speed.RemoveAllModifiersFromSource(this);
+
+        //Attack
+        if (physicalDamage != 0) character.physicalDamage.RemoveAllModifiersFromSource(this);
+        if (magicDamage != 0) character.magicDamage.RemoveAllModifiersFromSource(this);
+        if (physicalPenetration != 0) character.physicalPenetration.RemoveAllModifiersFromSource(this);
+        if (magicPenetration != 0) character.magicPenetration.RemoveAllModifiersFromSource(this);
+        if (criticalChance != 0) character.criticalChance.RemoveAllModifiersFromSource(this);
+        if (criticalDamage != 0) character.criticalDamage.RemoveAllModifiersFromSource(this);
+
+        //Defense
+        if (physicalDefense != 0) character.physicalDefense.RemoveAllModifiersFromSource(this);
+        if (magicDefense != 0) character.magicDefense.RemoveAllModifiersFromSource(this);
+        if (physicalResistance != 0) character.physicalResistance.RemoveAllModifiersFromSource(this);
+        if (magicResistance != 0) character.magicResistance.RemoveAllModifiersFromSource(this);
+        if (criticalResistance != 0) character.criticalResistance.RemoveAllModifiersFromSource(this);
+    }
+    [Space]
     [Header("Tool Stats")]
     public int ToolDmg;
     public bool fillable = false;
     [Range(0, 100)]
     public int filled = 0;
-
+    [Space]
     [Header("Weapon Stats")]
     public bool isWeapon;
     public WeaponType weaponType = WeaponType.Undefined;
-    public int physicalDamage = 0;
-    public int magicDamage = 0;
-    public int physicalPenetration = 0;
-    public int magicPenetration = 0;
-    [Range(0, 100)]
-    public int criticalChance = 0;
-    [Range(0, 100)]
-    public int criticalDamage = 0;
-
+    public float damage;
+    public float penetration;
+    public float critChance;
+    public float critDamage;
+    [Space]
     [Header("Crops Options")]
     public Crop crop;
-
+    [Space]
     [Header("Size of Placeable Object")]
     public bool isLarge = false;
     public int width = 1;
@@ -108,27 +204,4 @@ public class Item : ScriptableObject
 
     //[Tooltip("When Item hits the wall with that tag")]
     //public string[] colliderTags;
-
-    //public string type; //Napraviti da ima default vrijednosti, ja msm da se moze sa enum-om to uraditi
-    //TOOLS
-    //public string tool;
-    //public int dmg;
-    //WEAPONS
-    //public int atk;
-    //public int magAtk;
-    //public int def;
-    //public int magDef;
-    //public int crit;
-    //public int critDef;
-    //POTIONS
-    //public int heal;
-    //public int mana;
-    //BUFFS
-    //public int manaRegen;
-    //public int speedBoost;
-    //public int atkBoost;
-    //public int magAtkBoost;
-    //public int defBoost;
-    //public int critBoost;
-    //public int critDefBoost;
 }

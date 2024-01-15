@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +7,25 @@ using UnityEngine.UI;
 
 public class InventoryButton : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] ItemContainer inventory;
     [SerializeField] Image icon;
     [SerializeField] Text quantity;
     [SerializeField] Image highlight;
     [SerializeField] Sprite activeButton;
     [SerializeField] Sprite inactiveButton;
+
+    private GameObject playerStatsPanel;
+
+    public ItemSlot itemSlot;
+    //public event Action<Item> OnRightClickEvent;
     //Image image;
 
     int myIndex;
 
     private void Start()
     {
-        //image = GetComponent<Image>();
+        playerStatsPanel = GameObject.Find("PlayerStatsPanel");
+        //item = new Item();
     }
 
     public void SetIndex(int index)
@@ -27,6 +35,7 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 
     public void Set(ItemSlot slot)
     {
+        itemSlot.Copy(slot);
         icon.gameObject.SetActive(true);
         icon.sprite = slot.item.icon;
 
@@ -60,10 +69,17 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //ItemContainer inventory = GameManager.instance.inventoryContainer;
-        //GameManager.instance.dragAndDropController.OnClick(inventory.slots[myIndex]);
-        //Debug.Log(transform.parent.GetComponent<InventoryPanel>());
-        //transform.parent.GetComponent<InventoryPanel>().Show();
+        if(eventData != null && eventData.button == PointerEventData.InputButton.Right && itemSlot.item != null)
+        {
+            if(itemSlot.item.equipable)
+            {
+                playerStatsPanel.GetComponent<PlayerStatsPanel>().EquipItem(itemSlot.item);
+                itemSlot.item.Equip(GameManager.instance.player.GetComponent<Character>());
+                inventory.RemoveAt(myIndex);
+                return;
+            }
+        }
+        
         ItemPanel itemPanel = transform.parent.GetComponent<ItemPanel>();
         itemPanel.OnClick(myIndex);
     }
