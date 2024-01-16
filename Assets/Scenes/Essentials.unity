@@ -25406,6 +25406,10 @@ PrefabInstance:
       propertyPath: typeEquipable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4739527638747046609, guid: 8d2d4c1a726c9404abec1972afa40045, type: 3}
+      propertyPath: equipedItemsData
+      value: 
+      objectReference: {fileID: 11400000, guid: d042e157e8ad36b4d8a0672ba522815d, type: 2}
     - target: {fileID: 8520517724624600350, guid: 8d2d4c1a726c9404abec1972afa40045, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

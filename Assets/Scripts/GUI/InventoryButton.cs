@@ -53,6 +53,7 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
     {
         icon.sprite = null;
         icon.gameObject.SetActive(false);
+        itemSlot.Clear();
 
         quantity.gameObject.SetActive(false);
     }
@@ -76,6 +77,7 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
                 playerStatsPanel.GetComponent<PlayerStatsPanel>().EquipItem(itemSlot.item);
                 itemSlot.item.Equip(GameManager.instance.player.GetComponent<Character>());
                 inventory.RemoveAt(myIndex);
+                GameObject.Find("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().ShowStats();
                 return;
             }
         }

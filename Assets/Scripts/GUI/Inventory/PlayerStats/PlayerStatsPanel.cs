@@ -100,5 +100,7 @@ public class PlayerStatsPanel : MonoBehaviour
                 equipedItems.equipedItems[i].item = item;
             }
         }
+
+        ShowEquipedItems();
     }
 }
