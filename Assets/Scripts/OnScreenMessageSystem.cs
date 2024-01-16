@@ -17,6 +17,7 @@ public class OnScreenMessage
 public class OnScreenMessageSystem : MonoBehaviour
 {
     [SerializeField] GameObject textPrefab;
+    [SerializeField] GameObject critTextPrefab;
 
     [SerializeField] float timeForAnimation = 0.4f;
 
@@ -46,7 +47,7 @@ public class OnScreenMessageSystem : MonoBehaviour
         }
     }
 
-    public void PostMessage(Vector3 worldPosition, string message)
+    public void PostMessage(Vector3 worldPosition, string message, bool isCritical)
     {
         worldPosition.z = -1f;
         worldPosition.x += Random.Range(-horizontalScatter, horizontalScatter);
@@ -54,20 +55,21 @@ public class OnScreenMessageSystem : MonoBehaviour
 
         if (openList.Count > 0)
         {
-            ReuseObjectOpenList(worldPosition, message);
+            ReuseObjectOpenList(worldPosition, message, isCritical);
         }
         else
         {
-            CreateNewOnScreenMessageObject(worldPosition, message);
+            CreateNewOnScreenMessageObject(worldPosition, message, isCritical);
         }
     }
 
-    private void ReuseObjectOpenList(Vector3 worldPosition, string message)
+    private void ReuseObjectOpenList(Vector3 worldPosition, string message, bool isCritical)
     {
         OnScreenMessage osm = openList[0];
         osm.go.SetActive(true);
         osm.timeToLive = timeForAnimation;
-        osm.go.GetComponent<TextMeshPro>().text = message;
+        //osm.go.GetComponent<TextMeshPro>().text = message;
+        osm.go.GetComponent<DamageText>().SetText(message, isCritical);
         osm.go.transform.position = worldPosition;
         openList.RemoveAt(0);
         messageList.Add(osm);
@@ -75,13 +77,14 @@ public class OnScreenMessageSystem : MonoBehaviour
         LeanTween.moveY(osm.go, osm.go.transform.position.y + 1, timeForAnimation);
     }
 
-    private void CreateNewOnScreenMessageObject(Vector3 worldPosition, string message)
+    private void CreateNewOnScreenMessageObject(Vector3 worldPosition, string message, bool isCritical)
     {
         GameObject textGO = Instantiate(textPrefab, transform);
         textGO.transform.position = worldPosition;
 
-        TextMeshPro tmp = textGO.GetComponent<TextMeshPro>();
-        tmp.text = message;
+        textGO.GetComponent<DamageText>().SetText(message, isCritical);
+        //TextMeshPro tmp = textGO.GetComponent<TextMeshPro>();
+        //tmp.text = message;
 
         OnScreenMessage onScreenMessage = new OnScreenMessage(textGO);
         onScreenMessage.timeToLive = timeForAnimation;

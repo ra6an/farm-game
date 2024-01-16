@@ -37,7 +37,7 @@ public class Stat
 public class Character : MonoBehaviour, IDamageable
 {
     [Header("Main Stats")]
-    public Stat level;
+    public int level;
     public Stat experience;
     public Stat health;
     public Stat mana;
@@ -88,10 +88,11 @@ public class Character : MonoBehaviour, IDamageable
         UpdateHpBar();
         UpdateManaBar();
         EquipItemsOnStart();
-        level.maxVal.BaseValue = levelStatsData.levels.Count;
-        //level.currVal = 1;
+
+        experience.maxVal.BaseValue = levelStatsData.levels[level - 1].experience;
 
         SetStatsBasedOnLevel();
+        transform.GetComponent<EquipItemController>().Refresh();
 
         timeAgent.onTimeTick += RegenHealth;
         timeAgent.onTimeTick += RegenMana;
@@ -118,30 +119,30 @@ public class Character : MonoBehaviour, IDamageable
 
     private void SetStatsBasedOnLevel()
     {
-        int lvl = (int)level.currVal;
+        int lvl = level - 1;
         health.currVal = 30;
-        health.maxVal.BaseValue = levelStatsData.levels[lvl - 1].health;
-        healthRegen.BaseValue = levelStatsData.levels[lvl - 1].healthRegen;
-        mana.maxVal.BaseValue = levelStatsData.levels[lvl - 1].mana;
-        manaRegen.BaseValue = levelStatsData.levels[lvl - 1].manaRegen;
+        health.maxVal.BaseValue = levelStatsData.levels[lvl].health;
+        healthRegen.BaseValue = levelStatsData.levels[lvl].healthRegen;
+        mana.maxVal.BaseValue = levelStatsData.levels[lvl].mana;
+        manaRegen.BaseValue = levelStatsData.levels[lvl].manaRegen;
         mana.currVal = 10;
-        experience.maxVal.BaseValue = levelStatsData.levels[lvl - 1].experience;
-        speed.BaseValue = levelStatsData.levels[lvl - 1].speed;
+        experience.maxVal.BaseValue = levelStatsData.levels[lvl].experience;
+        speed.BaseValue = levelStatsData.levels[lvl].speed;
 
         //Attack
-        physicalDamage.BaseValue = levelStatsData.levels[lvl - 1].physicalAttack;
-        magicDamage.BaseValue = levelStatsData.levels[lvl - 1].magicAttack;
-        physicalPenetration.BaseValue = levelStatsData.levels[lvl - 1].physicalPenetration;
-        magicPenetration.BaseValue = levelStatsData.levels[lvl - 1].magicPenetration;
-        criticalChance.BaseValue = levelStatsData.levels[lvl - 1].criticalChance;
-        criticalDamage.BaseValue = levelStatsData.levels[lvl - 1].criticalDamage;
+        physicalDamage.BaseValue = levelStatsData.levels[lvl].physicalAttack;
+        magicDamage.BaseValue = levelStatsData.levels[lvl].magicAttack;
+        physicalPenetration.BaseValue = levelStatsData.levels[lvl].physicalPenetration;
+        magicPenetration.BaseValue = levelStatsData.levels[lvl].magicPenetration;
+        criticalChance.BaseValue = levelStatsData.levels[lvl].criticalChance;
+        criticalDamage.BaseValue = levelStatsData.levels[lvl].criticalDamage;
 
         //Defense
-        physicalDefense.BaseValue = levelStatsData.levels[lvl - 1].physicalDefense;
-        magicDefense.BaseValue = levelStatsData.levels[lvl - 1].magicDefense;
-        physicalResistance.BaseValue = levelStatsData.levels[lvl - 1].physicalResistance;
-        magicResistance.BaseValue = levelStatsData.levels[lvl - 1].magicResistance;
-        criticalResistance.BaseValue = levelStatsData.levels[lvl - 1].critialResistance;
+        physicalDefense.BaseValue = levelStatsData.levels[lvl].physicalDefense;
+        magicDefense.BaseValue = levelStatsData.levels[lvl].magicDefense;
+        physicalResistance.BaseValue = levelStatsData.levels[lvl].physicalResistance;
+        magicResistance.BaseValue = levelStatsData.levels[lvl].magicResistance;
+        criticalResistance.BaseValue = levelStatsData.levels[lvl].critialResistance;
     }
 
     private void UpdateHpBar()
@@ -261,5 +262,11 @@ public class Character : MonoBehaviour, IDamageable
     public void CheckState()
     {
         
+    }
+
+    internal void UpdateStatusBars()
+    {
+        UpdateHpBar();
+        UpdateManaBar();
     }
 }

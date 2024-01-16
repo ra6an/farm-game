@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
-  m_Name: BronzeSword
+  m_Name: RingOfElysium
   m_EditorClassIdentifier: 
-  id: 24
-  name: Bronze Sword
+  id: 37
+  name: Ring Of Elysium
   stackable: 0
-  icon: {fileID: 968413654, guid: 745135faaee4c5b4faddc8583e710adc, type: 3}
+  icon: {fileID: -1297625611, guid: 745135faaee4c5b4faddc8583e710adc, type: 3}
   onAction: {fileID: 0}
   onTileMapAction: {fileID: 0}
   onItemUsed: {fileID: 0}
   iconHighlight: 0
   itemPrefab: {fileID: 0}
-  equipable: 0
-  equipableType: 0
-  physicalDamage: 2
+  equipable: 1
+  equipableType: 5
+  physicalDamage: 5
   magicDamage: 0
-  physicalPenetration: 1
-  magicPenetration: 0
-  criticalChance: 17.1
-  criticalDamage: 60.3
-  physicalDamagePercent: 0
-  magicDamagePercent: 0
+  physicalPenetration: 30
+  magicPenetration: 5
+  criticalChance: 5
+  criticalDamage: 40.7
+  physicalDamagePercent: 0.15
+  magicDamagePercent: 30
   physicalPenetrationPercent: 0
   magicPenetrationPercent: 0
   criticalChancePercent: 0
@@ -40,19 +40,19 @@ MonoBehaviour:
   physicalResistance: 0
   magicResistance: 0
   criticalResistance: 0
-  speed: 0
-  health: 0
-  healthRegen: 0
-  mana: 0
-  manaRegen: 0
+  speed: 2
+  health: 15
+  healthRegen: 3
+  mana: 50
+  manaRegen: 2
   speedPercent: 0
   healthPercent: 0
   manaPercent: 0
   ToolDmg: 0
   fillable: 0
   filled: 0
-  isWeapon: 1
-  weaponType: 1
+  isWeapon: 0
+  weaponType: 0
   damage: 0
   penetration: 0
   critChance: 0

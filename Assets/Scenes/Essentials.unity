@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPrefab: {fileID: 1264663235830321509, guid: abd0903d37daec54390a3febbaa17c45, type: 3}
+  critTextPrefab: {fileID: 1264663235830321509, guid: 91bb1d860971bf445bc6075c7f307855, type: 3}
   timeForAnimation: 0.4
   horizontalScatter: 0.25
   verticalScatter: 0.5
@@ -11609,6 +11610,7 @@ GameObject:
   - component: {fileID: 1146062975}
   - component: {fileID: 1146062977}
   - component: {fileID: 1146062976}
+  - component: {fileID: 1146062978}
   m_Layer: 5
   m_Name: ExperiencePanel
   m_TagString: Untagged
@@ -11676,6 +11678,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146062974}
   m_CullTransparentMesh: 1
+--- !u!114 &1146062978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146062974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0185dbe3edc0a245a54e9517bd2809a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expText: {fileID: 1309064994}
 --- !u!1001 &1161092035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13105,7 +13120,7 @@ GameObject:
   - component: {fileID: 1309064995}
   - component: {fileID: 1309064994}
   m_Layer: 5
-  m_Name: LevelValue
+  m_Name: ExpValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13129,7 +13144,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 40, y: 0}
-  m_SizeDelta: {x: 30, y: 0}
+  m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1309064994
 MonoBehaviour:
@@ -13161,8 +13176,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 1
 --- !u!222 &1309064995
@@ -18253,6 +18268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsContainer: {fileID: 870337482}
   singleStatPrefab: {fileID: 8198565531676231239, guid: 755cb287bc5764d46ab06783bf299398, type: 3}
+  playerExperience: {fileID: 1146062974}
+  playerLevel: {fileID: 1919752891}
   equipmentSlots:
   - {fileID: 873533637}
   - {fileID: 2143627639}
@@ -18263,7 +18280,7 @@ MonoBehaviour:
   - {fileID: 712701092}
   - {fileID: 1298133287}
   - {fileID: 526816122}
-  equipedItems: {fileID: 11400000, guid: d042e157e8ad36b4d8a0672ba522815d, type: 2}
+  equippedItems: {fileID: 11400000, guid: d042e157e8ad36b4d8a0672ba522815d, type: 2}
   health: {fileID: 2017538319}
   healthRegen: {fileID: 304457730}
   mana: {fileID: 48856434}
@@ -20810,6 +20827,7 @@ GameObject:
   - component: {fileID: 1924335067}
   - component: {fileID: 1924335068}
   - component: {fileID: 1924335069}
+  - component: {fileID: 1924335070}
   m_Layer: 0
   m_Name: MainCharacter
   m_TagString: Player
@@ -20997,10 +21015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd6ddd1ac3a1dc4c98910709f198087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level:
-    maxVal:
-      BaseValue: 20
-    currVal: 2
+  level: 2
   experience:
     maxVal:
       BaseValue: 0
@@ -21255,6 +21270,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2898d129af29a154992683ebc4fadaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1924335070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924335047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74d527f451c43b49bb18738f82b4f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipedItemsData: {fileID: 11400000, guid: d042e157e8ad36b4d8a0672ba522815d, type: 2}
+  playerStatsPanel: {fileID: 1747696897}
 --- !u!1 &1926851179
 GameObject:
   m_ObjectHideFlags: 0

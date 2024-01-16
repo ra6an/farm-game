@@ -14,19 +14,9 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
     [SerializeField] Sprite activeButton;
     [SerializeField] Sprite inactiveButton;
 
-    private GameObject playerStatsPanel;
-
     public ItemSlot itemSlot;
-    //public event Action<Item> OnRightClickEvent;
-    //Image image;
 
     int myIndex;
-
-    private void Start()
-    {
-        playerStatsPanel = GameObject.Find("PlayerStatsPanel");
-        //item = new Item();
-    }
 
     public void SetIndex(int index)
     {
@@ -74,10 +64,7 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
         {
             if(itemSlot.item.equipable)
             {
-                playerStatsPanel.GetComponent<PlayerStatsPanel>().EquipItem(itemSlot.item);
-                itemSlot.item.Equip(GameManager.instance.player.GetComponent<Character>());
-                inventory.RemoveAt(myIndex);
-                GameObject.Find("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().ShowStats();
+                GameManager.instance.player.GetComponent<EquipItemController>().EquipItem(itemSlot.item, myIndex);
                 return;
             }
         }
@@ -88,7 +75,6 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 
     public void Highlight(bool active)
     {
-        //highlight.gameObject.SetActive(active);
         this.GetComponent<Image>().sprite = active ? activeButton : inactiveButton;
 
         icon.transform.position = active ? 

@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7261c3d1732ce9d46a22b8ac448cbb4a, type: 3}
-  m_Name: BronzeSword
+  m_Name: PandorasNecklace
   m_EditorClassIdentifier: 
-  id: 24
-  name: Bronze Sword
+  id: 38
+  name: Pandora's Necklace
   stackable: 0
-  icon: {fileID: 968413654, guid: 745135faaee4c5b4faddc8583e710adc, type: 3}
+  icon: {fileID: -1874526554, guid: 745135faaee4c5b4faddc8583e710adc, type: 3}
   onAction: {fileID: 0}
   onTileMapAction: {fileID: 0}
   onItemUsed: {fileID: 0}
   iconHighlight: 0
   itemPrefab: {fileID: 0}
-  equipable: 0
-  equipableType: 0
-  physicalDamage: 2
+  equipable: 1
+  equipableType: 6
+  physicalDamage: 0
   magicDamage: 0
-  physicalPenetration: 1
+  physicalPenetration: 0
   magicPenetration: 0
-  criticalChance: 17.1
-  criticalDamage: 60.3
+  criticalChance: 0
+  criticalDamage: 0
   physicalDamagePercent: 0
   magicDamagePercent: 0
   physicalPenetrationPercent: 0
@@ -41,18 +41,18 @@ MonoBehaviour:
   magicResistance: 0
   criticalResistance: 0
   speed: 0
-  health: 0
-  healthRegen: 0
-  mana: 0
-  manaRegen: 0
+  health: 125
+  healthRegen: 5
+  mana: 40
+  manaRegen: 3
   speedPercent: 0
   healthPercent: 0
   manaPercent: 0
   ToolDmg: 0
   fillable: 0
   filled: 0
-  isWeapon: 1
-  weaponType: 1
+  isWeapon: 0
+  weaponType: 0
   damage: 0
   penetration: 0
   critChance: 0

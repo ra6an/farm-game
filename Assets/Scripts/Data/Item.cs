@@ -128,19 +128,19 @@ public class Item : ScriptableObject
     public void Unequip(Character character)
     {
         //Main
-        if (health != 0) character.health.maxVal.RemoveAllModifiersFromSource(this);
+        if (health != 0 || healthPercent != 0) character.health.maxVal.RemoveAllModifiersFromSource(this);
         if (healthRegen != 0) character.healthRegen.RemoveAllModifiersFromSource(this);
-        if (mana != 0) character.mana.maxVal.RemoveAllModifiersFromSource(this);
+        if (mana != 0 || manaPercent != 0) character.mana.maxVal.RemoveAllModifiersFromSource(this);
         if (manaRegen != 0) character.manaRegen.RemoveAllModifiersFromSource(this);
-        if (speed != 0) character.speed.RemoveAllModifiersFromSource(this);
+        if (speed != 0 || speedPercent != 0) character.speed.RemoveAllModifiersFromSource(this);
 
         //Attack
-        if (physicalDamage != 0) character.physicalDamage.RemoveAllModifiersFromSource(this);
-        if (magicDamage != 0) character.magicDamage.RemoveAllModifiersFromSource(this);
-        if (physicalPenetration != 0) character.physicalPenetration.RemoveAllModifiersFromSource(this);
-        if (magicPenetration != 0) character.magicPenetration.RemoveAllModifiersFromSource(this);
-        if (criticalChance != 0) character.criticalChance.RemoveAllModifiersFromSource(this);
-        if (criticalDamage != 0) character.criticalDamage.RemoveAllModifiersFromSource(this);
+        if (physicalDamage != 0 || physicalDamagePercent != 0) character.physicalDamage.RemoveAllModifiersFromSource(this);
+        if (magicDamage != 0 || magicDamagePercent != 0) character.magicDamage.RemoveAllModifiersFromSource(this);
+        if (physicalPenetration != 0 || physicalPenetrationPercent != 0) character.physicalPenetration.RemoveAllModifiersFromSource(this);
+        if (magicPenetration != 0 || magicPenetrationPercent != 0) character.magicPenetration.RemoveAllModifiersFromSource(this);
+        if (criticalChance != 0 || criticalChancePercent != 0) character.criticalChance.RemoveAllModifiersFromSource(this);
+        if (criticalDamage != 0 || criticalDamagePercent != 0) character.criticalDamage.RemoveAllModifiersFromSource(this);
 
         //Defense
         if (physicalDefense != 0) character.physicalDefense.RemoveAllModifiersFromSource(this);

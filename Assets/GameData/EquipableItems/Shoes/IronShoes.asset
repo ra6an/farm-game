@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 36
   name: Iron Shoes
   stackable: 0
-  icon: {fileID: 0}
+  icon: {fileID: -402906459, guid: 745135faaee4c5b4faddc8583e710adc, type: 3}
   onAction: {fileID: 0}
   onTileMapAction: {fileID: 0}
   onItemUsed: {fileID: 0}
@@ -23,6 +23,18 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   equipable: 1
   equipableType: 4
+  physicalDamage: 0
+  magicDamage: 0
+  physicalPenetration: 0
+  magicPenetration: 0
+  criticalChance: 0
+  criticalDamage: 0
+  physicalDamagePercent: 0
+  magicDamagePercent: 0
+  physicalPenetrationPercent: 0
+  magicPenetrationPercent: 0
+  criticalChancePercent: 0
+  criticalDamagePercent: 0
   physicalDefense: 3
   magicDefense: 2
   physicalResistance: 2
@@ -30,18 +42,21 @@ MonoBehaviour:
   criticalResistance: 3
   speed: 0
   health: 0
+  healthRegen: 0
   mana: 0
+  manaRegen: 0
+  speedPercent: 0
+  healthPercent: 0
+  manaPercent: 0
   ToolDmg: 0
   fillable: 0
   filled: 0
   isWeapon: 0
   weaponType: 0
-  physicalDamage: 0
-  magicDamage: 0
-  physicalPenetration: 0
-  magicPenetration: 0
-  criticalChance: 0
-  criticalDamage: 0
+  damage: 0
+  penetration: 0
+  critChance: 0
+  critDamage: 0
   crop: {fileID: 0}
   isLarge: 0
   width: 1

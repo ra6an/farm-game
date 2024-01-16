@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class PlayerStatsPanel : MonoBehaviour
 {
     [SerializeField] GameObject statsContainer;
     [SerializeField] GameObject singleStatPrefab;
+    [SerializeField] GameObject playerExperience;
+    [SerializeField] Text playerLevel;
     [SerializeField] List<GameObject> equipmentSlots;
-    [SerializeField] EquipedItemsData equipedItems;
+    [SerializeField] EquipedItemsData equippedItems;
 
     [HeaderAttribute("Prefab Stats")]
     [SerializeField] GameObject health;
@@ -31,7 +35,7 @@ public class PlayerStatsPanel : MonoBehaviour
     private void Start()
     {
         ShowStats();
-        ShowEquipedItems();
+        ShowEquippedItems();
     }
 
     public void ShowStats()
@@ -60,14 +64,17 @@ public class PlayerStatsPanel : MonoBehaviour
         physicalResistance.GetComponent<SingleStat>().Set(character.physicalResistance.Value);
         magicResistance.GetComponent<SingleStat>().Set(character.magicResistance.Value);
         criticalResistance.GetComponent<SingleStat>().Set(character.criticalResistance.Value);
+
+        playerLevel.text = character.level.ToString();
+        playerExperience.GetComponent<ExperiencePanel>().Set(character.experience.currVal, character.experience.maxVal.BaseValue);
     }
 
-    public void ShowEquipedItems()
+    public void ShowEquippedItems()
     {
-        for (int i = 0; i < equipedItems.equipedItems.Count; i++)
+        for (int i = 0; i < equippedItems.equipedItems.Count; i++)
         {
-            Item currItem = equipedItems.equipedItems[i].item;
-            if (equipedItems.equipedItems[i].item == null) return;
+            Item currItem = equippedItems.equipedItems[i].item;
+            if (equippedItems.equipedItems[i].item == null) continue;
 
             for (int x = 0; x < equipmentSlots.Count; x++)
             {
@@ -93,14 +100,42 @@ public class PlayerStatsPanel : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < equipedItems.equipedItems.Count; i++)
+        for (int i = 0; i < equippedItems.equipedItems.Count; i++)
         {
-            if (equipedItems.equipedItems[i].type == item.equipableType)
+            if (equippedItems.equipedItems[i].type == item.equipableType)
             {
-                equipedItems.equipedItems[i].item = item;
+                equippedItems.equipedItems[i].item = item;
             }
         }
 
-        ShowEquipedItems();
+        ShowEquippedItems();
+    }
+
+    public bool SlotIsEmpty(TypeEquipable type)
+    {
+        bool isEmpty = true;
+
+        foreach (GameObject go in equipmentSlots)
+        {
+            EquipmentSlot es = go.GetComponent<EquipmentSlot>();
+            if (es.typeEquipable == type && es.equipedItem != null) 
+            {
+                isEmpty = false;
+            }
+        }
+
+        return isEmpty;
+    }
+
+    public void UnequipSlot(TypeEquipable type)
+    {
+        foreach (GameObject go in equipmentSlots)
+        {
+            EquipmentSlot es = go.GetComponent<EquipmentSlot>();
+            if (es.typeEquipable == type)
+            {
+                es.UnequipItem();
+            }
+        }
     }
 }

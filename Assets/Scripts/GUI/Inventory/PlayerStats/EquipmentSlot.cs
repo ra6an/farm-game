@@ -1,62 +1,44 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] EquipedItemsData equipedItemsData;
     public Item equipedItem;
     [SerializeField] Image itemImage;
     [SerializeField] Image placeholderImage;
     public TypeEquipable typeEquipable;
-
-    private void Start()
-    {
-        //equipedItem = new Item();
-    }
 
     public void EquipItem(Item item)
     {
         if (!item.equipable) return;
         if (item.equipableType != typeEquipable) return;
 
-        equipedItem = item;
-        itemImage.sprite = item.icon;
-        itemImage.gameObject.SetActive(true);
-        placeholderImage.gameObject.SetActive(false);
+        SetEquipmentSlot(item);
     }
 
     public void UnequipItem()
     {
-        if (equipedItem == null) return;
+        GameManager.instance.player.GetComponent<EquipItemController>().UnequipItem(equipedItem, typeEquipable);
 
-        ItemContainer inventory = GameManager.instance.inventoryContainer;
-        if (inventory == null) return;
+        CleanEquipmentSlot();
+    }
 
-        bool hasFreeSpace = inventory.CheckFreeSpace();
-        if(hasFreeSpace)
-        {
-            inventory.Add(equipedItem);
-            equipedItem.Unequip(GameManager.instance.player.GetComponent<Character>());
-            equipedItem = null;
-            itemImage.gameObject.SetActive(false);
-            placeholderImage.gameObject.SetActive(true);
-            itemImage.sprite = null;
+    public void SetEquipmentSlot(Item i)
+    {
+        equipedItem = i;
+        itemImage.sprite = i.icon;
+        itemImage.gameObject.SetActive(true);
+        placeholderImage.gameObject.SetActive(false);
+    }
 
-            for (int i = 0; i < equipedItemsData.equipedItems.Count; i++)
-            {
-                if (equipedItemsData.equipedItems[i].type == typeEquipable)
-                {
-                    equipedItemsData.equipedItems[i].item = null;
-                }
-            }
-        }
-
-        GameObject.Find("PlayerStatsPanel").GetComponent<PlayerStatsPanel>().ShowStats();
+    public void CleanEquipmentSlot()
+    {
+        equipedItem = null;
+        itemImage.gameObject.SetActive(false);
+        placeholderImage.gameObject.SetActive(true);
+        itemImage.sprite = null;
     }
 
     public void OnPointerClick(PointerEventData eventData)

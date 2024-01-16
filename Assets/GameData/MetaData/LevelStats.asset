@@ -24,7 +24,7 @@ MonoBehaviour:
     physicalPenetration: 1
     magicPenetration: 1
     criticalChance: 10
-    criticalDamage: 2
+    criticalDamage: 20
     physicalDefense: 1
     magicDefense: 1
     physicalResistance: 1
@@ -41,7 +41,7 @@ MonoBehaviour:
     physicalPenetration: 1
     magicPenetration: 1
     criticalChance: 12
-    criticalDamage: 2
+    criticalDamage: 30
     physicalDefense: 2
     magicDefense: 2
     physicalResistance: 1
@@ -58,7 +58,7 @@ MonoBehaviour:
     physicalPenetration: 2
     magicPenetration: 2
     criticalChance: 14
-    criticalDamage: 3
+    criticalDamage: 40
     physicalDefense: 4
     magicDefense: 4
     physicalResistance: 2

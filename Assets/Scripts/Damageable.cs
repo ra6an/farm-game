@@ -11,7 +11,7 @@ public class Damageable : MonoBehaviour
     [SerializeField] Color toColor = new Color(255f, 255f, 255f, 255f);
     [SerializeField] Color fromColor = new Color(255f, 1f, 1f, 255f);
 
-    internal void TakeDamage(float damage)
+    internal void TakeDamage(float damage, bool isCritical)
     {
         if (damageable == null)
         {
@@ -20,7 +20,7 @@ public class Damageable : MonoBehaviour
 
         damageable.CalculateDamage(ref damage);
         damageable.ApplyDamage(damage);
-        GameManager.instance.messageSystem.PostMessage(transform.position, damage.ToString());
+        GameManager.instance.messageSystem.PostMessage(transform.position, damage.ToString(), isCritical);
         damageable.CheckState();
 
         LeanTween.value(gameObject, setColorCallback, fromColor, toColor, 0.16f);

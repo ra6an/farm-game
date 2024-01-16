@@ -31,73 +31,104 @@ public class ToolbarController : MonoBehaviour
     {
         onChange += UpdateHighlightIcon;
         UpdateHighlightIcon(selectedTool);
+
+        Item i = GetItem;
+        if(i != null && i.isWeapon)
+        {
+            i.Equip(this.GetComponent<Character>());
+            this.GetComponent<EquipItemController>().Refresh();
+        }
     }
 
     private void Update()
     {
+        if (!this.GetComponent<ShowPanelsController>().AllPanelsAreClosed()) return;
+
+        //SCROLL 
         float delta = Input.mouseScrollDelta.y;
         if(delta != 0)
         {
             if(delta < 0 )
             {
-                selectedTool = selectedTool + 1 > toolbarSize - 1 ? 0 : selectedTool + 1;
+                int index = selectedTool + 1 > toolbarSize - 1 ? 0 : selectedTool + 1;
+                UpdateToolbarSlot(index);
             } else
             {
-                selectedTool = selectedTool - 1 < 0 ? toolbarSize - 1 : selectedTool - 1;
+                int index = selectedTool - 1 < 0 ? toolbarSize - 1 : selectedTool - 1;
+                UpdateToolbarSlot(index);
             }
-            onChange?.Invoke(selectedTool);
         }
 
+        //Buttons
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            selectedTool = 0;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            selectedTool = 1;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            selectedTool = 2;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(2);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            selectedTool = 3;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(3);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            selectedTool = 4;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(4);
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            selectedTool = 5;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(5);
         }
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            selectedTool = 6;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(6);
         }
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            selectedTool = 7;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(7);
         }
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            selectedTool = 8;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(8);
         }
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            selectedTool = 9;
-            onChange?.Invoke(selectedTool);
+            UpdateToolbarSlot(9);
         }
+    }
+
+    private void UpdateToolbarSlot(int i)
+    {
+        EquipUnequipHandler(i);
+        Set(i);
+        onChange?.Invoke(selectedTool);
+    }
+
+    private void EquipUnequipHandler(int i)
+    {
+        bool needRefresh = false;
+        Item item = GetItem;
+        Item newItem = GameManager.instance.inventoryContainer.slots[i].item;
+
+        if (item == null && newItem == null) return;
+
+        if(item != null && item.isWeapon)
+        {
+            item.Unequip(this.GetComponent<Character>());
+            needRefresh = true;
+        }
+        if(newItem != null && newItem.isWeapon)
+        {
+            newItem.Equip(this.GetComponent<Character>());
+            needRefresh = true;
+        }
+
+        if(needRefresh) this.GetComponent<EquipItemController>().Refresh();
     }
 
     internal void Set(int id)

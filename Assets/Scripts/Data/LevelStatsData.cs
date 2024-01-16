@@ -13,7 +13,7 @@ public class LevelStats
     public float mana;
     public float manaRegen;
     public float speed;
-    public float experience;
+    public int experience;
     [Space]
     [Header("Attack")]
     public float physicalAttack;

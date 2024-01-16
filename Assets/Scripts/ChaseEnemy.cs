@@ -44,7 +44,7 @@ public class ChaseEnemy : MonoBehaviour
 
             if (character != null)
             {
-                character.TakeDamage(damage);
+                character.TakeDamage(damage, false);
             }
         }
     }
