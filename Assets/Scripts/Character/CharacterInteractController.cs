@@ -7,6 +7,7 @@ public class CharacterInteractController : MonoBehaviour
 {
     CharacterController2D characterController;
     Rigidbody2D rgdbd2d;
+    private InputManager inputManager;
     [SerializeField] float offsetDistance = 1f;
     [SerializeField] float sizeOfInteractableArea = 1.2f;
     Character character;
@@ -19,13 +20,14 @@ public class CharacterInteractController : MonoBehaviour
         rgdbd2d = GetComponent<Rigidbody2D>();
         character = GetComponent<Character>();
         showPanelsController = GetComponent<ShowPanelsController>();
+        inputManager = InputManager.instance;
     }
 
     private void Update()
     {
         Check();
 
-        if (Input.GetMouseButtonDown(1) && !showPanelsController.inventoryOpened)
+        if (inputManager.GetKeyDown(KeybindingActions.Interact) && !showPanelsController.inventoryOpened)
         {
             Interact();
         }
@@ -55,7 +57,6 @@ public class CharacterInteractController : MonoBehaviour
         Vector2 position = rgdbd2d.position + characterController.lastMotionVector * offsetDistance;
 
         Collider2D[] collider = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
-        Debug.Log(position);
 
         foreach (Collider2D c in collider)
         {

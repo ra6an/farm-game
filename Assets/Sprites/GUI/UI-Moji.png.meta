@@ -355,7 +355,7 @@ TextureImporter:
         width: 22
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
@@ -363,6 +363,27 @@ TextureImporter:
       bones: []
       spriteID: bae1801d7124694429f1bf8480fe4236
       internalID: 1384578506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_save
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 279
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e79866d69f27514ebb4c7930e009b80
+      internalID: 821824436
       vertices: []
       indices: 
       edges: []
@@ -381,6 +402,7 @@ TextureImporter:
       UI_stats_active: -1619324299
       UI-Moji_9: 1402830271
       UI-Moji_2: -446918634
+      UI_save: 821824436
       UI-Moji_3: 52074218
       UI-Moji_1: -1547136516
       UI_light_panel: 1384578506

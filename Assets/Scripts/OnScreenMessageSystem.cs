@@ -68,7 +68,6 @@ public class OnScreenMessageSystem : MonoBehaviour
         OnScreenMessage osm = openList[0];
         osm.go.SetActive(true);
         osm.timeToLive = timeForAnimation;
-        //osm.go.GetComponent<TextMeshPro>().text = message;
         osm.go.GetComponent<DamageText>().SetText(message, isCritical);
         osm.go.transform.position = worldPosition;
         openList.RemoveAt(0);
@@ -83,8 +82,6 @@ public class OnScreenMessageSystem : MonoBehaviour
         textGO.transform.position = worldPosition;
 
         textGO.GetComponent<DamageText>().SetText(message, isCritical);
-        //TextMeshPro tmp = textGO.GetComponent<TextMeshPro>();
-        //tmp.text = message;
 
         OnScreenMessage onScreenMessage = new OnScreenMessage(textGO);
         onScreenMessage.timeToLive = timeForAnimation;

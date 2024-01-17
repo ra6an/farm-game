@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class CraftingItemInventoryButton : MonoBehaviour, IPointerClickHandler
 {
-    //[SerializeField] GameObject itemDetailsPanel;
     [SerializeField] Image icon;
     [SerializeField] Sprite activeButton;
     [SerializeField] Sprite inactiveButton;
@@ -29,9 +28,6 @@ public class CraftingItemInventoryButton : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         GameObject.Find("CraftingPanel").GetComponent<RecipePanel>().SetActiveRecipe(myIndex);
-        //GameObject character = GameObject.Find("MainCharacter").gameObject;
-        //transform.GetComponent<CraftingStationContainerInteractController>().ShowItemDetails(recipe);
-        //transform.parent.GetComponent<CraftingButtonsPanel>().ChangeActiveButton(myIndex);
     }
 
     public void ActiveButton()

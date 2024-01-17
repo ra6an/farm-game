@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterController2D : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
+    private InputManager inputManager;
     [SerializeField] float speed = 2f;
     Vector2 motionVector;
     public Vector2 lastMotionVector;
@@ -24,9 +25,9 @@ public class CharacterController2D : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        inputManager = InputManager.instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (dashing)
@@ -34,8 +35,19 @@ public class CharacterController2D : MonoBehaviour
             return;
         }
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = 0f;
+        float vertical = 0f;
+
+        if (inputManager.GetKey(KeybindingActions.Up)) vertical = 1f;
+        if (inputManager.GetKey(KeybindingActions.Down)) vertical = -1f;
+        if (inputManager.GetKey(KeybindingActions.Left)) horizontal = -1f;
+        if (inputManager.GetKey(KeybindingActions.Right)) horizontal = 1f;
+
+        if(horizontal != 0 && vertical != 0)
+        {
+            horizontal *= 0.7f;
+            vertical *= 0.7f;
+        }
 
         motionVector.x = horizontal;
         motionVector.y = vertical;
@@ -43,7 +55,7 @@ public class CharacterController2D : MonoBehaviour
         animator.SetFloat("horizontal", horizontal);
         animator.SetFloat("vertical", vertical);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        if (inputManager.GetKeyDown(KeybindingActions.Dash) && canDash)
         {
             dashing = true;
             animator.SetTrigger("dash");
@@ -87,6 +99,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void Move()
     {
+        speed = this.GetComponent<Character>().speed.Value;
         rigidbody2d.velocity = motionVector * speed;
     }
 

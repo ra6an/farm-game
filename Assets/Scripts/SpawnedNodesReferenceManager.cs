@@ -26,15 +26,4 @@ public class SpawnedNodesReferenceManager : MonoBehaviour
 
         return spawnedNodesManager.Check(position);
     }
-
-    //internal void PickUp(Vector3Int gridPosition)
-    //{
-    //    if (placeableObjectManager == null)
-    //    {
-    //        Debug.Log("No placeableObjectManager reference detected!");
-    //        return;
-    //    }
-
-    //    placeableObjectManager.PickUp(gridPosition);
-    //}
 }

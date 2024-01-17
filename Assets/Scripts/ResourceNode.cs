@@ -81,11 +81,6 @@ public class ResourceNode : ToolHit
         }
     }
 
-    public override void Interact()
-    {
-        base.Interact();
-    }
-
     public override bool CanBeHit(List<ResourceNodeType> canBeHit)
     {
         return canBeHit.Contains(nodeType);

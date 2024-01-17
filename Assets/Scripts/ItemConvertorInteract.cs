@@ -85,7 +85,6 @@ public class ItemConvertorInteract : Interactable, IPersistant
 
     private void StartItemProcessing(ItemSlot toProcess, ConvertableItem recipe)
     {
-        Debug.Log(recipe.output.item.name);
         data.itemSlot.Copy(toProcess);
         data.itemSlot.quantity = recipe.input.quantity;
         data.timer = recipe.timeToConvert;

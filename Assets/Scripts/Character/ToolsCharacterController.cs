@@ -11,6 +11,7 @@ public class ToolsCharacterController : MonoBehaviour
     ToolbarController toolbarController;
     Animator animator;
     AttackController attackController;
+    private InputManager inputManager;
     [SerializeField] float offsetDistance = 1f;
     //[SerializeField] float sizeOfInteractableArea = 1.2f;
     [SerializeField] MarkerManager markerManager;
@@ -36,11 +37,12 @@ public class ToolsCharacterController : MonoBehaviour
         animator = GetComponent<Animator>();
         showPanelsController = GetComponent<ShowPanelsController>();
         attackController = GetComponent<AttackController>();
+        inputManager = InputManager.instance;
     }
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (inputManager.GetKeyDown(KeybindingActions.Hit))
         {
             WeaponAction();
         }
@@ -49,7 +51,7 @@ public class ToolsCharacterController : MonoBehaviour
         CanSelectCheck();
         Marker();
 
-        if(Input.GetMouseButtonDown(0) && Time.time > nextOnAction && showPanelsController.AllPanelsAreClosed())
+        if (inputManager.GetKeyDown(KeybindingActions.Hit) && Time.time > nextOnAction && showPanelsController.AllPanelsAreClosed())
         {
             nextOnAction = Time.time + cooldownTime;
 
@@ -81,8 +83,16 @@ public class ToolsCharacterController : MonoBehaviour
         Vector2 characterPosition = transform.position;
         Vector2 cameraPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         selectable = Vector2.Distance(characterPosition, cameraPosition) < maxDistance;
-        markerManager.Show(selectable);
-        iconHighlight.CanSelect = selectable;
+        if(toolbarController.GetItemSlot.item != null && (toolbarController.GetItemSlot.item.isTool || toolbarController.GetItemSlot.item.iconHighlight))
+        {
+            markerManager.Show(selectable);
+            iconHighlight.CanSelect = selectable;
+        }
+        else
+        {
+            markerManager.Show(false);
+            iconHighlight.CanSelect = false;
+        }
 
         //TEST MOJ KOD
         if(selectable)

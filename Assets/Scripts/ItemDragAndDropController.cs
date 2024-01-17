@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ItemDragAndDropController : MonoBehaviour
 {
+    private InputManager inputManager;
     public ItemSlot itemSlot;
     [SerializeField] GameObject itemIcon;
     RectTransform iconTransform;
@@ -17,6 +18,7 @@ public class ItemDragAndDropController : MonoBehaviour
         itemSlot = new ItemSlot();
         iconTransform = itemIcon.GetComponent<RectTransform>();
         itemIconImage = itemIcon.GetComponent<Image>();
+        inputManager = InputManager.instance;
     }
 
     private void Update()
@@ -25,10 +27,8 @@ public class ItemDragAndDropController : MonoBehaviour
         {
             iconTransform.position = Input.mousePosition;
 
-            if (Input.GetMouseButtonDown(0))
+            if (inputManager.GetKeyDown(KeybindingActions.Select) && !EventSystem.current.IsPointerOverGameObject()) // This is Generic MB0 So it doesnt need Keybind Script
             {
-                if (EventSystem.current.IsPointerOverGameObject() == false)
-                {
                     Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     worldPosition.z = 0;
 
@@ -40,7 +40,6 @@ public class ItemDragAndDropController : MonoBehaviour
 
                     itemSlot.Clear();
                     itemIcon.SetActive(false);
-                }
             }
         }
     }

@@ -7,6 +7,7 @@ using static UnityEditor.Progress;
 
 public class StorageContainerInteract : Interactable, IPersistant
 {
+    private InputManager inputManager;
     [SerializeField] bool opened;
     [SerializeField] AudioClip onOpenChest;
     [SerializeField] AudioClip onCloseChest;
@@ -17,22 +18,23 @@ public class StorageContainerInteract : Interactable, IPersistant
     private Character character;
     public Color chestColor;
 
-    private void Update()
-    {
-        if(opened && Input.GetKeyUp(KeyCode.Tab))
-        {
-            Close(character);
-        }
-    }
-
     private void Start()
     {
+        inputManager = InputManager.instance;
         chestColor = transform.GetComponent<SpriteRenderer>().color;
         animator = GetComponent<Animator>();
 
         if (itemContainer == null)
         {
             Init();
+        }
+    }
+
+    private void Update()
+    {
+        if (opened && inputManager.GetKeyUp(KeybindingActions.Inventory))
+        {
+            Close(character);
         }
     }
 

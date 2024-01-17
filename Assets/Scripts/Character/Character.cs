@@ -100,10 +100,10 @@ public class Character : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            TakeDamage(15);
-        }
+        //if(Input.GetKeyDown(KeyCode.UpArrow))
+        //{
+        //    TakeDamage(15);
+        //}
     }
 
     private void EquipItemsOnStart()

@@ -30,7 +30,6 @@ public class InventoryCraftingItemDetailsPanel : MonoBehaviour
         if (recipe == null) return;
         itemName.text = recipe.output.item.name;
         icon.sprite = recipe.output.item.icon;
-        //quantity.text = (recipe.output.quantity * mltp).ToString();
         activeRecipe = recipe;
 
         elementsPanel.GetComponent<InventoryElementsPanel>().SetElementsDetails(recipe.elements, mltp);
@@ -43,8 +42,6 @@ public class InventoryCraftingItemDetailsPanel : MonoBehaviour
 
     public void OnMultiplierChange(CraftingRecipe recipe, int mltp, bool canChange = true)
     {
-        //GameManager.instance.player.GetComponent<CraftingStationContainerInteractController>().IncrementQuantity(activeRecipe);
-        //elementsPanel.GetComponent<InventoryElementsPanel>().SetElementsDetails(recipe.elements, mltp);
         elementsPanel.GetComponent<InventoryElementsPanel>().OnMultiplierChange(mltp, canChange);
     }
 

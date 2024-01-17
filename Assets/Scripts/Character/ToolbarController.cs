@@ -11,6 +11,8 @@ public class ToolbarController : MonoBehaviour
     public Action<int> onChange;
     [SerializeField] IconHighlight iconHighlight;
 
+    private InputManager inputManager;
+
     public ItemSlot GetItemSlot
     {
         get
@@ -29,6 +31,8 @@ public class ToolbarController : MonoBehaviour
 
     private void Start()
     {
+        inputManager = InputManager.instance;
+
         onChange += UpdateHighlightIcon;
         UpdateHighlightIcon(selectedTool);
 
@@ -60,43 +64,43 @@ public class ToolbarController : MonoBehaviour
         }
 
         //Buttons
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot1))
         {
             UpdateToolbarSlot(0);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot2))
         {
             UpdateToolbarSlot(1);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot3))
         {
             UpdateToolbarSlot(2);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot4))
         {
             UpdateToolbarSlot(3);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot5))
         {
             UpdateToolbarSlot(4);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot6))
         {
             UpdateToolbarSlot(5);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot7))
         {
             UpdateToolbarSlot(6);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot8))
         {
             UpdateToolbarSlot(7);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot9))
         {
             UpdateToolbarSlot(8);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot10))
         {
             UpdateToolbarSlot(9);
         }
@@ -140,7 +144,8 @@ public class ToolbarController : MonoBehaviour
     {
         Item item = GetItem;
 
-        if(item == null)
+        //if(item == null)
+        if (item == null)
         {
             iconHighlight.Show = false;
             iconHighlight.itemWidth = 1;

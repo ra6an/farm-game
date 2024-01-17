@@ -30,13 +30,7 @@ public class GameSceneManager : MonoBehaviour
 
     public void InitSwitchScene(string to, Vector3 targetPosition, string sceneName = null)
     {
-        //if(cameraConf == null)
-        //{
             StartCoroutine(Transition(to, targetPosition, sceneName));
-        //} else
-        //{
-        //    StartCoroutine(Transition(to, targetPosition, cameraConf));
-        //}
     }
 
     IEnumerator Transition(string to, Vector3 targetPosition, string sceneName = null)
@@ -55,13 +49,6 @@ public class GameSceneManager : MonoBehaviour
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentScene));
 
-        //if(cameraConf != null)
-        //{
-        //    cameraConf.UpdateBounds();
-        //} else
-        //{
-        //    cameraConfiner.UpdateBounds();
-        //}
         if(sceneName == null)
         {
             cameraConfiner.UpdateBounds(currentScene);
@@ -69,7 +56,6 @@ public class GameSceneManager : MonoBehaviour
         {
             cameraConfiner.UpdateBounds(sceneName);
         }
-        //cameraConfiner.UpdateBounds(currentScene);
         screenTint.Untint();
     }
 

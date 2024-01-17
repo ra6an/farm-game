@@ -5,23 +5,22 @@ using UnityEngine;
 public class CraftingStationContainerInteract : Interactable
 {
     bool isOpened;
-    Animator animator;
+    private InputManager inputManager;
     Character character;
     [SerializeField] AudioClip onOpenPlay;
     [SerializeField] AudioClip onClosePlay;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        inputManager = InputManager.instance;
     }
 
     private void Update()
     {
-        if(isOpened && Input.GetKeyDown(KeyCode.Tab))
+        if(isOpened && inputManager.GetKeyDown(KeybindingActions.Inventory))
         {
             Close(character);
             isOpened = false;
-            //character.GetComponent<InventoryController>().Open();
         }
     }
 

@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class MainMenuController : MonoBehaviour
 {
+    private InputManager inputManager;
     [SerializeField] GameObject mainMenu;
+
+    private void Awake()
+    {
+        inputManager = InputManager.instance;
+    }
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Escape))
+        if(inputManager.GetKeyUp(KeybindingActions.MainMenu))
         {
             mainMenu.SetActive(!mainMenu.activeInHierarchy);
         }

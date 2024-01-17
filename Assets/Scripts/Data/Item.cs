@@ -151,6 +151,7 @@ public class Item : ScriptableObject
     }
     [Space]
     [Header("Tool Stats")]
+    public bool isTool;
     public int ToolDmg;
     public bool fillable = false;
     [Range(0, 100)]

@@ -5,21 +5,22 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
+    private InputManager inputManager;
     [SerializeField] GameObject panel;
     [SerializeField] GameObject statusPanel;
     [SerializeField] GameObject toolbarPanel;
     [SerializeField] GameObject coinPanel;
-    //[SerializeField] GameObject inventoryContainer;
     ShowPanelsController showPanelsController;
 
     private void Awake()
     {
+        inputManager = InputManager.instance;
         showPanelsController = GetComponent<ShowPanelsController>();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab) && showPanelsController.canOpeninventory)
+        if(inputManager.GetKeyDown(KeybindingActions.Inventory) && showPanelsController.canOpeninventory)
         {
                 if(panel.activeInHierarchy)
                 {
@@ -28,13 +29,6 @@ public class InventoryController : MonoBehaviour
                 {
                     showPanelsController.OpenInventory();
                 }
-            //if(!panel.activeInHierarchy)
-            //{
-            //    showPanelsController.OpenInventory();
-            //} else
-            //{
-            //    showPanelsController.CloseInventory();
-            //}
         }
     }
 

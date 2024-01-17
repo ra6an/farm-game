@@ -18,7 +18,6 @@ public class InventoryElementDetails : MonoBehaviour
 
     public void SetDetails(ItemSlot itemSlot, int multiplyer)
     {
-        //Debug.Log(itemSlot.item + ", " + itemSlot.quantity + ", " + item);
         item.Copy(itemSlot);
         icon.sprite = itemSlot.item.icon;
         elementName.text = itemSlot.item.name;
@@ -43,26 +42,19 @@ public class InventoryElementDetails : MonoBehaviour
 
     public void OnMultiplierChange(int multiplier)
     {
-        //Debug.Log("change-tu smo: " + transform.name);
-        //Debug.Log(item.item.name + ", " + item.quantity + ", " + multiplier);
         quantity.text = (item.quantity * multiplier).ToString();
         SetEnough();
     }
 
     public void OnMultiplierError(int multiplier)
     {
-        //Debug.Log("error-tu smo: " + transform.name);
-        //Debug.Log(item.item.name + ", " + item.quantity + ", " + multiplier);
         ItemSlot inventorySlot = GameManager.instance.inventoryContainer.GetItemSlot(item.item);
         if (inventorySlot == null || inventorySlot.quantity < item.quantity * (multiplier + 1))
         {
-            //inventoryQuantity.text = inventorySlot == null ? "0" : inventorySlot.quantity.ToString();
-            //quantity.text = multiplier.ToString();
             SetNotEnough();
         }
         else
         {
-            //quantity.text = multiplier.ToString();
             SetEnough();
         }
     }
@@ -71,11 +63,6 @@ public class InventoryElementDetails : MonoBehaviour
     {
         quantity.text = qty.ToString();
     }
-
-    //public void ChangeInventoryQuantity(int inventoryQty)
-    //{
-    //    inventoryQuantity.text = inventoryQty.ToString();
-    //}
 
     public void SetNotEnough()
     {

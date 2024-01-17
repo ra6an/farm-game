@@ -45,7 +45,4 @@ public class RGBSlider : MonoBehaviour
         changeSliderValue = true;
         hueVal = hue;
     }
-
-    
-
 }

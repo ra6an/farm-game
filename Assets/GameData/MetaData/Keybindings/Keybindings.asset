@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37858477d65ceae42a53a83bfb4f9e44, type: 3}
+  m_Name: Keybindings
+  m_EditorClassIdentifier: 
+  keybindingChecks:
+  - keybindingAction: 0
+    keyCode: 119
+    isCustomizable: 1
+  - keybindingAction: 1
+    keyCode: 115
+    isCustomizable: 1
+  - keybindingAction: 2
+    keyCode: 97
+    isCustomizable: 1
+  - keybindingAction: 3
+    keyCode: 100
+    isCustomizable: 1
+  - keybindingAction: 4
+    keyCode: 304
+    isCustomizable: 1
+  - keybindingAction: 5
+    keyCode: 323
+    isCustomizable: 1
+  - keybindingAction: 6
+    keyCode: 323
+    isCustomizable: 1
+  - keybindingAction: 7
+    keyCode: 113
+    isCustomizable: 1
+  - keybindingAction: 8
+    keyCode: 324
+    isCustomizable: 1
+  - keybindingAction: 9
+    keyCode: 101
+    isCustomizable: 1
+  - keybindingAction: 10
+    keyCode: 9
+    isCustomizable: 1
+  - keybindingAction: 11
+    keyCode: 49
+    isCustomizable: 1
+  - keybindingAction: 12
+    keyCode: 50
+    isCustomizable: 1
+  - keybindingAction: 13
+    keyCode: 51
+    isCustomizable: 1
+  - keybindingAction: 14
+    keyCode: 52
+    isCustomizable: 1
+  - keybindingAction: 15
+    keyCode: 53
+    isCustomizable: 1
+  - keybindingAction: 16
+    keyCode: 54
+    isCustomizable: 1
+  - keybindingAction: 17
+    keyCode: 55
+    isCustomizable: 1
+  - keybindingAction: 18
+    keyCode: 56
+    isCustomizable: 1
+  - keybindingAction: 19
+    keyCode: 57
+    isCustomizable: 1
+  - keybindingAction: 20
+    keyCode: 48
+    isCustomizable: 1
+  - keybindingAction: 21
+    keyCode: 27
+    isCustomizable: 0
+  - keybindingAction: 22
+    keyCode: 323
+    isCustomizable: 0
