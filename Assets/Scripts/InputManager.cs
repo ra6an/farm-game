@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour
 
     public KeyCode GetKeyForAction(KeybindingActions keybindingAction)
     {
-        foreach(Keybindings.KeybindingCheck keybindingCheck in keybindings.keybindingChecks)
+        foreach(KeybindingCheck keybindingCheck in keybindings.keybindingChecks)
         {
             if (keybindingCheck.keybindingAction == keybindingAction) return keybindingCheck.keyCode;
         }
@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
 
     public bool GetKey(KeybindingActions key)
     {
-        foreach (Keybindings.KeybindingCheck keybindingCheck in keybindings.keybindingChecks)
+        foreach (KeybindingCheck keybindingCheck in keybindings.keybindingChecks)
         {
             if (keybindingCheck.keybindingAction == key) return Input.GetKey(keybindingCheck.keyCode);
         }
@@ -43,7 +43,7 @@ public class InputManager : MonoBehaviour
 
     public bool GetKeyUp(KeybindingActions key)
     {
-        foreach (Keybindings.KeybindingCheck keybindingCheck in keybindings.keybindingChecks)
+        foreach (KeybindingCheck keybindingCheck in keybindings.keybindingChecks)
         {
             if (keybindingCheck.keybindingAction == key) return Input.GetKeyUp(keybindingCheck.keyCode);
         }
@@ -53,7 +53,7 @@ public class InputManager : MonoBehaviour
 
     public bool GetKeyDown(KeybindingActions key)
     {
-        foreach (Keybindings.KeybindingCheck keybindingCheck in keybindings.keybindingChecks)
+        foreach (KeybindingCheck keybindingCheck in keybindings.keybindingChecks)
         {
             if (keybindingCheck.keybindingAction == key) return Input.GetKeyDown(keybindingCheck.keyCode);
         }

@@ -7,14 +7,16 @@ public class MainMenuController : MonoBehaviour
     private InputManager inputManager;
     [SerializeField] GameObject mainMenu;
 
-    private void Awake()
+    private void Start()
     {
         inputManager = InputManager.instance;
     }
 
     private void Update()
     {
-        if(inputManager.GetKeyUp(KeybindingActions.MainMenu))
+        if (inputManager == null) inputManager = InputManager.instance;
+
+        if(inputManager != null && inputManager.GetKeyUp(KeybindingActions.MainMenu))
         {
             mainMenu.SetActive(!mainMenu.activeInHierarchy);
         }
