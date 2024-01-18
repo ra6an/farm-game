@@ -54,7 +54,7 @@ public class SpawnedNodesManager : MonoBehaviour
             //Debug.Log(persistant);
             if (persistant != null)
             {
-                string jsonString = persistant.Read();
+                string jsonString = persistant.SaveData();
                 spawnedNodes.spawnedNodes[i].objectState = jsonString;
             }
 
@@ -151,7 +151,7 @@ public class SpawnedNodesManager : MonoBehaviour
         
         if (persistant != null)
         {
-            persistant.Load(node.objectState);
+            persistant.LoadData(node.objectState);
         }
 
         node.targetObject = go.transform;

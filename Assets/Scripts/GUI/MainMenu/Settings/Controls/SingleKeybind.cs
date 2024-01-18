@@ -19,7 +19,8 @@ public class SingleKeybind : MonoBehaviour, IPointerClickHandler
 
     public void SetKeybind(KeybindingCheck bind)
     {
-        bindName.text = bind.keybindingAction.ToString();
+        string bn = bind.keybindingAction.ToString().Contains("_") ? bind.keybindingAction.ToString().Replace("_", " ") : bind.keybindingAction.ToString();
+        bindName.text = bn;
         if((bind.keyCode.ToString()).Contains("Alpha"))
         {
             bindedKey.text = bind.keyCode.ToString()[5].ToString();
@@ -32,6 +33,9 @@ public class SingleKeybind : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
+        GameObject go = GameObject.Find("ControllsSettingsPanel");
+
+        if (go == null) return;
+        go.GetComponent<ControlsSettingsPanel>().ShowNewKeybindInputPanel(keybindCheck);
     }
 }

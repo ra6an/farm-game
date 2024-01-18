@@ -6,6 +6,8 @@ public class MainMenuController : MonoBehaviour
 {
     private InputManager inputManager;
     [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject settingsPanel;
+    //[SerializeField] GameObject LoadGamePanel;
 
     private void Start()
     {
@@ -16,8 +18,13 @@ public class MainMenuController : MonoBehaviour
     {
         if (inputManager == null) inputManager = InputManager.instance;
 
-        if(inputManager != null && inputManager.GetKeyUp(KeybindingActions.MainMenu))
+        if(inputManager != null && inputManager.GetKeyUp(KeybindingActions.Main_Menu))
         {
+            if(settingsPanel.activeInHierarchy)
+            {
+                settingsPanel.GetComponent<SettingsPanel>().HidePanel();
+                return;
+            }
             mainMenu.SetActive(!mainMenu.activeInHierarchy);
         }
     }

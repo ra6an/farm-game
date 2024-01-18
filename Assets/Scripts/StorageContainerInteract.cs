@@ -110,7 +110,7 @@ public class StorageContainerInteract : Interactable, IPersistant
         }
     }
 
-    public string Read()
+    public string SaveData()
     {
         ToSave toSave = new ToSave();
 
@@ -128,13 +128,12 @@ public class StorageContainerInteract : Interactable, IPersistant
             }
         }
 
-        //Debug.Log(chestColor);
         toSave.chestColor = chestColor;
 
         return JsonUtility.ToJson(toSave);
     }
 
-    public void Load(string jsonString)
+    public void LoadData(string jsonString)
     {
         if (jsonString == "" || jsonString == "{}" || jsonString == null) return;
         if (itemContainer == null)

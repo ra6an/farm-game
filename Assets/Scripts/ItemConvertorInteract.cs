@@ -108,12 +108,12 @@ public class ItemConvertorInteract : Interactable, IPersistant
         animator.SetBool("Working", data.timer > 0);
     }
 
-    public string Read()
+    public string SaveData()
     {
         return JsonUtility.ToJson(data);
     }
 
-    public void Load(string jsonString)
+    public void LoadData(string jsonString)
     {
         data = JsonUtility.FromJson<ItemConvertorData>(jsonString);
     }

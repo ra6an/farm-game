@@ -64,43 +64,43 @@ public class ToolbarController : MonoBehaviour
         }
 
         //Buttons
-        if (inputManager.GetKeyDown(KeybindingActions.Slot1))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_1))
         {
             UpdateToolbarSlot(0);
         }
-        if (inputManager.GetKeyDown(KeybindingActions.Slot2))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_2))
         {
             UpdateToolbarSlot(1);
         }
-        if (inputManager.GetKeyDown(KeybindingActions.Slot3))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_3))
         {
             UpdateToolbarSlot(2);
         }
-        if (inputManager.GetKeyDown(KeybindingActions.Slot4))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_4))
         {
             UpdateToolbarSlot(3);
         }
-        if (inputManager.GetKeyDown(KeybindingActions.Slot5))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_5))
         {
             UpdateToolbarSlot(4);
         }
-        if (inputManager.GetKeyDown(KeybindingActions.Slot6))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_6))
         {
             UpdateToolbarSlot(5);
         }
-        if (inputManager.GetKeyDown(KeybindingActions.Slot7))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_7))
         {
             UpdateToolbarSlot(6);
         }
-        if (inputManager.GetKeyDown(KeybindingActions.Slot8))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_8))
         {
             UpdateToolbarSlot(7);
         }
-        if (inputManager.GetKeyDown(KeybindingActions.Slot9))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_9))
         {
             UpdateToolbarSlot(8);
         }
-        if (inputManager.GetKeyDown(KeybindingActions.Slot10))
+        if (inputManager.GetKeyDown(KeybindingActions.Slot_10))
         {
             UpdateToolbarSlot(9);
         }

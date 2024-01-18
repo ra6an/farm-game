@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IPersistant
 {
-    public string Read();
+    public string SaveData();
 
-    public void Load(string jsonString);
+    public void LoadData(string jsonString);
 }

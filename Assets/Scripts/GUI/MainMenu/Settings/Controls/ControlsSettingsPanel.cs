@@ -8,12 +8,13 @@ public class ControlsSettingsPanel : MonoBehaviour
     [SerializeField] Keybindings keybindings;
     [SerializeField] GameObject keybindContainer;
     [SerializeField] GameObject singleKeybindPrefab;
+    [SerializeField] GameObject newKeybindInputPanel;
 
     private bool isDirty = true;
 
     private void Start()
     {
-        Show();
+        ShowControls();
     }
 
     private void Update()
@@ -24,14 +25,13 @@ public class ControlsSettingsPanel : MonoBehaviour
         }
     }
 
-    public void Show()
+    public void ShowControls()
     {
         ClearContainer();
     }
 
     private void ShowNewKeybindings()
     {
-        Debug.Log(keybindings.keybindingChecks.Count);
         int i = 0;
         foreach( KeybindingCheck bind in keybindings.keybindingChecks )
         {
@@ -40,19 +40,9 @@ public class ControlsSettingsPanel : MonoBehaviour
                 GameObject go = Instantiate(singleKeybindPrefab);
                 go.GetComponent<SingleKeybind>().SetKeybind(bind);
                 go.transform.SetParent(keybindContainer.transform);
-                //Debug.Log(i + ", " + go.name);
                 i++;
             }
         }
-        //foreach (KeybindingCheck bind in keybindings.keybindingChecks)
-        //{
-        //    if (bind.isCustomizable)
-        //    {
-        //        GameObject go = Instantiate(singleKeybindPrefab);
-        //        go.transform.SetParent(keybindContainer.transform);
-        //        go.GetComponent<SingleKeybind>().SetKeybind(bind);
-        //    }
-        //}
         isDirty = false;
     }
 
@@ -65,5 +55,10 @@ public class ControlsSettingsPanel : MonoBehaviour
             Destroy(keybindContainer.transform.GetChild(i).gameObject);
         }
         isDirty = true;
+    }
+
+    public void ShowNewKeybindInputPanel(KeybindingCheck keybindingCheck)
+    {
+        newKeybindInputPanel.GetComponent<NewKeynindInput>().SetNewKeybindInput(keybindingCheck.keybindingAction);
     }
 }

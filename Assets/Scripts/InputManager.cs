@@ -61,5 +61,14 @@ public class InputManager : MonoBehaviour
         return false;
     }
 
-
+    public void Rebind(KeybindingCheck newBind)
+    {
+        for(int i = 0; i < keybindings.keybindingChecks.Count; i++)
+        {
+            if (keybindings.keybindingChecks[i].keybindingAction == newBind.keybindingAction)
+            {
+                keybindings.keybindingChecks[i].keyCode = newBind.keyCode;
+            }
+        }
+    }
 }

@@ -211,13 +211,13 @@ public class TreeController : MonoBehaviour, IPersistant
         return !interupted;
     }
 
-    public void Load(string jsonString)
+    public void LoadData(string jsonString)
     {
         data = JsonUtility.FromJson<TreeControllerData>(jsonString);
         updateState = true;
     }
 
-    public string Read()
+    public string SaveData()
     {
         return JsonUtility.ToJson(data);
     }

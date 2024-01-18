@@ -28,7 +28,7 @@ public class PlaceableObjectManager : MonoBehaviour
 
             if(persistant != null)
             {
-                string jsonString = persistant.Read();
+                string jsonString = persistant.SaveData();
                 placeableObjects.placeableObjects[i].objectState = jsonString;
             }
 
@@ -124,7 +124,7 @@ public class PlaceableObjectManager : MonoBehaviour
         IPersistant persistant = go.GetComponent<IPersistant>();
         if (persistant != null)
         {
-            persistant.Load(placeableObject.objectState);
+            persistant.LoadData(placeableObject.objectState);
         }
 
         placeableObject.targetObject = go.transform;
