@@ -80,11 +80,14 @@ public class RecipePanel : ItemPanel
         bool check = CheckInventoryQuantity(recipeList.recipes[currentId], multiplier + 1);
         if (check)
         {
+            Item item = GameManager.instance.itemsDB.GetItemById(recipeList.recipes[currentId].output.item);
+            if (item == null) return;
+
             int invFreeSpace = 1;
-            if (!recipeList.recipes[currentId].output.item.stackable)
+            if (!item.stackable)
             {
                 invFreeSpace = GameManager.instance.inventoryContainer.CheckHowManyFreeSlots();
-                Debug.Log(invFreeSpace);
+                //Debug.Log(invFreeSpace);
             }
 
             if (invFreeSpace <= multiplier) return;
@@ -116,7 +119,10 @@ public class RecipePanel : ItemPanel
 
         if (!CheckInventoryQuantity(currRecipe, multiplier)) return;
 
-        if(currRecipe.output.item.stackable)
+        Item item = GameManager.instance.itemsDB.GetItemById(recipeList.recipes[currentId].output.item);
+        if (item == null) return;
+
+        if (item.stackable)
         {
             CraftItem(currRecipe, multiplier);
         }

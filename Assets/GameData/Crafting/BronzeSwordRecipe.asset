@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89ab5413c1c7f1345919b72d4dc43422, type: 3}
-  m_Name: WoodenSwordRecipe
+  m_Name: BronzeSwordRecipe
   m_EditorClassIdentifier: 
   elements:
-  - item: {fileID: 11400000, guid: 2601b08daf3a0524aa61e3fe2aa471a4, type: 2}
+  - item: 1
     quantity: 3
-  - item: {fileID: 11400000, guid: ae2fa23126d5287478937d960bb23008, type: 2}
+  - item: 9
     quantity: 1
   output:
-    item: {fileID: 11400000, guid: e9a3b9e9279da2e4a8798d59b39c6dfb, type: 2}
+    item: 24
     quantity: 1

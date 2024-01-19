@@ -6,8 +6,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using static UnityEditor.Progress;
 
-public class PlaceableObjectManager : MonoBehaviour
+public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
 {
+    [SerializeField] string sceneName;
     [SerializeField] PlaceableObjectContainer placeableObjects;
     [SerializeField] SpawnedNodeContainer spawnedNodes;
     [SerializeField] Tilemap targetTilemap;
@@ -143,5 +144,53 @@ public class PlaceableObjectManager : MonoBehaviour
         VisualizeItem(placeableObject);
         placeableObjects.placeableObjects.Add(placeableObject);
         
+    }
+    // SREDITI MALO KOD SA PARAMETRIMA IZ FUNKCIJE
+    public void SaveData(ref GameData data)
+    {
+        /*
+        DataPersistentManager DPManager = DataPersistentManager.instance;
+
+        if (DPManager == null) return;
+
+        PlaceableObjects toSave = new PlaceableObjects();
+
+        toSave.sceneName = sceneName;
+
+        SerPlaceableObjectContainer container = new SerPlaceableObjectContainer();
+
+        foreach (PlaceableObject placeableObject in placeableObjects.placeableObjects)
+        {
+            container.AddSerObject(placeableObject);
+        }
+        toSave.container = container;
+
+        data.placeableObjectsContainers.Add(toSave);
+        */
+    }
+
+    public void LoadData(GameData data)
+    {
+        //DataPersistentManager DPManager = DataPersistentManager.instance;
+
+        //if (DPManager == null) return;
+
+        /*foreach (PlaceableObjects po in data.placeableObjectsContainers)
+        {
+            if (po.sceneName == sceneName)
+            {
+                List<PlaceableObject> container = new List<PlaceableObject>();
+
+                for(int i = 0; i < po.container.placeableObjects.Count; i++)
+                {
+                    Item item = GameManager.instance.itemsDB.GetItemById(po.container.placeableObjects[i].placedItem);
+                    PlaceableObject objectToAdd = new(item, po.container.placeableObjects[i].positionOnGrid);
+                    objectToAdd.objectState = po.container.placeableObjects[i].objectState;
+                    
+                    container.Add(objectToAdd);
+                }
+                placeableObjects.placeableObjects = container;
+            }
+        }*/
     }
 }

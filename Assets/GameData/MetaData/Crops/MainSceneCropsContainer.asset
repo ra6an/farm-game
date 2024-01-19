@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085aadab213186a46af1b30c2d7e1e8b, type: 3}
   m_Name: MainSceneCropsContainer
   m_EditorClassIdentifier: 
-  crops: []
+  crops:
+  - growTimer: 0
+    growStage: 0
+    crop: {fileID: 0}
+    renderer: {fileID: 0}
+    damage: 0
+    position: {x: 0, y: 0, z: 0}
+    watered: 0

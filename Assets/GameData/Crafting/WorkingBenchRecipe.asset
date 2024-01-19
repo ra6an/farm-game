@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: WorkingBenchRecipe
   m_EditorClassIdentifier: 
   elements:
-  - item: {fileID: 11400000, guid: ae2fa23126d5287478937d960bb23008, type: 2}
+  - item: 8
+    quantity: 4
+  - item: 3
     quantity: 1
   output:
-    item: {fileID: 11400000, guid: 701e0dce776ed4948b0e535359fac70d, type: 2}
+    item: 29
     quantity: 1

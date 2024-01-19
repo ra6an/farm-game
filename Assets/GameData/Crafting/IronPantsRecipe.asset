@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: IronPantsRecipe
   m_EditorClassIdentifier: 
   elements:
-  - item: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
+  - item: 3
     quantity: 1
   output:
-    item: {fileID: 11400000, guid: bfe434d1b22b94548a59cdd9d15415ce, type: 2}
+    item: 35
     quantity: 1

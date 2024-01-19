@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BronzeBarRecipe
   m_EditorClassIdentifier: 
   input:
-    item: {fileID: 11400000, guid: 6163c2c32e48eba4fb51a1aa98f73eb0, type: 2}
+    item: 0
     quantity: 4
   timeToConvert: 20
   output:
-    item: {fileID: 11400000, guid: 2601b08daf3a0524aa61e3fe2aa471a4, type: 2}
+    item: 1
     quantity: 1

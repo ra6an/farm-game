@@ -67,7 +67,8 @@ public class EquipItemController : MonoBehaviour
         bool hasFreeSpace = inventory.CheckFreeSpace();
         if (hasFreeSpace)
         {
-            inventory.Add(item);
+            int itemId = GameManager.instance.itemsDB.GetItemId(item);
+            inventory.Add(itemId);
             item.Unequip(GameManager.instance.player.GetComponent<Character>());
 
             for (int i = 0; i < equipedItemsData.equipedItems.Count; i++)

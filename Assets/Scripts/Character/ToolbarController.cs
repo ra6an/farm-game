@@ -25,7 +25,10 @@ public class ToolbarController : MonoBehaviour
     {
         get
         {
-            return GameManager.instance.inventoryContainer.slots[selectedTool].item;
+            if (GameManager.instance.inventoryContainer.slots.Count == 0) return null;
+            int itemId = GameManager.instance.inventoryContainer.slots[selectedTool].item;
+
+            return GameManager.instance.itemsDB.GetItemById(itemId);
         }
     }
 
@@ -117,7 +120,8 @@ public class ToolbarController : MonoBehaviour
     {
         bool needRefresh = false;
         Item item = GetItem;
-        Item newItem = GameManager.instance.inventoryContainer.slots[i].item;
+        int newItemId = GameManager.instance.inventoryContainer.slots[i].item;
+        Item newItem = GameManager.instance.itemsDB.GetItemById(newItemId);
 
         if (item == null && newItem == null) return;
 

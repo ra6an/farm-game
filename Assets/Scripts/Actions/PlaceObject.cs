@@ -37,6 +37,7 @@ public class PlaceObject : ToolAction
 
     public override void OnItemUsed(Item usedItem, ItemContainer Inventory)
     {
-        Inventory.Remove(usedItem);
+        int itemId = GameManager.instance.itemsDB.GetItemId(usedItem);
+        Inventory.Remove(itemId);
     }
 }

@@ -56,7 +56,7 @@ public class ItemPanel : MonoBehaviour
     {
         for (int i = 0; i < inventory.slots.Count && i < buttons.Count; i++)
         {
-            if (inventory.slots[i].item == null)
+            if (inventory.slots[i].item < 0)
             {
                 buttons[i].Clean();
             }

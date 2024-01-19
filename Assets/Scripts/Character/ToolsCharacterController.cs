@@ -83,7 +83,10 @@ public class ToolsCharacterController : MonoBehaviour
         Vector2 characterPosition = transform.position;
         Vector2 cameraPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         selectable = Vector2.Distance(characterPosition, cameraPosition) < maxDistance;
-        if(toolbarController.GetItemSlot.item != null && (toolbarController.GetItemSlot.item.isTool || toolbarController.GetItemSlot.item.iconHighlight))
+
+        Item item = GameManager.instance.itemsDB.GetItemById(toolbarController.GetItemSlot.item);
+
+        if(item != null && (item.isTool || item.iconHighlight))
         {
             markerManager.Show(selectable);
             iconHighlight.CanSelect = selectable;

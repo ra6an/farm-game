@@ -22,7 +22,8 @@ public class TreeInteract : Interactable
         {
             if (GameManager.instance.inventoryContainer.CheckFreeSpace()) 
             {
-                GameManager.instance.inventoryContainer.Add(fruit, count);
+                int itemId = GameManager.instance.itemsDB.GetItemId(fruit);
+                GameManager.instance.inventoryContainer.Add(itemId, count);
                 this.GetComponent<TreeController>().isHarvested = true;
             } else
             {

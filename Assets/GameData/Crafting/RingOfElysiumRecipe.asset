@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RingOfElysiumRecipe
   m_EditorClassIdentifier: 
   elements:
-  - item: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
+  - item: 3
     quantity: 1
   output:
-    item: {fileID: 11400000, guid: 2d89a93282fbc4944ba8b0aa0683db7b, type: 2}
+    item: 37
     quantity: 1

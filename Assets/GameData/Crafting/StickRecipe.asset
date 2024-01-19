@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: StickRecipe
   m_EditorClassIdentifier: 
   elements:
-  - item: {fileID: 11400000, guid: d45e83aead8023e4bb526b3080a82d27, type: 2}
+  - item: 8
     quantity: 1
   output:
-    item: {fileID: 11400000, guid: 6de404c3821a1d84794aa8aca587da1e, type: 2}
+    item: 9
     quantity: 8

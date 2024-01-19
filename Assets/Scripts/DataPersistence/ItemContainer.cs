@@ -3,11 +3,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [Serializable]
 public class ItemSlot
 {
-    public Item item;
+    //public Item item;
+    public int item = -1;
     public int quantity;
 
     public void Copy(ItemSlot slot)
@@ -16,15 +18,21 @@ public class ItemSlot
         quantity = slot.quantity;
     }
 
-    public void Set(Item item, int quantity)
+    //public void Set(Item item, int quantity)
+    //{
+    //    this.item = item;
+    //    this.quantity = quantity;
+    //}//
+
+    public void Set(int itemId, int quantity)
     {
-        this.item = item;
+        this.item = itemId;
         this.quantity = quantity;
     }
 
     public void Clear()
     {
-        item = null;
+        item = -1;
         quantity = 0;
     }
 }
@@ -46,59 +54,132 @@ public class ItemContainer : ScriptableObject
         }
     }
 
-    public void Add(Item item, int quantity = 1)
+    //public void Add(Item item, int quantity = 1)
+    //{
+    //    isDirty = true;
+
+    //    if(item.stackable)
+    //    {
+    //        ItemSlot itemSlot = slots.Find(x => x.item == item);
+    //        if(itemSlot != null)
+    //        {
+    //            itemSlot.quantity += quantity;
+    //        } else
+    //        {
+    //            itemSlot = slots.Find(x => x.item == null);
+    //            if(itemSlot != null)
+    //            {
+    //                itemSlot.item = item;
+    //                itemSlot.quantity = quantity;
+    //            }
+    //        }
+    //    } else
+    //    {
+    //        //non stackable item
+    //        ItemSlot itemSlot = slots.Find(x => x.item == null);
+
+    //        if(itemSlot != null)
+    //        {
+    //            itemSlot.item = item;
+    //        }
+    //    }
+    //}
+
+    public void Add(int itemId, int quantity = 1)
     {
         isDirty = true;
 
-        if(item.stackable)
+        ItemList itemsList = GameManager.instance.itemsDB;
+        Item item = itemsList.GetItemById(itemId);
+
+        if (item.stackable)
         {
-            ItemSlot itemSlot = slots.Find(x => x.item == item);
-            if(itemSlot != null)
+            ItemSlot itemSlot = slots.Find(x => x.item == itemId);
+            if (itemSlot != null)
             {
                 itemSlot.quantity += quantity;
-            } else
+            }
+            else
             {
-                itemSlot = slots.Find(x => x.item == null);
-                if(itemSlot != null)
+                //itemSlot = slots.Find(x => x.item == null);
+                itemSlot = slots.Find(x => x.item < 0);
+                if (itemSlot != null)
                 {
-                    itemSlot.item = item;
+                    itemSlot.item = itemId;
                     itemSlot.quantity = quantity;
                 }
             }
-        } else
+        }
+        else
         {
             //non stackable item
-            ItemSlot itemSlot = slots.Find(x => x.item == null);
+            //ItemSlot itemSlot = slots.Find(x => x.item == null);
+            ItemSlot itemSlot = slots.Find(x => x.item < 0);
 
-            if(itemSlot != null)
+            if (itemSlot != null)
             {
-                itemSlot.item = item;
+                itemSlot.item = itemId;
             }
         }
     }
 
-    public void Remove(Item itemToRemove, int count = 1) {
+    //public void Remove(Item itemToRemove, int count = 1) {
+    //    isDirty = true;
+
+    //    if (itemToRemove.stackable)
+    //    {
+    //        ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
+
+    //        if (itemSlot == null) return;
+
+    //        itemSlot.quantity -= count;
+
+    //        if(itemSlot.quantity <= 0)
+    //        {
+    //            itemSlot.Clear();
+    //        }
+    //    } else
+    //    {
+    //        while (count > 0)
+    //        {
+    //            count -= 1;
+
+    //            ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
+
+    //            if (itemSlot == null) return;
+
+    //            itemSlot.Clear();
+    //        }
+    //    }
+    //}
+
+    public void Remove(int itemId, int count = 1)
+    {
         isDirty = true;
+
+        ItemList itemsList = GameManager.instance.itemsDB;
+        Item itemToRemove = itemsList.GetItemById(itemId);
 
         if (itemToRemove.stackable)
         {
-            ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
+            ItemSlot itemSlot = slots.Find(x => x.item == itemId);
 
             if (itemSlot == null) return;
 
             itemSlot.quantity -= count;
 
-            if(itemSlot.quantity <= 0)
+            if (itemSlot.quantity <= 0)
             {
                 itemSlot.Clear();
             }
-        } else
+        }
+        else
         {
             while (count > 0)
             {
                 count -= 1;
 
-                ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
+                ItemSlot itemSlot = slots.Find(x => x.item == itemId);
 
                 if (itemSlot == null) return;
 
@@ -117,7 +198,7 @@ public class ItemContainer : ScriptableObject
     {
         for(int i = 0; i < slots.Count; i++)
         {
-            if (slots[i].item == null) return true;
+            if (slots[i].item < 0) return true;
         }
 
         return false;
@@ -129,7 +210,7 @@ public class ItemContainer : ScriptableObject
 
         for(int i = 0; i < slots.Count; i++)
         {
-            freeSlots = slots[i].item == null ? freeSlots + 1 : freeSlots;
+            freeSlots = slots[i].item < 0 ? freeSlots + 1 : freeSlots;
         }
 
         return freeSlots;
@@ -141,7 +222,10 @@ public class ItemContainer : ScriptableObject
 
         if(itemSlot == null) return false;
 
-        if(checkingItem.item.stackable)
+        ItemList itemsList = GameManager.instance.itemsDB;
+        Item item = itemsList.GetItemById(checkingItem.item);
+
+        if (item != null && item.stackable)
         {
             return itemSlot.quantity >= checkingItem.quantity;
         }
@@ -149,9 +233,9 @@ public class ItemContainer : ScriptableObject
         return true;
     }
 
-    public ItemSlot GetItemSlot(Item checkingItem)
+    public ItemSlot GetItemSlot(int itemId)
     {
-        ItemSlot inventoryItem = slots.Find(x => x.item == checkingItem);
+        ItemSlot inventoryItem = slots.Find(x => x.item == itemId);
 
         return (inventoryItem == null) ? null : inventoryItem;
     }

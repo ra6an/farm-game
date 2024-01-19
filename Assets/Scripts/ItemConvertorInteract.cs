@@ -63,7 +63,7 @@ public class ItemConvertorInteract : Interactable, IPersistant
 
     public override void Interact(Character character)
     {
-        if(data.itemSlot.item == null)
+        if(data.itemSlot.item < 0)
         {
             ItemSlot toolbarSlot = character.GetComponent<ToolbarController>().GetItemSlot;
             ConvertableItem recipe = convertableItems.Find(x => x.input.item == toolbarSlot.item);
@@ -75,7 +75,7 @@ public class ItemConvertorInteract : Interactable, IPersistant
             }
         } 
 
-        if(data.itemSlot.item != null && data.timer <= 0)
+        if(data.itemSlot.item >= 0 && data.timer <= 0)
         {
             GameManager.instance.inventoryContainer.Add(data.outputItem.item, data.outputItem.quantity);
             data.itemSlot.Clear();
@@ -91,7 +91,9 @@ public class ItemConvertorInteract : Interactable, IPersistant
         data.outputItem.item = recipe.output.item;
         data.outputItem.quantity = recipe.output.quantity;
 
-        if (toProcess.item.stackable)
+        Item item = GameManager.instance.itemsDB.GetItemById(toProcess.item);
+
+        if (item.stackable)
         {
             GameManager.instance.inventoryContainer.Remove(recipe.input.item, recipe.input.quantity);
         }

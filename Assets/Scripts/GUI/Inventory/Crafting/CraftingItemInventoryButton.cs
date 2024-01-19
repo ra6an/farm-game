@@ -22,7 +22,12 @@ public class CraftingItemInventoryButton : MonoBehaviour, IPointerClickHandler
     {
         if (recipe != null) { return; }
         recipe = rec;
-        icon.sprite = rec.output.item.icon;
+
+        Item item = GameManager.instance.itemsDB.GetItemById(rec.output.item);
+
+        if (item == null) return;
+
+        icon.sprite = item.icon;
     }
 
     public void OnPointerClick(PointerEventData eventData)

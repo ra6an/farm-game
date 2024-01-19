@@ -12,8 +12,12 @@ public class ElementDetails : MonoBehaviour
 
     public void SetDetails(ItemSlot itemSlot)
     {
-        icon.sprite = itemSlot.item.icon;
-        elementName.text = itemSlot.item.name;
+        Item item = GameManager.instance.itemsDB.GetItemById(itemSlot.item);
+
+        if (item == null) return;
+
+        icon.sprite = item.icon;
+        elementName.text = item.name;
         quantity.text = itemSlot.quantity.ToString();
 
         //TEST MOJ KOD

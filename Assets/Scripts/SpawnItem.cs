@@ -45,7 +45,8 @@ private void PickUp(float distance)
         {
             if (GameManager.instance.inventoryContainer != null)
             {
-                GameManager.instance.inventoryContainer.Add(item, count);
+                int itemId = GameManager.instance.itemsDB.GetItemId(item);
+                GameManager.instance.inventoryContainer.Add(itemId, count);
             }
             else
             {

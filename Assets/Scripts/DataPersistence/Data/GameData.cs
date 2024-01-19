@@ -4,6 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
+public class PlaceableObjects
+{
+    public string sceneName;
+    public SerPlaceableObjectContainer container;
+}
+
+[Serializable]
+public class SpawnedNodes
+{
+    public string sceneName;
+    public SpawnedNodeContainer container;
+}
+
+[Serializable]
+public class Crops
+{
+    public string sceneName;
+    public CropsContainer container;
+}
+
+[Serializable]
 public class GameData
 {
     public string activeSceneName;
@@ -11,23 +32,19 @@ public class GameData
     public EquipedItemsData equipedItems;
 
     // Inventory
-    public ItemContainer inventory;
+    public string inventory;
 
     // Crafting
-    public RecipeList knownRecipes;
-    public RecipeList knownWorkingBenchRecipeList;
+    public string knownRecipes;
+    public string knownWorkingBenchRecipeList;
 
     // Cropse Managers
-    public CropsContainer mainSceneCropsContainer;
-    //public CropsContainer islandSceneCropsContainer;
+    public List<Crops> cropsContainers;
 
     // PlaceableObjects Containers
-    public PlaceableObjectContainer mainScenePlaceableObjectContainer;
-    //public PlaceableObjectContainer islandScenePlaceableObjectContainer;
+    public List<PlaceableObjects> placeableObjectsContainers;
 
     // Spawned Nodes Containers
-    public SpawnedNodeContainer mainSceneSpawnedNodeContainer;
-    //public SpawnedNodeContainer islandSceneSpawnedNodeContainer;
-    //public SpawnedNodeContainer forestDungeonSpawnedNodeContainer;
+    public List<SpawnedNodes> spawnedNodesContainers;
 
 }

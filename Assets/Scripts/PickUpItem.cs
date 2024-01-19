@@ -56,7 +56,10 @@ public class PickUpItem : MonoBehaviour
         if(distance < 0.1f)
         {
             if(GameManager.instance.inventoryContainer != null) {
-                GameManager.instance.inventoryContainer.Add(item, count);
+                int itemId = GameManager.instance.itemsDB.GetItemId(item);
+                if (itemId < 0) return;
+
+                GameManager.instance.inventoryContainer.Add(itemId, count);
             } else
             {
                 Debug.LogWarning("No inventory container attached to the game manager!");

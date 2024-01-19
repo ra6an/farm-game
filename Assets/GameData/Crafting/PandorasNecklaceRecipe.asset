@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PandorasNecklaceRecipe
   m_EditorClassIdentifier: 
   elements:
-  - item: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
+  - item: 3
     quantity: 1
   output:
-    item: {fileID: 11400000, guid: 7bf4f5731bd83414c8ebc76fc803b78a, type: 2}
+    item: 38
     quantity: 1

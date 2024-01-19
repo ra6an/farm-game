@@ -19,8 +19,12 @@ public class InventoryElementDetails : MonoBehaviour
     public void SetDetails(ItemSlot itemSlot, int multiplyer)
     {
         item.Copy(itemSlot);
-        icon.sprite = itemSlot.item.icon;
-        elementName.text = itemSlot.item.name;
+
+        Item itemFromDb = GameManager.instance.itemsDB.GetItemById(itemSlot.item);
+        if (itemFromDb == null) return;
+
+        icon.sprite = itemFromDb.icon;
+        elementName.text = itemFromDb.name;
         quantity.text = itemSlot.quantity.ToString();
 
         CheckInventoryQuantity(itemSlot, multiplyer);

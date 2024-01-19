@@ -26,10 +26,22 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
     public void Set(ItemSlot slot)
     {
         itemSlot.Copy(slot);
-        icon.gameObject.SetActive(true);
-        icon.sprite = slot.item.icon;
 
-        if(slot.item.stackable)
+        if(slot.item == -1)
+        {
+            icon.gameObject.SetActive(false);
+            return;
+        }
+
+        icon.gameObject.SetActive(true);
+
+        Item item = GameManager.instance.itemsDB.GetItemById(slot.item);
+
+        if (item == null) return;
+
+        icon.sprite = item.icon;
+
+        if(item.stackable)
         {
             quantity.gameObject.SetActive(true);
             quantity.text = slot.quantity.ToString();
@@ -60,11 +72,12 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(eventData != null && eventData.button == PointerEventData.InputButton.Right && itemSlot.item != null)
+        Item item = GameManager.instance.itemsDB.GetItemById(itemSlot.item);
+        if (eventData != null && eventData.button == PointerEventData.InputButton.Right && item != null)
         {
-            if(itemSlot.item.equipable)
+            if (item.equipable)
             {
-                GameManager.instance.player.GetComponent<EquipItemController>().EquipItem(itemSlot.item, myIndex);
+                GameManager.instance.player.GetComponent<EquipItemController>().EquipItem(item, myIndex);
                 return;
             }
         }

@@ -24,8 +24,13 @@ public class CraftingStationItemDetails : MonoBehaviour
     internal void SetActiveRecipe(CraftingRecipe recipe)
     {
         if(recipe == null) return;
-        itemName.text = recipe.output.item.name;
-        icon.sprite = recipe.output.item.icon;
+
+        Item item = GameManager.instance.itemsDB.GetItemById(recipe.output.item);
+
+        if(item == null) return;
+
+        itemName.text = item.name;
+        icon.sprite = item.icon;
         quantity.text = recipe.output.quantity.ToString();
         activeRecipe = recipe;
     }

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: IronHelmetRecipe
   m_EditorClassIdentifier: 
   elements:
-  - item: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
+  - item: 3
     quantity: 1
   output:
-    item: {fileID: 11400000, guid: 5ec85af44e5614d4db256bdd8c4533b5, type: 2}
+    item: 34
     quantity: 1

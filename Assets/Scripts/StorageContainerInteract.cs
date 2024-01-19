@@ -116,13 +116,13 @@ public class StorageContainerInteract : Interactable, IPersistant
 
         for(int i = 0; i < itemContainer.slots.Count; i++)
         {
-            if (itemContainer.slots[i].item == null)
+            if (itemContainer.slots[i].item < 0)
             {
                 toSave.itemDatas.Add(new SaveLootItemData(-1, 0));
             } else
             {
                 toSave.itemDatas.Add(new SaveLootItemData(
-                    itemContainer.slots[i].item.id, 
+                    itemContainer.slots[i].item, 
                     itemContainer.slots[i].quantity
                     ));
             }
@@ -149,7 +149,8 @@ public class StorageContainerInteract : Interactable, IPersistant
                 itemContainer.slots[i].Clear();
             } else
             {
-                itemContainer.slots[i].item = GameManager.instance.itemsDB.items[toLoad.itemDatas[i].itemId];
+                //itemContainer.slots[i].item = GameManager.instance.itemsDB.items[toLoad.itemDatas[i].itemId];
+                itemContainer.slots[i].item = toLoad.itemDatas[i].itemId;
                 itemContainer.slots[i].quantity = toLoad.itemDatas[i].quantity;
             }
         }

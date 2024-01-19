@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GoldBarRecipe
   m_EditorClassIdentifier: 
   input:
-    item: {fileID: 11400000, guid: 2d5827b7ecbe25542b8b3431f5bedb71, type: 2}
+    item: 4
     quantity: 5
   timeToConvert: 30
   output:
-    item: {fileID: 11400000, guid: 3f79bcaf4f4a66f4e83ed78be1550010, type: 2}
+    item: 5
     quantity: 1

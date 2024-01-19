@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
-public class SpawnedNodesManager : MonoBehaviour
+public class SpawnedNodesManager : MonoBehaviour, IDataPersistant
 {
+    [SerializeField] string sceneName;
     [SerializeField] SpawnedNodeContainer spawnedNodes;
     [SerializeField] Tilemap targetTilemap;
     [SerializeField] List<NodesData> nodesData;
@@ -178,5 +179,38 @@ public class SpawnedNodesManager : MonoBehaviour
                 spawnedNodes.spawnedNodes.Add(spawnedNode);
             }
         }
+    }
+    //TAKODJE SREDITI KOD ISPOD SA PARAMETROM IZ FUNKCIJE
+    public void SaveData(ref GameData data)
+    {
+        /*
+        DataPersistentManager DPManager = DataPersistentManager.instance;
+
+        if (DPManager == null) return;
+
+        SpawnedNodes toSave = new SpawnedNodes();
+
+        toSave.sceneName = sceneName;
+        toSave.container = spawnedNodes;
+
+        DPManager.gameData.spawnedNodesContainers.Add(toSave);
+        */
+    }
+
+    public void LoadData(GameData data)
+    {
+        /*
+        DataPersistentManager DPManager = DataPersistentManager.instance;
+
+        if (DPManager == null) return;
+
+        foreach(SpawnedNodes sn in DPManager.gameData.spawnedNodesContainers)
+        {
+            if (sn.sceneName == sceneName)
+            {
+                spawnedNodes = sn.container;
+            }
+        }
+        */
     }
 }

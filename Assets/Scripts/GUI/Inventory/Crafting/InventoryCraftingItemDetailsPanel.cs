@@ -28,8 +28,13 @@ public class InventoryCraftingItemDetailsPanel : MonoBehaviour
         }
 
         if (recipe == null) return;
-        itemName.text = recipe.output.item.name;
-        icon.sprite = recipe.output.item.icon;
+
+        Item item = GameManager.instance.itemsDB.GetItemById(recipe.output.item);
+
+        if(item == null) return;
+
+        itemName.text = item.name;
+        icon.sprite = item.icon;
         activeRecipe = recipe;
 
         elementsPanel.GetComponent<InventoryElementsPanel>().SetElementsDetails(recipe.elements, mltp);

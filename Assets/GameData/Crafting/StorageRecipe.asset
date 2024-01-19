@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: StorageRecipe
   m_EditorClassIdentifier: 
   elements:
-  - item: {fileID: 11400000, guid: ae2fa23126d5287478937d960bb23008, type: 2}
+  - item: 8
     quantity: 10
-  - item: {fileID: 11400000, guid: 6b46f9bcce2f79144a2319abff4d8644, type: 2}
+  - item: 3
     quantity: 2
   output:
-    item: {fileID: 11400000, guid: d86d9c38b840a824e9e640e1f1c263a2, type: 2}
+    item: 13
     quantity: 1

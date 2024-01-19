@@ -29,17 +29,20 @@ public class ItemDragAndDropController : MonoBehaviour
 
             if (inputManager.GetKeyDown(KeybindingActions.Select) && !EventSystem.current.IsPointerOverGameObject()) // This is Generic MB0 So it doesnt need Keybind Script
             {
-                    Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    worldPosition.z = 0;
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                worldPosition.z = 0;
 
-                    ItemSpawnManager.instance.SpawnItem(
-                        worldPosition, 
-                        itemSlot.item, 
-                        itemSlot.quantity
-                        );
+                Item item = GameManager.instance.itemsDB.GetItemById(itemSlot.item);
+                if (item == null) return;
 
-                    itemSlot.Clear();
-                    itemIcon.SetActive(false);
+                ItemSpawnManager.instance.SpawnItem(
+                    worldPosition, 
+                    item, 
+                    itemSlot.quantity
+                    );
+
+                itemSlot.Clear();
+                itemIcon.SetActive(false);
             }
         }
     }
@@ -48,17 +51,21 @@ public class ItemDragAndDropController : MonoBehaviour
     {
         if (itemSlot == null) return false;
 
+        int itemId = GameManager.instance.itemsDB.GetItemId(item);
+
         if (item.stackable)
         {
-            return itemSlot.item == item && itemSlot.quantity >= count;
+            return itemSlot.item == itemId && itemSlot.quantity >= count;
         }
 
-        return itemSlot.item == item;
+        return itemSlot.item == itemId;
     }
 
     internal void OnClick(ItemSlot itemSlot)
     {
-        if (this.itemSlot.item == null)
+        Debug.Log(this.itemSlot.item);
+        //if (this.itemSlot.item == null)
+        if(this.itemSlot.item < 0)
         {
             this.itemSlot.Copy(itemSlot);
             itemSlot.Clear();
@@ -72,13 +79,14 @@ public class ItemDragAndDropController : MonoBehaviour
             }
             else
             {
-                {
-                    Item item = itemSlot.item;
-                    int count = itemSlot.quantity;
 
-                    itemSlot.Copy(this.itemSlot);
-                    this.itemSlot.Set(item, count);
-                }
+                //Item item = itemSlot.item;
+                int item = itemSlot.item;
+                int count = itemSlot.quantity;
+                
+                itemSlot.Copy(this.itemSlot);
+                this.itemSlot.Set(item, count);
+                
             }
         }
         UpdateIcon();
@@ -86,14 +94,18 @@ public class ItemDragAndDropController : MonoBehaviour
 
     private void UpdateIcon()
     {
-        if(itemSlot.item == null)
+        if(itemSlot.item < 0)
         {
             itemIcon.SetActive(false);
         }
         else
         {
             itemIcon.SetActive(true);
-            itemIconImage.sprite = itemSlot.item.icon;
+
+            Item item = GameManager.instance.itemsDB.GetItemById(itemSlot.item);
+            if (item == null) return;
+
+            itemIconImage.sprite = item.icon;
         }
     }
     //
@@ -101,7 +113,10 @@ public class ItemDragAndDropController : MonoBehaviour
     {
         if (itemSlot == null) return;
 
-        if(itemSlot.item.stackable)
+        Item item = GameManager.instance.itemsDB.GetItemById(itemSlot.item);
+        if (item == null) return;
+
+        if (item.stackable)
         {
             itemSlot.quantity -= count;
             if(itemSlot.quantity <= 0)
