@@ -16,5 +16,5 @@ MonoBehaviour:
   - item: 3
     quantity: 1
   output:
-    item: 34
+    item: 33
     quantity: 1

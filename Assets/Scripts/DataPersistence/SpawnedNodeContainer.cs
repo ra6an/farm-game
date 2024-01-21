@@ -23,6 +23,11 @@ public class SpawnedNode
 public class SpawnedNodeContainer : ScriptableObject
 {
     public List<SpawnedNode> spawnedNodes;
+
+    public void Init()
+    {
+        spawnedNodes = new List<SpawnedNode>();
+    }
     
     internal object Get(List<Vector3Int> positions) 
     {

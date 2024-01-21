@@ -9872,8 +9872,10 @@ MonoBehaviour:
   timeController: {fileID: 831734720}
   dialogueSystem: {fileID: 947699487}
   itemsDB: {fileID: 11400000, guid: 89f544860f5b7f54cab9767d94f7215e, type: 2}
+  recipesDB: {fileID: 11400000, guid: 0d7fe6025fd1e33489c3d9b778c2db51, type: 2}
   messageSystem: {fileID: 1373134}
   screenTint: {fileID: 1288374085}
+  placeableObjects: {fileID: 0}
 --- !u!4 &831734718
 Transform:
   m_ObjectHideFlags: 0
@@ -18475,7 +18477,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: ee282055251d7f142ad41754017c3a67, type: 2}
   buttons: []
-  recipeList: {fileID: 11400000, guid: 84f65e691ff55604a9c1ca5f20901b43, type: 2}
   crafting: {fileID: 1924335059}
   recipeContainer: {fileID: 263797983}
   buttonPrefab: {fileID: 502288427528248116, guid: 8fea1a5b270665b42b3c44c565997d6d, type: 3}
@@ -21669,11 +21670,15 @@ MonoBehaviour:
   fileName: save.game
   gameData:
     activeSceneName: 
+    playerLevel: 0
+    playerExperience: 0
+    playerHealth: 0
+    playerMana: 0
     playerPosition: {x: 0, y: 0, z: 0}
-    equipedItems: {fileID: 0}
+    equipedItems: 
     inventory: 
-    knownRecipes: 
-    knownWorkingBenchRecipeList: 
+    characterRecipeList: 
+    workingBenchRecipeList: 
     cropsContainers: []
     placeableObjectsContainers: []
     spawnedNodesContainers: []
@@ -22475,7 +22480,7 @@ MonoBehaviour:
   - {fileID: 712701092}
   - {fileID: 1298133287}
   - {fileID: 526816122}
-  equippedItems: {fileID: 11400000, guid: d042e157e8ad36b4d8a0672ba522815d, type: 2}
+  equipedItems: {fileID: 0}
   health: {fileID: 2017538319}
   healthRegen: {fileID: 304457730}
   mana: {fileID: 48856434}
@@ -25823,10 +25828,11 @@ MonoBehaviour:
   hpBar: {fileID: 1242684233}
   manaBar: {fileID: 1454028625}
   levelStatsData: {fileID: 11400000, guid: da454b82327a95449998173f77f247c5, type: 2}
-  equipedItems: {fileID: 11400000, guid: d042e157e8ad36b4d8a0672ba522815d, type: 2}
   isDead: 0
   noMana: 0
   regenCooldown: 0
+  characterRecipeList: {fileID: 0}
+  workingBenchRecipeList: {fileID: 0}
 --- !u!114 &1924335056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25884,7 +25890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7a0d83bb36e9a48910caf5304ade8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: ee282055251d7f142ad41754017c3a67, type: 2}
+  recipeList: {fileID: 0}
 --- !u!114 &1924335060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25917,9 +25923,8 @@ MonoBehaviour:
   itemDetailsPanel: {fileID: 1913168575}
   elementsPanel: {fileID: 1066748411}
   buttonsList: {fileID: 1671256968}
-  recipeList: {fileID: 11400000, guid: 7df8871cc3baad947b6ac094e8721f11, type: 2}
+  recipeList: {fileID: 0}
   craftQuantity: {fileID: 1092712137}
-  inventory: {fileID: 11400000, guid: ee282055251d7f142ad41754017c3a67, type: 2}
   maxDistance: 2
 --- !u!114 &1924335062
 MonoBehaviour:
@@ -26046,7 +26051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74d527f451c43b49bb18738f82b4f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipedItemsData: {fileID: 11400000, guid: d042e157e8ad36b4d8a0672ba522815d, type: 2}
+  equipedItemsData: {fileID: 0}
   playerStatsPanel: {fileID: 1747696897}
 --- !u!1 &1926851179
 GameObject:
@@ -27340,7 +27345,6 @@ MonoBehaviour:
   - {fileID: 1499784102}
   - {fileID: 1665475032}
   - {fileID: 812330525}
-  recipeList: {fileID: 11400000, guid: 84f65e691ff55604a9c1ca5f20901b43, type: 2}
   crafting: {fileID: 1924335059}
   recipeContainer: {fileID: 0}
   buttonPrefab: {fileID: 0}

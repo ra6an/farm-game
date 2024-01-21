@@ -53,8 +53,6 @@ public class DataPersistentManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
-
-        Debug.Log(gameData.playerPosition);
     }
 
     public void SaveGame()

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class PlayerStatsPanel : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class PlayerStatsPanel : MonoBehaviour
     [SerializeField] GameObject playerExperience;
     [SerializeField] Text playerLevel;
     [SerializeField] List<GameObject> equipmentSlots;
-    [SerializeField] EquipedItemsData equippedItems;
+    [SerializeField] EquipedItemsData equipedItems;
 
     [HeaderAttribute("Prefab Stats")]
     [SerializeField] GameObject health;
@@ -34,6 +33,7 @@ public class PlayerStatsPanel : MonoBehaviour
 
     private void Start()
     {
+        equipedItems = GameManager.instance.player.GetComponent<EquipItemController>().equipedItemsData;
         ShowStats();
         ShowEquippedItems();
     }
@@ -71,10 +71,19 @@ public class PlayerStatsPanel : MonoBehaviour
 
     public void ShowEquippedItems()
     {
-        for (int i = 0; i < equippedItems.equipedItems.Count; i++)
+        if(equipedItems == null)
         {
-            Item currItem = equippedItems.equipedItems[i].item;
-            if (equippedItems.equipedItems[i].item == null) continue;
+            equipedItems = GameManager.instance.player.GetComponent<EquipItemController>().equipedItemsData;
+        }
+        
+        for (int i = 0; i < equipedItems.equipedItems.Count; i++)
+        {
+            if (equipedItems.equipedItems[i].item < 0) continue;
+
+            Item item = GameManager.instance.itemsDB.GetItemById(equipedItems.equipedItems[i].item);
+            if (item == null) continue;
+
+            Item currItem = item;
 
             for (int x = 0; x < equipmentSlots.Count; x++)
             {
@@ -90,6 +99,11 @@ public class PlayerStatsPanel : MonoBehaviour
 
     public void EquipItem(Item item)
     {
+        if(equipedItems == null)
+        {
+            equipedItems = GameManager.instance.player.GetComponent<EquipItemController>().equipedItemsData;
+        }
+
         for (int i = 0; i < equipmentSlots.Count; i++)
         {
             EquipmentSlot es = equipmentSlots[i].gameObject.GetComponent<EquipmentSlot>();
@@ -100,11 +114,13 @@ public class PlayerStatsPanel : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < equippedItems.equipedItems.Count; i++)
+        for (int i = 0; i < equipedItems.equipedItems.Count; i++)
         {
-            if (equippedItems.equipedItems[i].type == item.equipableType)
+
+            if (equipedItems.equipedItems[i].type == item.equipableType)
             {
-                equippedItems.equipedItems[i].item = item;
+                int itemId = GameManager.instance.itemsDB.GetItemId(item);
+                equipedItems.equipedItems[i].item = itemId;
             }
         }
 

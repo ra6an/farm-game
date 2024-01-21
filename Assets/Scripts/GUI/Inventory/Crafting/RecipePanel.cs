@@ -5,7 +5,7 @@ using UnityEngine.UI;
 //
 public class RecipePanel : ItemPanel
 {
-    [SerializeField] RecipeList recipeList;
+    //private RecipeList recipeList;
     [SerializeField] Crafting crafting;
     [SerializeField] GameObject recipeContainer;
     [SerializeField] GameObject buttonPrefab;
@@ -13,6 +13,13 @@ public class RecipePanel : ItemPanel
     [SerializeField] Text craftQuantity;
     public int currentId = 0;
     public int multiplier = 1;
+
+    private void Start()
+    {
+        //recipeList = (RecipeList)ScriptableObject.CreateInstance(typeof(RecipeList));
+        //recipeList.Init();
+        //recipeList.recipes = GameManager.instance.player.GetComponent<Character>().characterRecipeList.recipes;
+    }
 
     bool setActiveRecipe = false;
 
@@ -34,10 +41,10 @@ public class RecipePanel : ItemPanel
             Destroy(t.gameObject);
         }
 
-        for (int i = 0; i < recipeList.recipes.Count; i++)
+        for (int i = 0; i < crafting.recipeList.recipes.Count; i++)
         {
             GameObject go = Instantiate(buttonPrefab, transform);
-            go.GetComponent<CraftingItemInventoryButton>().Set(recipeList.recipes[i]);
+            go.GetComponent<CraftingItemInventoryButton>().Set(crafting.recipeList.recipes[i]);
             go.GetComponent<CraftingItemInventoryButton>().SetIndex(i);
 
             go.transform.SetParent(recipeContainer.transform);
@@ -52,9 +59,9 @@ public class RecipePanel : ItemPanel
         currentId = id;
         multiplier = 1;
         recipeContainer.transform.GetChild(currentId).GetComponent<CraftingItemInventoryButton>().ActiveButton();
-        itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().SetActiveRecipe(recipeList.recipes[currentId]);
+        itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().SetActiveRecipe(crafting.recipeList.recipes[currentId]);
 
-        if (!CheckInventoryQuantity(recipeList.recipes[currentId], 1))
+        if (!CheckInventoryQuantity(crafting.recipeList.recipes[currentId], 1))
         {
             craftQuantity.text = "0";
         } else
@@ -77,10 +84,10 @@ public class RecipePanel : ItemPanel
 
     public void OnClickIncrementMultiplier()
     {
-        bool check = CheckInventoryQuantity(recipeList.recipes[currentId], multiplier + 1);
+        bool check = CheckInventoryQuantity(crafting.recipeList.recipes[currentId], multiplier + 1);
         if (check)
         {
-            Item item = GameManager.instance.itemsDB.GetItemById(recipeList.recipes[currentId].output.item);
+            Item item = GameManager.instance.itemsDB.GetItemById(crafting.recipeList.recipes[currentId].output.item);
             if (item == null) return;
 
             int invFreeSpace = 1;
@@ -93,33 +100,33 @@ public class RecipePanel : ItemPanel
             if (invFreeSpace <= multiplier) return;
 
             multiplier++;
-            itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().OnMultiplierChange(recipeList.recipes[currentId], multiplier, check);
+            itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().OnMultiplierChange(crafting.recipeList.recipes[currentId], multiplier, check);
             craftQuantity.text = multiplier.ToString();
         } else
         {
-            itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().OnMultiplierChange(recipeList.recipes[currentId], multiplier, check);
+            itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().OnMultiplierChange(crafting.recipeList.recipes[currentId], multiplier, check);
         }
     }
 
     public void OnClickDecrementMultiplier()
     {
-        if (!CheckInventoryQuantity(recipeList.recipes[currentId], multiplier)) return;
+        if (!CheckInventoryQuantity(crafting.recipeList.recipes[currentId], multiplier)) return;
         if (multiplier - 1 <= 0) return;
 
         multiplier--;
-        itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().OnMultiplierChange(recipeList.recipes[currentId], multiplier, true);
+        itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().OnMultiplierChange(crafting.recipeList.recipes[currentId], multiplier, true);
         craftQuantity.text = multiplier.ToString();
     }
 
     public void OnCraftItem()
     {
-        CraftingRecipe currRecipe = recipeList.recipes[currentId];
+        CraftingRecipe currRecipe = crafting.recipeList.recipes[currentId];
 
         if (!GameManager.instance.inventoryContainer.CheckFreeSpace()) return;
 
         if (!CheckInventoryQuantity(currRecipe, multiplier)) return;
 
-        Item item = GameManager.instance.itemsDB.GetItemById(recipeList.recipes[currentId].output.item);
+        Item item = GameManager.instance.itemsDB.GetItemById(crafting.recipeList.recipes[currentId].output.item);
         if (item == null) return;
 
         if (item.stackable)
@@ -139,7 +146,7 @@ public class RecipePanel : ItemPanel
 
         multiplier = afterCraftItemQuantity ? 1 : 0;
         craftQuantity.text = multiplier.ToString();
-        itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().SetActiveRecipe(recipeList.recipes[currentId]);
+        itemDetails.GetComponent<InventoryCraftingItemDetailsPanel>().SetActiveRecipe(crafting.recipeList.recipes[currentId]);
     }
 
     public void CraftItem(CraftingRecipe rec, int mltp = 1)
@@ -154,6 +161,6 @@ public class RecipePanel : ItemPanel
 
     public override void OnClick(int id)
     {
-        if (id >= recipeList.recipes.Count) return;
+        if (id >= crafting.recipeList.recipes.Count) return;
     }
 }

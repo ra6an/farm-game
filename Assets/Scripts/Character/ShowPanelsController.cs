@@ -34,6 +34,7 @@ public class ShowPanelsController : MonoBehaviour
         coinPanel.SetActive(true);
         topPanel.SetActive(true);
         toolbarPanel.SetActive(false);
+
         inventoryOpened = true;
     }
 
@@ -43,6 +44,7 @@ public class ShowPanelsController : MonoBehaviour
         coinPanel.SetActive(false);
         topPanel.SetActive(false);
         toolbarPanel.SetActive(true);
+
         inventoryOpened = false;
     }
 
@@ -51,6 +53,7 @@ public class ShowPanelsController : MonoBehaviour
         inventoryPanel.SetActive(true);
         storagePanel.SetActive(true);
         toolbarPanel.SetActive(false);
+
         storageOpened = true;
     }
 
@@ -59,6 +62,7 @@ public class ShowPanelsController : MonoBehaviour
         inventoryPanel.SetActive(false);
         storagePanel.SetActive(false);
         toolbarPanel.SetActive(true);
+
         storageOpened= false;
     }
 

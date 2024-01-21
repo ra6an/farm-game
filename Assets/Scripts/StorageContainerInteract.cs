@@ -32,7 +32,7 @@ public class StorageContainerInteract : Interactable, IPersistant
 
     private void Update()
     {
-        if (opened && inputManager.GetKeyUp(KeybindingActions.Inventory))
+        if (opened && (inputManager.GetKeyUp(KeybindingActions.Inventory) || inputManager.GetKeyUp(KeybindingActions.Main_Menu)))
         {
             Close(character);
         }

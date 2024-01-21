@@ -17,7 +17,7 @@ public class CraftingStationContainerInteract : Interactable
 
     private void Update()
     {
-        if(isOpened && inputManager.GetKeyDown(KeybindingActions.Inventory))
+        if(isOpened && (inputManager.GetKeyUp(KeybindingActions.Inventory) || inputManager.GetKeyUp(KeybindingActions.Main_Menu)))
         {
             Close(character);
             isOpened = false;

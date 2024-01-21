@@ -14,7 +14,7 @@ public class PlaceableObjects
 public class SpawnedNodes
 {
     public string sceneName;
-    public SpawnedNodeContainer container;
+    public string container;
 }
 
 [Serializable]
@@ -28,23 +28,27 @@ public class Crops
 public class GameData
 {
     public string activeSceneName;
-    public Vector3 playerPosition;
-    public EquipedItemsData equipedItems;
+    public int playerLevel; //Done
+    public float playerExperience; //Done
+    public float playerHealth; //Done
+    public float playerMana; //Done
+    public Vector3 playerPosition; //Done
+    public string equipedItems; //Done
 
     // Inventory
-    public string inventory;
+    public string inventory; //Done
 
     // Crafting
-    public string knownRecipes;
-    public string knownWorkingBenchRecipeList;
+    public string characterRecipeList; //Done
+    public string workingBenchRecipeList; //Done
 
     // Cropse Managers
     public List<Crops> cropsContainers;
 
     // PlaceableObjects Containers
-    public List<PlaceableObjects> placeableObjectsContainers;
+    public List<PlaceableObjects> placeableObjectsContainers; //Done
 
     // Spawned Nodes Containers
-    public List<SpawnedNodes> spawnedNodesContainers;
+    public List<SpawnedNodes> spawnedNodesContainers; //Done
 
 }

@@ -18,7 +18,9 @@ public class MainMenuController : MonoBehaviour
     {
         if (inputManager == null) inputManager = InputManager.instance;
 
-        if(inputManager != null && inputManager.GetKeyUp(KeybindingActions.Main_Menu))
+        bool allPanelsClosed = GameManager.instance.player.GetComponent<ShowPanelsController>().AllPanelsAreClosed();
+
+        if(allPanelsClosed && inputManager != null && inputManager.GetKeyUp(KeybindingActions.Main_Menu))
         {
             if(settingsPanel.activeInHierarchy)
             {

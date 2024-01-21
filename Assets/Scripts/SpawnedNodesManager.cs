@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
+using static PlaceableObjectManager;
 
 public class SpawnedNodesManager : MonoBehaviour, IDataPersistant
 {
@@ -16,6 +17,12 @@ public class SpawnedNodesManager : MonoBehaviour, IDataPersistant
 
     private void Start()
     {
+        if(spawnedNodes == null)
+        {
+            spawnedNodes = (SpawnedNodeContainer)ScriptableObject.CreateInstance(typeof(SpawnedNodeContainer));
+            spawnedNodes.Init();
+        }
+
         GameManager.instance.GetComponent<SpawnedNodesReferenceManager>().spawnedNodesManager = this;
         VisualizeMap();
 
@@ -181,36 +188,82 @@ public class SpawnedNodesManager : MonoBehaviour, IDataPersistant
         }
     }
     //TAKODJE SREDITI KOD ISPOD SA PARAMETROM IZ FUNKCIJE
+
+    [Serializable]
+    public class SpawnedNodesToSave
+    {
+        public List<SpawnedNode> spawnedNodes;
+
+        public void Init()
+        {
+            spawnedNodes = new List<SpawnedNode>();
+        }
+    }
+
     public void SaveData(ref GameData data)
     {
-        /*
-        DataPersistentManager DPManager = DataPersistentManager.instance;
+        SpawnedNodes sn = new();
+        sn.sceneName = sceneName;
 
-        if (DPManager == null) return;
+        SpawnedNodesToSave copyOfSpawnedNodes = new();
+        copyOfSpawnedNodes.Init();
 
-        SpawnedNodes toSave = new SpawnedNodes();
+        foreach (SpawnedNode copyOfNode in spawnedNodes.spawnedNodes)
+        {
+            string nodeStateJson = "";
+            IPersistant persistent = copyOfNode.targetObject.GetComponent<IPersistant>();
+            if (persistent != null) nodeStateJson = persistent.SaveData();
 
-        toSave.sceneName = sceneName;
-        toSave.container = spawnedNodes;
+            SpawnedNode spawnedNode = new(copyOfNode.node, copyOfNode.positionOnGrid);
+            spawnedNode.objectState = nodeStateJson;
 
-        DPManager.gameData.spawnedNodesContainers.Add(toSave);
-        */
+            copyOfSpawnedNodes.spawnedNodes.Add(spawnedNode);
+        }
+
+        string serializedContainer = JsonUtility.ToJson(copyOfSpawnedNodes);
+
+        sn.container = serializedContainer;
+
+        bool doesExists = false;
+
+        foreach (SpawnedNodes gameDataPO in data.spawnedNodesContainers)
+        {
+            if (gameDataPO.sceneName == sceneName)
+            {
+                doesExists = true;
+                gameDataPO.container = serializedContainer;
+                break;
+            }
+        }
+
+        if (!doesExists)
+        {
+            data.spawnedNodesContainers.Add(sn);
+        }
     }
 
     public void LoadData(GameData data)
     {
-        /*
-        DataPersistentManager DPManager = DataPersistentManager.instance;
+        spawnedNodes = (SpawnedNodeContainer)ScriptableObject.CreateInstance(typeof(SpawnedNodeContainer));
+        spawnedNodes.Init();
+        string jsonSpawnedNode = "";
 
-        if (DPManager == null) return;
-
-        foreach(SpawnedNodes sn in DPManager.gameData.spawnedNodesContainers)
+        foreach (SpawnedNodes sn in data.spawnedNodesContainers)
         {
-            if (sn.sceneName == sceneName)
-            {
-                spawnedNodes = sn.container;
-            }
+            if (sn.sceneName == sceneName) jsonSpawnedNode = sn.container;
         }
-        */
+
+        if (jsonSpawnedNode == "" || jsonSpawnedNode == "{}" || jsonSpawnedNode == null) return;
+
+        SpawnedNodesToSave deserializedSpawnedNode = JsonUtility.FromJson<SpawnedNodesToSave>(jsonSpawnedNode);
+
+        foreach (SpawnedNode sn in deserializedSpawnedNode.spawnedNodes)
+        {
+            SpawnedNode objectToLoad = new(sn.node, sn.positionOnGrid);
+            objectToLoad.objectState = sn.objectState;
+            spawnedNodes.spawnedNodes.Add(objectToLoad);
+        }
+
+        VisualizeMap();
     }
 }

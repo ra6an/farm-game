@@ -13,21 +13,30 @@ MonoBehaviour:
   m_Name: EquipedItems
   m_EditorClassIdentifier: 
   equipedItems:
-  - item: {fileID: 11400000, guid: 5ec85af44e5614d4db256bdd8c4533b5, type: 2}
+  - item: 33
+    itemState: 
     type: 1
-  - item: {fileID: 11400000, guid: b0c5a50d1f6b1f749868f4705a64e127, type: 2}
+  - item: 34
+    itemState: 
     type: 2
-  - item: {fileID: 11400000, guid: bfe434d1b22b94548a59cdd9d15415ce, type: 2}
+  - item: 35
+    itemState: 
     type: 3
-  - item: {fileID: 11400000, guid: 58d2b6e8a397b6048b6f5bd17d58e47e, type: 2}
+  - item: 36
+    itemState: 
     type: 4
-  - item: {fileID: 11400000, guid: 2d89a93282fbc4944ba8b0aa0683db7b, type: 2}
+  - item: 37
+    itemState: 
     type: 5
-  - item: {fileID: 11400000, guid: 7bf4f5731bd83414c8ebc76fc803b78a, type: 2}
+  - item: 38
+    itemState: 
     type: 6
-  - item: {fileID: 0}
+  - item: 0
+    itemState: 
     type: 7
-  - item: {fileID: 0}
+  - item: 0
+    itemState: 
     type: 7
-  - item: {fileID: 0}
+  - item: 0
+    itemState: 
     type: 7

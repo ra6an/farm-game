@@ -23,12 +23,12 @@ MonoBehaviour:
     quantity: 1
   - item: 22
     quantity: 1
-  - item: -1
-    quantity: 0
+  - item: 10
+    quantity: 3
   - item: 19
     quantity: 666
-  - item: 19
-    quantity: 76
+  - item: -1
+    quantity: 0
   - item: 18
     quantity: 68
   - item: 17
@@ -39,6 +39,8 @@ MonoBehaviour:
     quantity: 0
   - item: -1
     quantity: 0
+  - item: 3
+    quantity: 322
   - item: -1
     quantity: 0
   - item: -1
@@ -69,9 +71,7 @@ MonoBehaviour:
     quantity: 0
   - item: -1
     quantity: 0
-  - item: 28
-    quantity: 1
-  - item: 7
-    quantity: 2
+  - item: -1
+    quantity: 0
   isDirty: 0
   slotsLocked: 0

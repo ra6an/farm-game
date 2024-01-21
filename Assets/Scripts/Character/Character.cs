@@ -34,7 +34,7 @@ public class Stat
     }
 }
 
-public class Character : MonoBehaviour, IDamageable
+public class Character : MonoBehaviour, IDamageable, IDataPersistant
 {
     [Header("Main Stats")]
     public int level;
@@ -64,11 +64,17 @@ public class Character : MonoBehaviour, IDamageable
     [SerializeField] StatusBar hpBar;
     [SerializeField] StatusBar manaBar;
     [SerializeField] LevelStatsData levelStatsData;
-    [SerializeField] EquipedItemsData equipedItems;
+    //[SerializeField] EquipedItemsData equipedItems;
     [Space]
-    public bool isDead;
-    public bool noMana;
+    public bool isDead = false;
+    public bool noMana = false;
     public float regenCooldown = 0;
+
+    //Recipe Lists
+    //private RecipeList characterRecipeList;
+    //private RecipeList workingBenchRecipeList;
+    public RecipeList characterRecipeList;
+    public RecipeList workingBenchRecipeList;
 
     DisableControls disableControls;
     PlayerRespawn playerRespawn;
@@ -87,7 +93,6 @@ public class Character : MonoBehaviour, IDamageable
     {
         UpdateHpBar();
         UpdateManaBar();
-        EquipItemsOnStart();
 
         experience.maxVal.BaseValue = levelStatsData.levels[level - 1].experience;
 
@@ -98,21 +103,20 @@ public class Character : MonoBehaviour, IDamageable
         timeAgent.onTimeTick += RegenMana;
     }
 
-    private void Update()
+    public void EquipItemsOnStart()
     {
-        //if(Input.GetKeyDown(KeyCode.UpArrow))
-        //{
-        //    TakeDamage(15);
-        //}
-    }
+        EquipedItemsData equipedItems = transform.GetComponent<EquipItemController>().equipedItemsData;
 
-    private void EquipItemsOnStart()
-    {
+        if (equipedItems == null ||equipedItems.equipedItems.Count == 0) return;
+
         for (int i = 0; i < equipedItems.equipedItems.Count; i++)
         {
-            if (equipedItems.equipedItems[i].item != null)
+            if (equipedItems.equipedItems[i].item < 0) return;
+
+            Item item = GameManager.instance.itemsDB.GetItemById(equipedItems.equipedItems[i].item);
+            if (item != null)
             {
-                equipedItems.equipedItems[i].item.Equip(transform.GetComponent<Character>());
+                item.Equip(transform.GetComponent<Character>());
             }
         }
     }
@@ -120,12 +124,10 @@ public class Character : MonoBehaviour, IDamageable
     private void SetStatsBasedOnLevel()
     {
         int lvl = level - 1;
-        health.currVal = 30;
         health.maxVal.BaseValue = levelStatsData.levels[lvl].health;
         healthRegen.BaseValue = levelStatsData.levels[lvl].healthRegen;
         mana.maxVal.BaseValue = levelStatsData.levels[lvl].mana;
         manaRegen.BaseValue = levelStatsData.levels[lvl].manaRegen;
-        mana.currVal = 10;
         experience.maxVal.BaseValue = levelStatsData.levels[lvl].experience;
         speed.BaseValue = levelStatsData.levels[lvl].speed;
 
@@ -268,5 +270,91 @@ public class Character : MonoBehaviour, IDamageable
     {
         UpdateHpBar();
         UpdateManaBar();
+    }
+
+    // Persisting Data
+    [Serializable]
+    public class RecipeListIDs
+    {
+        public List<int> recipes;
+
+        public void Init()
+        {
+            recipes = new List<int>();
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = transform.position;
+        data.playerLevel = level;
+        data.playerExperience = experience.currVal;
+        data.playerHealth = health.currVal;
+        data.playerMana = mana.currVal;
+
+        RecipeListIDs characterRecipeIDs = new();
+        characterRecipeIDs.Init();
+
+        foreach(CraftingRecipe recipe in characterRecipeList.recipes)
+        {
+            characterRecipeIDs.recipes.Add(GameManager.instance.recipesDB.GetRecipeId(recipe));
+        }
+
+        RecipeListIDs workingBenchRecipeIDs = new();
+        workingBenchRecipeIDs.Init();
+
+        foreach (CraftingRecipe recipe in workingBenchRecipeList.recipes)
+        {
+            workingBenchRecipeIDs.recipes.Add(GameManager.instance.recipesDB.GetRecipeId(recipe));
+        }
+
+        string serializedCharacterRecipeIDs = JsonUtility.ToJson(characterRecipeIDs);
+        string serializedWorkingBenchRecipeIDs = JsonUtility.ToJson(workingBenchRecipeIDs);
+
+        data.characterRecipeList = serializedCharacterRecipeIDs;
+        data.workingBenchRecipeList = serializedWorkingBenchRecipeIDs;
+    }
+
+    public void LoadData(GameData data)
+    {
+        transform.position = data.playerPosition;
+        level = data.playerLevel;
+        experience.currVal = data.playerExperience;
+        health.currVal = data.playerHealth;
+        mana.currVal = data.playerMana;
+
+        // Initialize scriptable object
+        characterRecipeList = (RecipeList)ScriptableObject.CreateInstance(typeof(RecipeList));
+        characterRecipeList.Init();
+        workingBenchRecipeList = (RecipeList)ScriptableObject.CreateInstance(typeof(RecipeList));
+        workingBenchRecipeList.Init();
+
+        // Deserialize Json data
+        RecipeListIDs deserializesCharacterRecipeIDs = JsonUtility.FromJson<RecipeListIDs>(data.characterRecipeList);
+        RecipeListIDs deserializesWorkingBenchRecipeIDs = JsonUtility.FromJson<RecipeListIDs>(data.workingBenchRecipeList);
+
+        // Add crafting recipes to variables
+        foreach(int i in deserializesCharacterRecipeIDs.recipes)
+        {
+            characterRecipeList.recipes.Add(GameManager.instance.recipesDB.GetRecipeById(i));
+        }
+
+        foreach(int i in deserializesWorkingBenchRecipeIDs.recipes)
+        {
+            workingBenchRecipeList.recipes.Add(GameManager.instance.recipesDB.GetRecipeById(i));
+        }
+
+        // Set reference of crafting station known recipe list
+        CraftingStationContainerInteractController csic = this.GetComponent<CraftingStationContainerInteractController>();
+        csic.recipeList = (RecipeList)ScriptableObject.CreateInstance(typeof(RecipeList));
+        csic.recipeList.Init();
+        csic.recipeList.recipes = workingBenchRecipeList.recipes;
+
+        Crafting crafting = this.GetComponent<Crafting>();
+        crafting.recipeList = (RecipeList)ScriptableObject.CreateInstance(typeof (RecipeList));
+        crafting.recipeList.Init();
+        crafting.recipeList.recipes = characterRecipeList.recipes;
+
+        UpdateStatusBars();
     }
 }

@@ -8,7 +8,6 @@ using static UnityEditor.Progress;
 [Serializable]
 public class ItemSlot
 {
-    //public Item item;
     public int item = -1;
     public int quantity;
 
@@ -17,12 +16,6 @@ public class ItemSlot
         item = slot.item;
         quantity = slot.quantity;
     }
-
-    //public void Set(Item item, int quantity)
-    //{
-    //    this.item = item;
-    //    this.quantity = quantity;
-    //}//
 
     public void Set(int itemId, int quantity)
     {
@@ -54,37 +47,6 @@ public class ItemContainer : ScriptableObject
         }
     }
 
-    //public void Add(Item item, int quantity = 1)
-    //{
-    //    isDirty = true;
-
-    //    if(item.stackable)
-    //    {
-    //        ItemSlot itemSlot = slots.Find(x => x.item == item);
-    //        if(itemSlot != null)
-    //        {
-    //            itemSlot.quantity += quantity;
-    //        } else
-    //        {
-    //            itemSlot = slots.Find(x => x.item == null);
-    //            if(itemSlot != null)
-    //            {
-    //                itemSlot.item = item;
-    //                itemSlot.quantity = quantity;
-    //            }
-    //        }
-    //    } else
-    //    {
-    //        //non stackable item
-    //        ItemSlot itemSlot = slots.Find(x => x.item == null);
-
-    //        if(itemSlot != null)
-    //        {
-    //            itemSlot.item = item;
-    //        }
-    //    }
-    //}
-
     public void Add(int itemId, int quantity = 1)
     {
         isDirty = true;
@@ -101,7 +63,6 @@ public class ItemContainer : ScriptableObject
             }
             else
             {
-                //itemSlot = slots.Find(x => x.item == null);
                 itemSlot = slots.Find(x => x.item < 0);
                 if (itemSlot != null)
                 {
@@ -112,8 +73,6 @@ public class ItemContainer : ScriptableObject
         }
         else
         {
-            //non stackable item
-            //ItemSlot itemSlot = slots.Find(x => x.item == null);
             ItemSlot itemSlot = slots.Find(x => x.item < 0);
 
             if (itemSlot != null)
@@ -122,36 +81,6 @@ public class ItemContainer : ScriptableObject
             }
         }
     }
-
-    //public void Remove(Item itemToRemove, int count = 1) {
-    //    isDirty = true;
-
-    //    if (itemToRemove.stackable)
-    //    {
-    //        ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
-
-    //        if (itemSlot == null) return;
-
-    //        itemSlot.quantity -= count;
-
-    //        if(itemSlot.quantity <= 0)
-    //        {
-    //            itemSlot.Clear();
-    //        }
-    //    } else
-    //    {
-    //        while (count > 0)
-    //        {
-    //            count -= 1;
-
-    //            ItemSlot itemSlot = slots.Find(x => x.item == itemToRemove);
-
-    //            if (itemSlot == null) return;
-
-    //            itemSlot.Clear();
-    //        }
-    //    }
-    //}
 
     public void Remove(int itemId, int count = 1)
     {

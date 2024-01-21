@@ -1,17 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class EquipItemController : MonoBehaviour
+public class EquipItemController : MonoBehaviour, IDataPersistant
 {
-    [SerializeField] EquipedItemsData equipedItemsData;
+    [SerializeField] public EquipedItemsData equipedItemsData;
     [SerializeField] GameObject playerStatsPanel;
     private ItemContainer inventory;
     private bool needRefresh = false;
 
     private void Start()
     {
+        //if (equipedItemsData == null)
+        //{
+        //    equipedItemsData = (EquipedItemsData)ScriptableObject.CreateInstance(typeof(EquipedItemsData));
+        //    equipedItemsData.Init();
+        //}
         inventory = GameManager.instance.inventoryContainer;
     }
 
@@ -75,11 +81,71 @@ public class EquipItemController : MonoBehaviour
             {
                 if (equipedItemsData.equipedItems[i].type == type)
                 {
-                    equipedItemsData.equipedItems[i].item = null;
+                    equipedItemsData.equipedItems[i].item = -1;
                 }
             }
         }
 
         RefreshGUI();
+    }
+
+    //Persisting Equiped Items
+    [Serializable]
+    public class CopyOfEquipedItems
+    {
+        public List<EquipedItem> equipedItems;
+
+        public void Init()
+        {
+            equipedItems = new();
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        string equipedItemsJson = "";
+
+        if (equipedItemsData == null) return;
+
+        CopyOfEquipedItems copyOfEquipedItems = new();
+        copyOfEquipedItems.Init();
+
+        foreach (EquipedItem ei in equipedItemsData.equipedItems)
+        {
+            copyOfEquipedItems.equipedItems.Add(ei);
+        }
+
+        equipedItemsJson = JsonUtility.ToJson(copyOfEquipedItems);
+
+        data.equipedItems = equipedItemsJson;
+    }
+
+    public void LoadData(GameData data)
+    {
+        if(equipedItemsData == null)
+        {
+            equipedItemsData = (EquipedItemsData)ScriptableObject.CreateInstance(typeof(EquipedItemsData));
+            equipedItemsData.Init();
+        }
+
+        if (data.equipedItems == "" || data.equipedItems == "{}") return;
+
+        CopyOfEquipedItems copyOfEquipedItems = new();
+        copyOfEquipedItems.Init();
+
+        CopyOfEquipedItems deserializedList = JsonUtility.FromJson<CopyOfEquipedItems>(data.equipedItems);
+
+        foreach (EquipedItem ei in deserializedList.equipedItems)
+        {
+            if(ei.item != -1)
+            {
+                Item itemToEquip = GameManager.instance.itemsDB.GetItemById(ei.item);
+
+                if (itemToEquip == null || !itemToEquip.equipable) continue;
+
+                equipedItemsData.SetEquipSlot(ei.item, ei.itemState, ei.type);
+                itemToEquip.Equip(this.GetComponent<Character>());
+            }
+        }
     }
 }

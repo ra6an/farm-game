@@ -20,6 +20,11 @@ public class InventoryController : MonoBehaviour
 
     private void Update()
     {
+        if(inputManager.GetKeyUp(KeybindingActions.Main_Menu) && panel.activeInHierarchy)
+        {
+            showPanelsController.CloseInventory();
+        }
+
         if(inputManager.GetKeyDown(KeybindingActions.Inventory) && showPanelsController.canOpeninventory)
         {
                 if(panel.activeInHierarchy)

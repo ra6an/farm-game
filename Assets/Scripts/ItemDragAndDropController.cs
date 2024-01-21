@@ -63,8 +63,6 @@ public class ItemDragAndDropController : MonoBehaviour
 
     internal void OnClick(ItemSlot itemSlot)
     {
-        Debug.Log(this.itemSlot.item);
-        //if (this.itemSlot.item == null)
         if(this.itemSlot.item < 0)
         {
             this.itemSlot.Copy(itemSlot);

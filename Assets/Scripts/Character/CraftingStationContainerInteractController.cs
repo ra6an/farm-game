@@ -10,9 +10,9 @@ public class CraftingStationContainerInteractController : MonoBehaviour
     [SerializeField] GameObject itemDetailsPanel;
     [SerializeField] GameObject elementsPanel;
     [SerializeField] GameObject buttonsList;
-    [SerializeField] CraftingStationRecipeList recipeList;
+    public RecipeList recipeList;
     [SerializeField] Text craftQuantity;
-    [SerializeField] ItemContainer inventory;
+    private ItemContainer inventory;
     Transform workingBench;
     ShowPanelsController showPanelsController;
 
@@ -23,6 +23,11 @@ public class CraftingStationContainerInteractController : MonoBehaviour
     void Awake()
     {
         showPanelsController = GetComponent<ShowPanelsController>();
+    }
+
+    private void Start()
+    {
+        inventory = GameManager.instance.inventoryContainer;
     }
 
     private void Update()

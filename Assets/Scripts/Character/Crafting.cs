@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Crafting : MonoBehaviour
 {
-    [SerializeField] ItemContainer inventory;
+    //[SerializeField] ItemContainer inventory;
+    private ItemContainer inventory;
+    public RecipeList recipeList;
+
+    private void Start()
+    {
+        inventory = GameManager.instance.inventoryContainer;
+    }
 
     public void Craft(CraftingRecipe recipe)
     {

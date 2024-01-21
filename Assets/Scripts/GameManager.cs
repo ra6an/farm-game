@@ -24,21 +24,19 @@ public class GameManager : MonoBehaviour, IDataPersistant
     public DayTimeController timeController;
     public DialogueSystem dialogueSystem;
     public ItemList itemsDB;
+    public RecipeList recipesDB;
     public OnScreenMessageSystem messageSystem;
     public ScreenTint screenTint;
     public PlaceableObjectContainer placeableObjects;
-    //public PlaceableObjectsReferenceManager placeableObjects;
 
     public void SaveData(ref GameData data)
     {
         data.inventory = SerializeInventory();
-        data.playerPosition = player.transform.position;
     }
 
     public void LoadData(GameData data)
     {
         DeserializeInventory(data.inventory);
-        player.transform.position = data.playerPosition;
     }
 
     //INVENTORY SAVE/LOAD

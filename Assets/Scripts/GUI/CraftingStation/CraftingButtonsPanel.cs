@@ -15,7 +15,7 @@ public class CraftingButtonsPanel : MonoBehaviour
         currentActive = 0;
     }
 
-    public void ShowCraftingList(CraftingStationRecipeList recipeList, Transform character)
+    public void ShowCraftingList(RecipeList recipeList, Transform character)
     {
         currentActive = 0;
         recipes = recipeList.recipes;
