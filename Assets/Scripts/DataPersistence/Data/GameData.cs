@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlaceableObjects
 {
     public string sceneName;
-    public SerPlaceableObjectContainer container;
+    public string container;
 }
 
 [Serializable]

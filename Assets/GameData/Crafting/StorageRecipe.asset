@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elements:
   - item: 8
-    quantity: 10
-  - item: 3
-    quantity: 2
+    quantity: 1
   output:
     item: 13
     quantity: 1

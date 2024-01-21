@@ -12,25 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1243591022058494884150b2a1114889, type: 3}
   m_Name: MainScenePlaceableObjectContainer
   m_EditorClassIdentifier: 
-  placeableObjects:
-  - placedItem: {fileID: 11400000, guid: d86d9c38b840a824e9e640e1f1c263a2, type: 2}
-    targetObject: {fileID: 0}
-    positionOnGrid:
-    - {x: 2, y: -1, z: 0}
-    objectState: '{"itemDatas":[{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0}],"chestColor":{"r":0.7924528121948242,"g":0.6317194700241089,"b":0.6317194700241089,"a":1.0}}'
-  - placedItem: {fileID: 11400000, guid: e3182a9375bd8d742885eec77d3225a8, type: 2}
-    targetObject: {fileID: 0}
-    positionOnGrid:
-    - {x: -1, y: -2, z: 0}
-    objectState: '{"itemSlot":{"item":{"instanceID":0},"quantity":0},"timer":0,"outputItem":{"item":{"instanceID":0},"quantity":0}}'
-  - placedItem: {fileID: 11400000, guid: 701e0dce776ed4948b0e535359fac70d, type: 2}
-    targetObject: {fileID: 0}
-    positionOnGrid:
-    - {x: -1, y: -3, z: 0}
-    - {x: 0, y: -3, z: 0}
-    objectState: 
-  - placedItem: {fileID: 11400000, guid: d86d9c38b840a824e9e640e1f1c263a2, type: 2}
-    targetObject: {fileID: 0}
-    positionOnGrid:
-    - {x: -3, y: -1, z: 0}
-    objectState: '{"itemDatas":[{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0},{"itemId":-1,"quantity":0}],"chestColor":{"r":0.7924528121948242,"g":0.6317194700241089,"b":0.6317194700241089,"a":1.0}}'
+  placeableObjects: []

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.Tilemaps;
 using static UnityEditor.Progress;
 
@@ -15,6 +16,11 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
 
     private void Start()
     {
+        if(placeableObjects == null)
+        {
+            placeableObjects = (PlaceableObjectContainer)ScriptableObject.CreateInstance(typeof(PlaceableObjectContainer));
+            placeableObjects.Init();
+        }
         GameManager.instance.GetComponent<PlaceableObjectsReferenceManager>().placeableObjectManager = this;
         VisualizeMap();
     }
@@ -55,11 +61,14 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
         {
             return;
         }
+
+        Item item = GameManager.instance.itemsDB.GetItemById(placedObject.placedItem);
+        if (item == null) return;
         
         ItemSpawnManager.instance.SpawnItem
         (
         targetTilemap.CellToWorld(gridPosition) + targetTilemap.cellSize / 2,
-        placedObject.placedItem, 1
+        item, 1
         );
 
         Destroy(placedObject.targetObject.gameObject);
@@ -69,13 +78,16 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
     
     private void VisualizeItem(PlaceableObject placeableObject)
     {
-        GameObject go = Instantiate(placeableObject.placedItem.itemPrefab);
+        Item item = GameManager.instance.itemsDB.GetItemById(placeableObject.placedItem);
+        if (item == null) return;
+
+        GameObject go = Instantiate(item.itemPrefab);
         go.transform.parent = transform;
 
         int posOnGridX = placeableObject.positionOnGrid[0].x;
         int posOnGridY = placeableObject.positionOnGrid[0].y;
-        int itemWidth = placeableObject.placedItem.width;
-        int itemHeight = placeableObject.placedItem.height;
+        int itemWidth = item.width;
+        int itemHeight = item.height;
         float xPosition = 0f;
         float yPosition = 0f;
         float xAddition = 0f;
@@ -139,58 +151,93 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
     public void Place(Item item, List<Vector3Int> positionOnGrid)
     {
         if (Check(positionOnGrid)) return;
-        
-        PlaceableObject placeableObject = new(item, positionOnGrid);
+
+        //Item item = GameManager.instance.itemsDB.GetItemById(placedObject.placedItem);
+        //if (item == null) return;
+        int itemId = GameManager.instance.itemsDB.GetItemId(item);
+        if (itemId == -1) return;
+
+        PlaceableObject placeableObject = new(itemId, positionOnGrid);
         VisualizeItem(placeableObject);
         placeableObjects.placeableObjects.Add(placeableObject);
         
     }
     // SREDITI MALO KOD SA PARAMETRIMA IZ FUNKCIJE
+
+    [Serializable]
+    public class PlacedObjectToSave
+    {
+        public List<PlaceableObject> placedObjects;
+
+        public void Init()
+        {
+            placedObjects = new List<PlaceableObject>();
+        }
+    }
+
     public void SaveData(ref GameData data)
     {
-        /*
-        DataPersistentManager DPManager = DataPersistentManager.instance;
+        PlaceableObjects po = new();
+        po.sceneName = sceneName;
 
-        if (DPManager == null) return;
+        PlacedObjectToSave copyOfPlacedObjects = new();
+        copyOfPlacedObjects.Init();
 
-        PlaceableObjects toSave = new PlaceableObjects();
-
-        toSave.sceneName = sceneName;
-
-        SerPlaceableObjectContainer container = new SerPlaceableObjectContainer();
-
-        foreach (PlaceableObject placeableObject in placeableObjects.placeableObjects)
+        foreach (PlaceableObject copyOfObject in placeableObjects.placeableObjects)
         {
-            container.AddSerObject(placeableObject);
-        }
-        toSave.container = container;
+            string objectStateJson = "";
+            IPersistant persistent = copyOfObject.targetObject.GetComponent<IPersistant>();
+            if (persistent != null) objectStateJson = persistent.SaveData();
 
-        data.placeableObjectsContainers.Add(toSave);
-        */
+            PlaceableObject placedObject = new(copyOfObject.placedItem, copyOfObject.positionOnGrid);
+            placedObject.objectState = objectStateJson;
+            copyOfPlacedObjects.placedObjects.Add(placedObject);
+        }
+
+        string serializedContainer = JsonUtility.ToJson(copyOfPlacedObjects);
+
+        po.container = serializedContainer;
+
+        bool doesExists = false;
+
+        foreach (PlaceableObjects gameDataPO in data.placeableObjectsContainers)
+        {
+            if(gameDataPO.sceneName == sceneName)
+            {
+                doesExists = true;
+                gameDataPO.container = serializedContainer;
+                break;
+            }
+        }
+
+        if(!doesExists)
+        {
+            data.placeableObjectsContainers.Add(po);
+        }
     }
 
     public void LoadData(GameData data)
     {
-        //DataPersistentManager DPManager = DataPersistentManager.instance;
+        placeableObjects = (PlaceableObjectContainer)ScriptableObject.CreateInstance(typeof(PlaceableObjectContainer));
+        placeableObjects.Init();
+        string jsonPlacedObjects = "";
 
-        //if (DPManager == null) return;
-
-        /*foreach (PlaceableObjects po in data.placeableObjectsContainers)
+        foreach(PlaceableObjects po in data.placeableObjectsContainers)
         {
-            if (po.sceneName == sceneName)
-            {
-                List<PlaceableObject> container = new List<PlaceableObject>();
+            if(po.sceneName == sceneName) jsonPlacedObjects = po.container;
+        }
 
-                for(int i = 0; i < po.container.placeableObjects.Count; i++)
-                {
-                    Item item = GameManager.instance.itemsDB.GetItemById(po.container.placeableObjects[i].placedItem);
-                    PlaceableObject objectToAdd = new(item, po.container.placeableObjects[i].positionOnGrid);
-                    objectToAdd.objectState = po.container.placeableObjects[i].objectState;
-                    
-                    container.Add(objectToAdd);
-                }
-                placeableObjects.placeableObjects = container;
-            }
-        }*/
+        if (jsonPlacedObjects == "" || jsonPlacedObjects == "{}" || jsonPlacedObjects == null) return;
+
+        PlacedObjectToSave deserializedPlacedObjects = JsonUtility.FromJson<PlacedObjectToSave>(jsonPlacedObjects);
+
+        foreach(PlaceableObject po in deserializedPlacedObjects.placedObjects)
+        {
+            PlaceableObject objectToLoad = new(po.placedItem, po.positionOnGrid);
+            objectToLoad.objectState = po.objectState;
+            placeableObjects.placeableObjects.Add(objectToLoad);
+        }
+
+        VisualizeMap();
     }
 }

@@ -149,7 +149,7 @@ MonoBehaviour:
   opened: 0
   onOpenChest: {fileID: 8300000, guid: 9ba636b10c9d1b848a0c3e79eeb87a45, type: 3}
   onCloseChest: {fileID: 8300000, guid: b6d9d320078960645a67f90f903a3c0f, type: 3}
-  itemContainer: {fileID: 11400000, guid: b92375f1dfa537346ae784cd93820fc3, type: 2}
+  itemContainer: {fileID: 0}
   panelColorImage: {fileID: 7966820492030932913, guid: bf55e317651e9cb468ea604b56b781ff, type: 3}
   panelSlider: {fileID: 3720412202719824027, guid: fd3ed7c89f96a364487cd76922f7b858, type: 3}
   chestColor: {r: 0, g: 0, b: 0, a: 0}

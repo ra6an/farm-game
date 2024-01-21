@@ -6,12 +6,12 @@ using UnityEngine;
 [Serializable]
 public class PlaceableObject
 {
-    public Item placedItem;
+    public int placedItem;
     public Transform targetObject;
     public List<Vector3Int> positionOnGrid;
     public string objectState; //JSON string
 
-    public PlaceableObject(Item item, List<Vector3Int> position)
+    public PlaceableObject(int item, List<Vector3Int> position)
     {
         placedItem = item;
         positionOnGrid = position;
@@ -22,6 +22,11 @@ public class PlaceableObject
 public class PlaceableObjectContainer : ScriptableObject
 {
     public List<PlaceableObject> placeableObjects;
+
+    public void Init()
+    {
+        placeableObjects = new List<PlaceableObject>();
+    }
 
     internal object Get(List<Vector3Int> positions)
     {

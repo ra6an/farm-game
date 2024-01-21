@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour, IDataPersistant
     public ItemList itemsDB;
     public OnScreenMessageSystem messageSystem;
     public ScreenTint screenTint;
+    public PlaceableObjectContainer placeableObjects;
     //public PlaceableObjectsReferenceManager placeableObjects;
 
     public void SaveData(ref GameData data)
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour, IDataPersistant
         player.transform.position = data.playerPosition;
     }
 
+    //INVENTORY SAVE/LOAD
     public class SlotsToSave
     {
         public List<ItemSlot> slots;

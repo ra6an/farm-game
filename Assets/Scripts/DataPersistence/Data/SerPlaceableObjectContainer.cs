@@ -22,11 +22,11 @@ public class SerPlaceableObjectContainer
 
         SerPlaceableObject spo = new SerPlaceableObject();
 
-        int itemID = itemsDB.GetItemId(placeableObject.placedItem);
-        if (itemID == -1) return;
+        //int itemID = itemsDB.GetItemId(placeableObject.placedItem);
+        //if (itemID == -1) return;
 
-        spo.placedItem = itemID;
-        spo.objectState = placeableObject.objectState;
-        spo.positionOnGrid = placeableObject.positionOnGrid;
+        //spo.placedItem = itemID;
+        //spo.objectState = placeableObject.objectState;
+        //spo.positionOnGrid = placeableObject.positionOnGrid;
     }
 }

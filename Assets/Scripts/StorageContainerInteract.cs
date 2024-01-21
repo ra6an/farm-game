@@ -37,7 +37,7 @@ public class StorageContainerInteract : Interactable, IPersistant
             Close(character);
         }
     }
-
+    
     private void Init()
     {
             itemContainer = (ItemContainer)ScriptableObject.CreateInstance(typeof(ItemContainer));
@@ -149,7 +149,6 @@ public class StorageContainerInteract : Interactable, IPersistant
                 itemContainer.slots[i].Clear();
             } else
             {
-                //itemContainer.slots[i].item = GameManager.instance.itemsDB.items[toLoad.itemDatas[i].itemId];
                 itemContainer.slots[i].item = toLoad.itemDatas[i].itemId;
                 itemContainer.slots[i].quantity = toLoad.itemDatas[i].quantity;
             }

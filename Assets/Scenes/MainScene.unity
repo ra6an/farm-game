@@ -13624,7 +13624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1fd22d1902bfc4aa227fea96942c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeableObjects: {fileID: 11400000, guid: ff124500fce7b5c4b89f949be1fa0d0a, type: 2}
+  sceneName: MainScene
+  placeableObjects: {fileID: 0}
   spawnedNodes: {fileID: 11400000, guid: e5e4c7d350930c9488fd8e777386a488, type: 2}
   targetTilemap: {fileID: 1677493372}
 --- !u!4 &324778701
@@ -20319,6 +20320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87adb8d381c012d4d9f3396f1c55fe23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
   spawnedNodes: {fileID: 11400000, guid: e5e4c7d350930c9488fd8e777386a488, type: 2}
   targetTilemap: {fileID: 1677493372}
   nodesData:
