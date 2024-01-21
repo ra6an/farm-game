@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-//
+
+
 public class CraftingStationContainerInteractController : MonoBehaviour
 {
     [SerializeField] GameObject itemDetailsPanel;
@@ -83,13 +84,10 @@ public class CraftingStationContainerInteractController : MonoBehaviour
     {
         for (int i = 0; i < elements.Count; i++) 
         {
-            ItemSlot slot = new ItemSlot();
+            ItemSlot slot = new();
             slot.item = elements[i].item;
-            //ItemSlot itemInInventory = inventory.GetItemSlot(elements[i].item);
-            //int inventoryQuantity = itemInInventory == null ? 0 : itemInInventory.quantity;
             if (elementsPanel.transform.GetChild(i) == null) return;
             elementsPanel.transform.GetChild(i).GetComponent<ElementDetails>().ChangeQuantity(elements[i].quantity * mltp);
-            //elementsPanel.transform.GetChild(i).GetComponent<ElementDetails>().ChangeInventoryQuantity(inventoryQuantity);
         }
     }
 
@@ -99,7 +97,7 @@ public class CraftingStationContainerInteractController : MonoBehaviour
 
         for(int i = 0; i < elements.Count; i++)
         {
-            ItemSlot slot = new ItemSlot();
+            ItemSlot slot = new();
             slot.item = elements[i].item;
             slot.quantity = mltp * elements[i].quantity;
             if (!inventory.CheckItem(slot))

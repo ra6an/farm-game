@@ -292,25 +292,28 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
         data.playerHealth = health.currVal;
         data.playerMana = mana.currVal;
 
+        // Create empty list of recipe IDs
         RecipeListIDs characterRecipeIDs = new();
         characterRecipeIDs.Init();
+        RecipeListIDs workingBenchRecipeIDs = new();
+        workingBenchRecipeIDs.Init();
 
-        foreach(CraftingRecipe recipe in characterRecipeList.recipes)
+        // Add recipe IDs to lists
+        foreach (CraftingRecipe recipe in characterRecipeList.recipes)
         {
             characterRecipeIDs.recipes.Add(GameManager.instance.recipesDB.GetRecipeId(recipe));
         }
-
-        RecipeListIDs workingBenchRecipeIDs = new();
-        workingBenchRecipeIDs.Init();
 
         foreach (CraftingRecipe recipe in workingBenchRecipeList.recipes)
         {
             workingBenchRecipeIDs.recipes.Add(GameManager.instance.recipesDB.GetRecipeId(recipe));
         }
 
+        // Serialize recipe ID lists
         string serializedCharacterRecipeIDs = JsonUtility.ToJson(characterRecipeIDs);
         string serializedWorkingBenchRecipeIDs = JsonUtility.ToJson(workingBenchRecipeIDs);
 
+        // Save them to GameData
         data.characterRecipeList = serializedCharacterRecipeIDs;
         data.workingBenchRecipeList = serializedWorkingBenchRecipeIDs;
     }

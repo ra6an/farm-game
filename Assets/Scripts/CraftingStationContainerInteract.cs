@@ -1,7 +1,14 @@
 using System;
 using System.Collections;
 using UnityEngine;
-//
+
+public enum CraftingStationType
+{
+    WorkingBench,
+    Blacksmith,
+    Stonecutter,
+}
+
 public class CraftingStationContainerInteract : Interactable
 {
     bool isOpened;
@@ -9,6 +16,7 @@ public class CraftingStationContainerInteract : Interactable
     Character character;
     [SerializeField] AudioClip onOpenPlay;
     [SerializeField] AudioClip onClosePlay;
+    [SerializeField] CraftingStationType type;
 
     private void Start()
     {
