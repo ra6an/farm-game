@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 //
 public class GameManager : MonoBehaviour, IDataPersistant
 {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour, IDataPersistant
         }
     }
 
+    public string activeSceneName;
     public GameObject player;
     public ItemContainer inventoryContainer;
     public ItemDragAndDropController dragAndDropController;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour, IDataPersistant
     public DialogueSystem dialogueSystem;
     public ItemList itemsDB;
     public RecipeList recipesDB;
+    public CropsList cropsDB;
     public OnScreenMessageSystem messageSystem;
     public ScreenTint screenTint;
     public PlaceableObjectContainer placeableObjects;
@@ -32,11 +35,13 @@ public class GameManager : MonoBehaviour, IDataPersistant
     public void SaveData(ref GameData data)
     {
         data.inventory = SerializeInventory();
+        data.activeSceneName = SceneManager.GetActiveScene().name;
     }
 
     public void LoadData(GameData data)
     {
         DeserializeInventory(data.inventory);
+        activeSceneName = data.activeSceneName;
     }
 
     //INVENTORY SAVE/LOAD

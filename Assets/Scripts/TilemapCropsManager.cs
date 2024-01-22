@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class TilemapCropsManager : TimeAgent
+public class TilemapCropsManager : TimeAgent, IDataPersistant
 {
+    [SerializeField] string sceneName;
     [SerializeField] CropsContainer container;
     [SerializeField] TileBase watered;
     [SerializeField] TileBase plowed;
@@ -21,7 +22,7 @@ public class TilemapCropsManager : TimeAgent
         targetTilemap = GetComponent<Tilemap>();
         onTimeTick += Tick;
         Init();
-        VisualizeMap();
+        //VisualizeMap();
     }
 
     private void VisualizeMap()
@@ -70,7 +71,7 @@ public class TilemapCropsManager : TimeAgent
 
             if (cropTile.Complete)
             {
-                Debug.Log("I'm done growing!");
+                //Debug.Log("I'm done growing!");
                 continue;
             }
 
@@ -211,5 +212,118 @@ public class TilemapCropsManager : TimeAgent
 
             VisualizeTile(tile);
         }
+    }
+
+    // Save and Load System
+    [Serializable]
+    public class SeriazableCropTile
+    {
+        public int growTimer;
+        public int growStage;
+        public int crop;
+        //public SpriteRenderer renderer;
+        public float damage;
+        public Vector3Int position;
+        public bool watered;
+    }
+
+    [Serializable]
+    public class CropsListToSave
+    {
+        public List<SeriazableCropTile> crops;
+
+        public void Init()
+        {
+            crops = new List<SeriazableCropTile>();
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        bool containerExistsInGameData = false;
+        
+        CropsListToSave cropsListToSave = new();
+        cropsListToSave.Init();
+
+        foreach (CropTile crop in container.crops)
+        {
+            SeriazableCropTile ct = new()
+            {
+                growTimer = crop.growTimer,
+                growStage = crop.growStage,
+                damage = crop.damage,
+                position = crop.position,
+                watered = crop.watered,
+            };
+
+            int cropId = GameManager.instance.cropsDB.GetCropId(crop.crop);
+            ct.crop = cropId;
+
+            cropsListToSave.crops.Add(ct);
+        }
+
+        string serializedCropsList = JsonUtility.ToJson(cropsListToSave);
+        
+        foreach (Crops crops in data.cropsContainers)
+        {
+            if (crops.sceneName == sceneName)
+            {
+                containerExistsInGameData = true;
+
+                crops.container = serializedCropsList;
+                break;
+            }
+        }
+
+        if (!containerExistsInGameData)
+        {
+            Crops newCrops = new();
+
+            newCrops.sceneName = sceneName;
+            newCrops.container = serializedCropsList;
+            data.cropsContainers.Add(newCrops);
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        container = (CropsContainer)ScriptableObject.CreateInstance(typeof(CropsContainer));
+        container.Init();
+
+        bool loadDataExist = false;
+        string serializedCropsList = "";
+
+        foreach(Crops crops in data.cropsContainers)
+        {
+            if(crops.sceneName == sceneName)
+            {
+                loadDataExist = true;
+                serializedCropsList = crops.container;
+                break;
+            }
+        }
+
+        if (!loadDataExist) return;
+
+        CropsListToSave deserializedCropsListToSave = JsonUtility.FromJson<CropsListToSave>(serializedCropsList);
+
+        foreach(SeriazableCropTile sct in deserializedCropsListToSave.crops)
+        {
+            CropTile cropTileToAdd = new()
+            {
+                growTimer = sct.growTimer,
+                growStage = sct.growStage,
+                damage = sct.damage,
+                position = sct.position,
+                watered = sct.watered,
+            };
+
+            Crop crop = GameManager.instance.cropsDB.GetCropById(sct.crop);
+            cropTileToAdd.crop = crop;
+            
+            container.crops.Add(cropTileToAdd);
+        }
+
+        if (container.crops.Count > 0) VisualizeMap();
     }
 }

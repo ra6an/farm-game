@@ -8,6 +8,11 @@ public class CropsContainer : ScriptableObject
 {
     public List<CropTile> crops;
 
+    public void Init()
+    {
+        crops ??= new List<CropTile>();
+    }
+
     public CropTile Get(Vector3Int position)
     {
         return crops.Find(x => x.position == position);

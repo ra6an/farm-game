@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class Stat
@@ -87,6 +88,14 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
         disableControls = GetComponent<DisableControls>();
         playerRespawn = GetComponent<PlayerRespawn>();
         
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            SceneManager.LoadScene("MainScene");
+        }
     }
 
     private void Start()

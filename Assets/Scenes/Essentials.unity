@@ -9866,6 +9866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b571d3997d26546b0e1e3d3c92ea85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeSceneName: 
   player: {fileID: 1924335047}
   inventoryContainer: {fileID: 11400000, guid: ee282055251d7f142ad41754017c3a67, type: 2}
   dragAndDropController: {fileID: 831734721}
@@ -9873,6 +9874,7 @@ MonoBehaviour:
   dialogueSystem: {fileID: 947699487}
   itemsDB: {fileID: 11400000, guid: 89f544860f5b7f54cab9767d94f7215e, type: 2}
   recipesDB: {fileID: 11400000, guid: 0d7fe6025fd1e33489c3d9b778c2db51, type: 2}
+  cropsDB: {fileID: 11400000, guid: 0b3dd1b69a71a46419c85d708a5dad13, type: 2}
   messageSystem: {fileID: 1373134}
   screenTint: {fileID: 1288374085}
   placeableObjects: {fileID: 0}

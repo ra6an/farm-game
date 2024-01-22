@@ -21,13 +21,13 @@ public class SpawnedNodes
 public class Crops
 {
     public string sceneName;
-    public CropsContainer container;
+    public string container;
 }
 
 [Serializable]
 public class GameData
 {
-    public string activeSceneName;
+    public string activeSceneName; //Done
     public int playerLevel; //Done
     public float playerExperience; //Done
     public float playerHealth; //Done
@@ -43,7 +43,7 @@ public class GameData
     public string workingBenchRecipeList; //Done
 
     // Cropse Managers
-    public List<Crops> cropsContainers;
+    public List<Crops> cropsContainers; //Done
 
     // PlaceableObjects Containers
     public List<PlaceableObjects> placeableObjectsContainers; //Done
