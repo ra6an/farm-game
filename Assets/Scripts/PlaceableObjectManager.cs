@@ -14,6 +14,9 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
     [SerializeField] SpawnedNodeContainer spawnedNodes;
     [SerializeField] Tilemap targetTilemap;
 
+    public bool oneTimeLoader = false;
+    private bool isLoaded = true;
+
     private void Start()
     {
         if(placeableObjects == null)
@@ -23,6 +26,12 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
         }
         GameManager.instance.GetComponent<PlaceableObjectsReferenceManager>().placeableObjectManager = this;
         VisualizeMap();
+    }
+
+    private void Update()
+    {
+        if (isLoaded) LoadData(DataPersistentManager.instance.gameData);
+        isLoaded = false;
     }
 
     private void OnDestroy()
@@ -177,6 +186,8 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
 
     public void SaveData(GameData data)
     {
+
+        Debug.Log("Savea placeable objects");
         PlaceableObjects po = new();
         po.sceneName = sceneName;
 
@@ -218,6 +229,7 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
 
     public void LoadData(GameData data)
     {
+        Debug.Log("Loada placeable objects");
         placeableObjects = (PlaceableObjectContainer)ScriptableObject.CreateInstance(typeof(PlaceableObjectContainer));
         placeableObjects.Init();
         string jsonPlacedObjects = "";
@@ -239,5 +251,10 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
         }
 
         VisualizeMap();
+    }
+
+    public bool isOneTimeLoader()
+    {
+        return oneTimeLoader;
     }
 }

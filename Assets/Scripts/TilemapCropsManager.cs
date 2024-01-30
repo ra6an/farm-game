@@ -16,6 +16,9 @@ public class TilemapCropsManager : TimeAgent, IDataPersistant
 
     [SerializeField] GameObject CropsSpritePrefab;
 
+    public bool oneTimeLoader = false;
+    private bool isLoaded = true;
+
     private void Start()
     {
         GameManager.instance.GetComponent<CropsManager>().cropsManager = this;
@@ -23,6 +26,12 @@ public class TilemapCropsManager : TimeAgent, IDataPersistant
         onTimeTick += Tick;
         Init();
         //VisualizeMap();
+    }
+
+    private void Update()
+    {
+        if (isLoaded) LoadData(DataPersistentManager.instance.gameData);
+        isLoaded = false;
     }
 
     private void VisualizeMap()
@@ -44,6 +53,7 @@ public class TilemapCropsManager : TimeAgent, IDataPersistant
     public void Tick()
     {
         if (targetTilemap == null) return;
+        if (container == null) return;
 
         List<CropTile> tilesToRemove = new();
 
@@ -328,5 +338,10 @@ public class TilemapCropsManager : TimeAgent, IDataPersistant
         }
 
         if (container.crops.Count > 0) VisualizeMap();
+    }
+
+    public bool isOneTimeLoader()
+    {
+        return oneTimeLoader;
     }
 }

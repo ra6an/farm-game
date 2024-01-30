@@ -15,6 +15,9 @@ public class SpawnedNodesManager : MonoBehaviour, IDataPersistant
 
     [SerializeField] public GameObject[] nodes;
 
+    public bool oneTimeLoader = false;
+    private bool isLoaded = true;
+
     private void Start()
     {
         if(spawnedNodes == null)
@@ -38,6 +41,12 @@ public class SpawnedNodesManager : MonoBehaviour, IDataPersistant
             }
         }
         
+    }
+
+    private void Update()
+    {
+        if (isLoaded) LoadData(DataPersistentManager.instance.gameData);
+        isLoaded = false;
     }
 
     public void DestroyNode(Vector3Int position)
@@ -265,5 +274,10 @@ public class SpawnedNodesManager : MonoBehaviour, IDataPersistant
         }
 
         VisualizeMap();
+    }
+
+    public bool isOneTimeLoader()
+    {
+        return oneTimeLoader;
     }
 }

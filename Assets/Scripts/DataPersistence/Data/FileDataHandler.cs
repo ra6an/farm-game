@@ -20,9 +20,9 @@ public class FileDataHandler
         this.useEncryption = useEncryption;
     }
 
-    public GameData Load()
+    public GameData Load(string profileId)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
 
         GameData loadedData = null;
 
@@ -58,9 +58,9 @@ public class FileDataHandler
         return loadedData;
     }
 
-    public void Save(GameData data)
+    public void Save(GameData data, string profileId)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
 
         try
         {
@@ -89,6 +89,38 @@ public class FileDataHandler
         {
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
+    }
+
+    public Dictionary<string, GameData> LoadAllProfiles()
+    {
+        Dictionary<string, GameData> profileDictionary = new();
+
+        IEnumerable<DirectoryInfo> dirInfos = new DirectoryInfo(dataDirPath).EnumerateDirectories();
+
+        foreach (DirectoryInfo dirInfo in dirInfos)
+        {
+            Debug.Log(dirInfo.Name);
+            string profileId = dirInfo.Name;
+
+            string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
+            if(!File.Exists(fullPath))
+            {
+                Debug.LogWarning("Skipping directory when loading all profiles because it doesnt contain data: " + profileId);
+                continue;
+            }
+
+            GameData profileData = Load(profileId);
+
+            if(profileData != null)
+            {
+                profileDictionary.Add(profileId, profileData);
+            } else
+            {
+                Debug.LogError("Tried to load profile but something went wrong! Profile ID: " + profileId);
+            }
+        }
+
+        return profileDictionary;
     }
 
     private string EncryptDecrypt(string data)

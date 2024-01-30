@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour, IDataPersistant
         {
             itemsDB.items[i].id = i;
         }
+        
+        activeSceneName = SceneManager.GetActiveScene().name;
     }
 
     public string activeSceneName;
@@ -33,10 +35,12 @@ public class GameManager : MonoBehaviour, IDataPersistant
     public ScreenTint screenTint;
     public PlaceableObjectContainer placeableObjects;
 
+    public bool oneTimeLoader = true;
+
     public void SaveData(GameData data)
     {
         data.inventory = SerializeInventory();
-        data.activeSceneName = SceneManager.GetActiveScene().name;
+        data.activeSceneName = GameSceneManager.instance.currentScene;
     }
 
     public void LoadData(GameData data)
@@ -117,5 +121,10 @@ public class GameManager : MonoBehaviour, IDataPersistant
 
             Debug.Log(inventoryContainer.slots[0].item);
         }
+    }
+
+    public bool isOneTimeLoader()
+    {
+        return oneTimeLoader;
     }
 }

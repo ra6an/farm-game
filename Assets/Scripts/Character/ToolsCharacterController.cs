@@ -42,6 +42,9 @@ public class ToolsCharacterController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.activeSceneName == "MainMenuScene") return;
+        if (GameSceneManager.instance.IsTransitioning()) return;
+        
         if (inputManager.GetKeyDown(KeybindingActions.Hit))
         {
             WeaponAction();

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
 using System;
+using System.Linq;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -18,23 +19,57 @@ public class GameSceneManager : MonoBehaviour
     [SerializeField] CameraConfiner cameraConfiner;
     [SerializeField] CameraConfiner houseConfiner;
     public string currentScene;
+    public bool sceneChanged = false;
     AsyncOperation unload;
     AsyncOperation load;
 
     bool respawnTransition;
+    private List<IDataPersistant> persistantObj;
 
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().name;
     }
 
+    private void Update()
+    {
+        if(sceneChanged)
+        {
+            if (IsTransitioning()) return;
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentScene));
+            sceneChanged = false;
+        }
+    }
+
+    public void OnGameStartTransition(string to)
+    {
+        load = SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
+        unload = SceneManager.UnloadSceneAsync("MainMenuScene");
+        currentScene = to;
+
+        sceneChanged = true;
+    }
+
     public void InitSwitchScene(string to, Vector3 targetPosition, string sceneName = null)
     {
-            StartCoroutine(Transition(to, targetPosition, sceneName));
+        Debug.Log(to);
+        StartCoroutine(Transition(to, targetPosition, sceneName));
+
+        sceneChanged = true;
     }
 
     IEnumerator Transition(string to, Vector3 targetPosition, string sceneName = null)
     {
+        persistantObj = FindAllDataPersistenceObjects();
+        foreach(IDataPersistant persistant in persistantObj) 
+        {
+            if (persistant == null) continue;
+            if(!persistant.isOneTimeLoader())
+            {
+                persistant.SaveData(DataPersistentManager.instance.gameData);
+            }
+        }
+
         screenTint.Tint();
 
         yield return new WaitForSeconds(1f / screenTint.speed + 0.1f);
@@ -44,6 +79,17 @@ public class GameSceneManager : MonoBehaviour
         {
             if (load.isDone) load = null;
             if (unload.isDone) unload = null;
+
+            //persistantObj = FindAllDataPersistenceObjects();
+            //foreach (IDataPersistant persistant in persistantObj)
+            //{
+            //    if (persistant == null) continue;
+            //    if (!persistant.isOneTimeLoader())
+            //    {
+            //        persistant.LoadData(DataPersistentManager.instance.gameData);
+            //    }
+            //}
+
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -65,6 +111,8 @@ public class GameSceneManager : MonoBehaviour
         unload = SceneManager.UnloadSceneAsync(currentScene);
         currentScene = to;
         MoveCharacter(targetPosition);
+
+        DataPersistentManager.instance.SaveGame();
     }
 
     private void MoveCharacter(Vector3 targetPosition)
@@ -102,5 +150,17 @@ public class GameSceneManager : MonoBehaviour
         {
             MoveCharacter(respawnPointPosition);
         }
+    }
+
+    public bool IsTransitioning()
+    {
+        return load != null || unload != null;
+    }
+
+    private List<IDataPersistant> FindAllDataPersistenceObjects()
+    {
+        IEnumerable<IDataPersistant> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistant>();
+
+        return new List<IDataPersistant>(dataPersistenceObjects);
     }
 }

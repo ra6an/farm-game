@@ -27,6 +27,7 @@ public class Crops
 [Serializable]
 public class GameData
 {
+    public string createdAt;
     public string activeSceneName; //Done
     public int playerLevel; //Done
     public float playerExperience; //Done
@@ -53,10 +54,11 @@ public class GameData
 
     public void Init()
     {
+        createdAt = $"{DateTime.Now.ToString("M/d/yyyy")} - {DateTime.Now.ToString("hh:mm:ss")}";
         activeSceneName = "MainScene";
         playerLevel = 1;
         playerExperience = 0;
-        playerHealth = 10;
+        playerHealth = 30;
         playerMana = 10;
         playerPosition = new Vector3Int(0, 0, 0);
         equipedItems = "";

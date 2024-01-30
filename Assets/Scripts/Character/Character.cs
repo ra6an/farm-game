@@ -84,6 +84,8 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
 
     private bool gameLoaded = false;
 
+    public bool oneTimeLoader = true;
+
     private void Awake()
     {
         timeAgent = GetComponent<TimeAgent>();
@@ -300,7 +302,7 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
 
     public void SaveData(GameData data)
     {
-        //Debug.Log("Save character");
+        Debug.Log("Save character");
         data.playerPosition = transform.position;
         data.playerLevel = level;
         data.playerExperience = experience.currVal;
@@ -335,9 +337,10 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
 
     public void LoadData(GameData data)
     {
+        Debug.Log("Character load " + data.playerHealth);
         gameLoaded = true;
 
-        //Debug.Log("Load character");
+        Debug.Log("Load character");
         transform.position = data.playerPosition;
         level = data.playerLevel;
         experience.currVal = data.playerExperience;
@@ -399,5 +402,10 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
         {
             recList.recipes.Add(i);
         }
+    }
+
+    public bool isOneTimeLoader()
+    {
+        return oneTimeLoader;
     }
 }

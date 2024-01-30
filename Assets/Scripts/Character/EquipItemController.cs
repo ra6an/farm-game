@@ -10,6 +10,7 @@ public class EquipItemController : MonoBehaviour, IDataPersistant
     [SerializeField] GameObject playerStatsPanel;
     private ItemContainer inventory;
     private bool needRefresh = false;
+    public bool oneTimeLoader = true;
 
     private void Start()
     {
@@ -155,5 +156,10 @@ public class EquipItemController : MonoBehaviour, IDataPersistant
                 itemToEquip.Equip(this.GetComponent<Character>());
             }
         }
+    }
+
+    public bool isOneTimeLoader()
+    {
+        return oneTimeLoader;
     }
 }
