@@ -104,6 +104,7 @@ public class SlotsPanel : Menu
 
         this.gameObject.SetActive(true);
 
-        StartCoroutine(this.SetFirstSelected(firstSelected));
+        Button firstSelectedButton = firstSelected.GetComponent<Button>();
+        this.SetFirstSelected(firstSelectedButton);
     }
 }

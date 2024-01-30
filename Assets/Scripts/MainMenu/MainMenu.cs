@@ -26,10 +26,6 @@ public class MainMenu : Menu
         {
             loadGameButton.interactable = false;
         }
-        if(!DataPersistentManager.instance.HasGameData())
-        {
-            loadGameButton.interactable = false;
-        }
     }
 
     private void Update()

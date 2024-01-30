@@ -104,13 +104,12 @@ public class DataPersistentManager : MonoBehaviour
 
     private List<IDataPersistant> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IDataPersistant> _dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistant>();
+        IEnumerable<IDataPersistant> _dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistant>();
         return new List<IDataPersistant>(_dataPersistenceObjects);
     }
 
     public bool HasGameData()
     {
-        Debug.Log(gameData == null);
         return gameData != null;
     }
 
