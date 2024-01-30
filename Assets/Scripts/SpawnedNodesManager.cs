@@ -200,7 +200,7 @@ public class SpawnedNodesManager : MonoBehaviour, IDataPersistant
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         SpawnedNodes sn = new();
         sn.sceneName = sceneName;

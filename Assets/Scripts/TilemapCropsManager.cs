@@ -238,8 +238,9 @@ public class TilemapCropsManager : TimeAgent, IDataPersistant
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
+        Debug.Log("tilemap save");
         bool containerExistsInGameData = false;
         
         CropsListToSave cropsListToSave = new();
@@ -287,6 +288,7 @@ public class TilemapCropsManager : TimeAgent, IDataPersistant
 
     public void LoadData(GameData data)
     {
+        Debug.Log("tilemap load");
         container = (CropsContainer)ScriptableObject.CreateInstance(typeof(CropsContainer));
         container.Init();
 
@@ -318,7 +320,8 @@ public class TilemapCropsManager : TimeAgent, IDataPersistant
                 watered = sct.watered,
             };
 
-            Crop crop = GameManager.instance.cropsDB.GetCropById(sct.crop);
+            Debug.Log(GameManager.instance);
+            Crop crop = sct.crop < 0 ? null : GameManager.instance.cropsDB.GetCropById(sct.crop);
             cropTileToAdd.crop = crop;
             
             container.crops.Add(cropTileToAdd);

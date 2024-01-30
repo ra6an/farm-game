@@ -8,16 +8,20 @@ public class ItemPanel : MonoBehaviour
     public ItemContainer inventory;
     public List<InventoryButton> buttons;
 
-    //public event Action<Item> OnItemRightClickedEvent;
-    //[SerializeField] Item item;
-
-    //private void Awake()
+    //private void Update()
     //{
-    //    for (int i = 0; i < buttons.Count; i++)
+    //    if(inventory == null)
     //    {
-    //        buttons[i].OnRightClickEvent += OnItemRightClickedEvent;
-    //    }
+    //        if (GameManager.instance.inventoryContainer == null) return;
+    //        inventory = GameManager.instance.inventoryContainer;
+    //        Init();
+    //    }    
     //}
+
+    private void Awake()
+    {
+        
+    }
 
     private void Start()
     {

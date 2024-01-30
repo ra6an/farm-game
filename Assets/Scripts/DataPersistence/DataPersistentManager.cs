@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using System;
+using UnityEngine.SceneManagement;
 
 public class DataPersistentManager : MonoBehaviour
 {
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
     [SerializeField] private bool useEncryption;
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject character;
 
     public GameData gameData;
     private List<IDataPersistant> dataPersistenceObjects;
@@ -23,6 +25,24 @@ public class DataPersistentManager : MonoBehaviour
             Debug.LogError("Found more than one Data Persistent Manager in the same sceen!");
         }
         instance = this;
+
+        //this.dataHandler = new(Application.persistentDataPath, fileName, useEncryption);
+    }
+
+    private void OnEnable()
+    {
+        //SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        //SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        //this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        //LoadGame();
     }
 
     private void Start()
@@ -35,6 +55,7 @@ public class DataPersistentManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+        this.gameData.Init();
     }
 
     public void LoadGame()
@@ -61,12 +82,11 @@ public class DataPersistentManager : MonoBehaviour
         // pass data to other scripts so they can update it.
         foreach (IDataPersistant dataPersistenceObj in dataPersistenceObjects)
         {
-            dataPersistenceObj.SaveData(ref gameData);
+            dataPersistenceObj.SaveData(gameData);
         }
 
         // save that data to a file using data handler
         dataHandler.Save(gameData);
-        //Debug.Log(gameData.playerPosition);
     }
 
     private void OnApplicationQuit()
@@ -77,7 +97,29 @@ public class DataPersistentManager : MonoBehaviour
     private List<IDataPersistant> FindAllDataPersistenceObjects()
     {
         IEnumerable<IDataPersistant> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistant>();
-
+        
         return new List<IDataPersistant>(dataPersistenceObjects);
+    }
+
+    private void GenerateNewData()
+    {
+        GameData newGameGameData = new()
+        {
+            activeSceneName = "",
+            playerLevel = 1,
+            playerExperience = 0,
+            playerHealth = 40,
+            playerMana = 10,
+            playerPosition = new Vector3Int(0, 0, 0),
+
+            equipedItems = "",
+            inventory = "",
+            characterRecipeList = "",
+            workingBenchRecipeList = "",
+            cropsContainers = new(),
+            placeableObjectsContainers = new(),
+            spawnedNodesContainers = new(),
+        };
+
     }
 }

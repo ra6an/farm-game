@@ -82,6 +82,8 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
 
     private TimeAgent timeAgent;
 
+    private bool gameLoaded = false;
+
     private void Awake()
     {
         timeAgent = GetComponent<TimeAgent>();
@@ -92,13 +94,14 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            SceneManager.LoadScene("MainScene");
-        }
+        if(gameLoaded) OnGameStart();
     }
 
-    private void Start()
+    //private void Start()
+    //{
+    //}
+
+    private void OnGameStart()
     {
         UpdateHpBar();
         UpdateManaBar();
@@ -110,6 +113,8 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
 
         timeAgent.onTimeTick += RegenHealth;
         timeAgent.onTimeTick += RegenMana;
+
+        gameLoaded = false;
     }
 
     public void EquipItemsOnStart()
@@ -293,8 +298,9 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
+        //Debug.Log("Save character");
         data.playerPosition = transform.position;
         data.playerLevel = level;
         data.playerExperience = experience.currVal;
@@ -329,6 +335,9 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
 
     public void LoadData(GameData data)
     {
+        gameLoaded = true;
+
+        //Debug.Log("Load character");
         transform.position = data.playerPosition;
         level = data.playerLevel;
         experience.currVal = data.playerExperience;
@@ -345,8 +354,22 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
         RecipeListIDs deserializesCharacterRecipeIDs = JsonUtility.FromJson<RecipeListIDs>(data.characterRecipeList);
         RecipeListIDs deserializesWorkingBenchRecipeIDs = JsonUtility.FromJson<RecipeListIDs>(data.workingBenchRecipeList);
 
+        if (deserializesCharacterRecipeIDs == null)
+        {
+            deserializesCharacterRecipeIDs = new RecipeListIDs();
+            deserializesCharacterRecipeIDs.Init();
+            AddRecipesInRecipeListIDs(deserializesCharacterRecipeIDs, new List<int>() { 12, 13 });
+        }
+
+        if (deserializesWorkingBenchRecipeIDs == null)
+        {
+            deserializesWorkingBenchRecipeIDs = new RecipeListIDs();
+            deserializesWorkingBenchRecipeIDs.Init();
+            AddRecipesInRecipeListIDs(deserializesWorkingBenchRecipeIDs, new List<int>() { 8, 9, 10, 11, 3, 2, 4, 5, 6, 7, 0, 1 });
+        }
+
         // Add crafting recipes to variables
-        foreach(int i in deserializesCharacterRecipeIDs.recipes)
+        foreach (int i in deserializesCharacterRecipeIDs.recipes)
         {
             characterRecipeList.recipes.Add(GameManager.instance.recipesDB.GetRecipeById(i));
         }
@@ -368,5 +391,13 @@ public class Character : MonoBehaviour, IDamageable, IDataPersistant
         crafting.recipeList.recipes = characterRecipeList.recipes;
 
         UpdateStatusBars();
+    }
+
+    private void AddRecipesInRecipeListIDs(RecipeListIDs recList, List<int> recs)
+    {
+        foreach(int i in recs)
+        {
+            recList.recipes.Add(i);
+        }
     }
 }

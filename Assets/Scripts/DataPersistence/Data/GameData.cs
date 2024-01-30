@@ -51,4 +51,20 @@ public class GameData
     // Spawned Nodes Containers
     public List<SpawnedNodes> spawnedNodesContainers; //Done
 
+    public void Init()
+    {
+        activeSceneName = "MainScene";
+        playerLevel = 1;
+        playerExperience = 0;
+        playerHealth = 10;
+        playerMana = 10;
+        playerPosition = new Vector3Int(0, 0, 0);
+        equipedItems = "";
+        inventory = "";
+        characterRecipeList = "";
+        workingBenchRecipeList = "";
+        cropsContainers = new List<Crops>();
+        placeableObjectsContainers = new List<PlaceableObjects>();
+        spawnedNodesContainers = new List<SpawnedNodes>();
+    }
 }

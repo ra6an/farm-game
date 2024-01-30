@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour, IDataPersistant
     }
 
     public string activeSceneName;
+    public GameObject canvas;
     public GameObject player;
     public ItemContainer inventoryContainer;
     public ItemDragAndDropController dragAndDropController;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour, IDataPersistant
     public ScreenTint screenTint;
     public PlaceableObjectContainer placeableObjects;
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.inventory = SerializeInventory();
         data.activeSceneName = SceneManager.GetActiveScene().name;
@@ -40,6 +41,11 @@ public class GameManager : MonoBehaviour, IDataPersistant
 
     public void LoadData(GameData data)
     {
+        player.SetActive(true);
+        canvas.SetActive(true);
+
+        //Debug.Log("tu smo");
+        
         DeserializeInventory(data.inventory);
         activeSceneName = data.activeSceneName;
     }
@@ -70,6 +76,7 @@ public class GameManager : MonoBehaviour, IDataPersistant
         string inv = "";
 
         SlotsToSave slots = new SlotsToSave();
+        
         slots.Init(inventoryContainer.slots);
 
         inv = JsonUtility.ToJson(slots);
@@ -79,21 +86,36 @@ public class GameManager : MonoBehaviour, IDataPersistant
 
     private void DeserializeInventory(string data)
     {
-        if (data == "" || data == "{}") return;
-
-        SlotsToSave deserializedInventory = JsonUtility.FromJson<SlotsToSave>(data);
-        
-        for(int i = 0; i < deserializedInventory.slots.Count; i++)
+        if(inventoryContainer == null)
         {
-            if (deserializedInventory.slots[i].item == -1)
+            inventoryContainer = (ItemContainer)ScriptableObject.CreateInstance(typeof(ItemContainer));
+            inventoryContainer.Init();
+        }
+
+        if (data == "" || data == "{}" || data == null)
+        {
+            foreach(ItemSlot slot in inventoryContainer.slots)
             {
-                inventoryContainer.slots[i].Clear();
+                slot.Clear();
             }
-            else
+        } else
+        {
+            SlotsToSave deserializedInventory = JsonUtility.FromJson<SlotsToSave>(data);
+
+            for (int i = 0; i < deserializedInventory.slots.Count; i++)
             {
-                inventoryContainer.slots[i].item = deserializedInventory.slots[i].item;
-                inventoryContainer.slots[i].quantity = deserializedInventory.slots[i].quantity;
+                if (deserializedInventory.slots[i].item == -1)
+                {
+                    inventoryContainer.slots[i].Clear();
+                }
+                else
+                {
+                    inventoryContainer.slots[i].item = deserializedInventory.slots[i].item;
+                    inventoryContainer.slots[i].quantity = deserializedInventory.slots[i].quantity;
+                }
             }
+
+            Debug.Log(inventoryContainer.slots[0].item);
         }
     }
 }

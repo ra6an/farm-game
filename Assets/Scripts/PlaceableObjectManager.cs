@@ -175,7 +175,7 @@ public class PlaceableObjectManager : MonoBehaviour, IDataPersistant
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         PlaceableObjects po = new();
         po.sceneName = sceneName;

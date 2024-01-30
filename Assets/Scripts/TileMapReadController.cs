@@ -14,7 +14,7 @@ public class TileMapReadController : MonoBehaviour
     {
         if(tilemap == null)
         {
-            tilemap = GameObject.Find("BaseTilemap").GetComponent<Tilemap>();
+            tilemap = GameObject.Find("BaseTilemap")?.GetComponent<Tilemap>();
         }
 
         if (tilemap == null) return Vector3Int.zero;
@@ -39,7 +39,7 @@ public class TileMapReadController : MonoBehaviour
     {
         if (tilemap == null)
         {
-            tilemap = GameObject.Find("BaseTilemap").GetComponent<Tilemap>();
+            tilemap = GameObject.Find("BaseTilemap")?.GetComponent<Tilemap>();
         }
 
         if (tilemap == null) return null;
@@ -53,7 +53,7 @@ public class TileMapReadController : MonoBehaviour
     {
         if (cropsTilemap == null)
         {
-            cropsTilemap = GameObject.Find("CropsTilemap").GetComponent<Tilemap>();
+            cropsTilemap = GameObject.Find("CropsTilemap")?.GetComponent<Tilemap>();
         }
 
         if(cropsTilemap == null) return null;

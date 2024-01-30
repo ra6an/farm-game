@@ -18,13 +18,18 @@ public class EquipItemController : MonoBehaviour, IDataPersistant
         //    equipedItemsData = (EquipedItemsData)ScriptableObject.CreateInstance(typeof(EquipedItemsData));
         //    equipedItemsData.Init();
         //}
-        inventory = GameManager.instance.inventoryContainer;
+        if(GameManager.instance.inventoryContainer != null)
+        {
+            inventory = GameManager.instance.inventoryContainer;
+        }
     }
 
     private void Update()
     {
         if (needRefresh)
         {
+            if (inventory == null) inventory = GameManager.instance.inventoryContainer;
+            if (inventory == null) return;
             Refresh();
         }
     }
@@ -101,11 +106,12 @@ public class EquipItemController : MonoBehaviour, IDataPersistant
         }
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         string equipedItemsJson = "";
 
         if (equipedItemsData == null) return;
+        Debug.Log("EQUIPED ITEMS SAVE");
 
         CopyOfEquipedItems copyOfEquipedItems = new();
         copyOfEquipedItems.Init();
@@ -128,7 +134,9 @@ public class EquipItemController : MonoBehaviour, IDataPersistant
             equipedItemsData.Init();
         }
 
-        if (data.equipedItems == "" || data.equipedItems == "{}") return;
+        Debug.Log(equipedItemsData.equipedItems.Count);
+
+        if (data.equipedItems == "" || data.equipedItems == "{}" || data.equipedItems == null) return;
 
         CopyOfEquipedItems copyOfEquipedItems = new();
         copyOfEquipedItems.Init();

@@ -75,6 +75,8 @@ public class PlayerStatsPanel : MonoBehaviour
         {
             equipedItems = GameManager.instance.player.GetComponent<EquipItemController>().equipedItemsData;
         }
+
+        Debug.Log(equipedItems.equipedItems.Count);
         
         for (int i = 0; i < equipedItems.equipedItems.Count; i++)
         {
